@@ -3,59 +3,6 @@ from pyformlang.fst import FST
 from pyformlang.finite_automaton import DeterministicFiniteAutomaton, State , NondeterministicFiniteAutomaton , EpsilonNFA
 
 l=list()
-print(f"story1.add_final_state(q0)")
-print(f"story1.add_final_state(c0)")
-x =2
-for i in range(1,3):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(1,3):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =3
-for i in range(3,7):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(3,5):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =4
-for i in range(7,11):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(5,9):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =5
-for i in range(11,17):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(9,15):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =6
-for i in range(17,25):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(15,23):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =7
-for i in range(25,37):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(23,32):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =8
-for i in range(37,49):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(32,34):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =9
-for i in range(49,53):
-   print(f"story{x}.add_final_state(q{i})")
-for i in range(34,38):
-   print(f"story{x}.add_final_state(c{i})")
-
-x =10
-for i in range(38,40):
-   print(f"story{x}.add_final_state(c{i})")
 
 estado0="Estado 0"
 estado1="Estado 1"
@@ -189,7 +136,7 @@ p=[
 
 ]
 transitions3=[
-     #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -199,11 +146,11 @@ transitions3=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 ]
 transitions4=[
-     #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -213,8 +160,8 @@ transitions4=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -225,11 +172,11 @@ transitions4=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 ]
 transitions5=[
-     #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -239,8 +186,8 @@ transitions5=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -251,24 +198,24 @@ transitions5=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 
     ("q7","0","q11"),
     ("q7","1","q12"),
 
-    ("q8","0","q13"),
-    ("q8","1","q14"),
+    ("q8","2","q13"),
+    ("q8","3","q14"),
 
     ("q9","0","e"),
     ("q9","1","e"),
 
-    ("q10","0","q15"),
-    ("q10","1","q16"),
+    ("q10","4","q15"),
+    ("q10","5","q16"),
 
 ]
 transitions6=[
-     #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -278,8 +225,8 @@ transitions6=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -290,20 +237,20 @@ transitions6=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 
     ("q7","0","q11"),
     ("q7","1","q12"),
 
-    ("q8","0","q13"),
-    ("q8","1","q14"),
+    ("q8","2","q13"),
+    ("q8","3","q14"),
 
     ("q9","0","e"),
     ("q9","1","e"),
 
-    ("q10","0","q15"),
-    ("q10","1","q16"),
+    ("q10","4","q15"),
+    ("q10","5","q16"),
 
     ("q11","0","e"),
     ("q11","1","e"),
@@ -314,18 +261,18 @@ transitions6=[
     ("q13","0","e"),
     ("q13","1","e"),
 
-    ("q14","0","q19"),
-    ("q14","1","q20"),
+    ("q14","2","q19"),
+    ("q14","3","q20"),
 
-    ("q15","0","q21"),
-    ("q15","1","q21"),
+    ("q15","4","q21"),
+    ("q15","5","q21"),
 
-    ("q16","0","q23"),
-    ("q16","1","q24"),
+    ("q16","6","q23"),
+    ("q16","7","q24"),
 
 ]
 transitions7=[
-     #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -335,8 +282,8 @@ transitions7=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -347,20 +294,20 @@ transitions7=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 
     ("q7","0","q11"),
     ("q7","1","q12"),
 
-    ("q8","0","q13"),
-    ("q8","1","q14"),
+    ("q8","2","q13"),
+    ("q8","3","q14"),
 
     ("q9","0","e"),
     ("q9","1","e"),
 
-    ("q10","0","q15"),
-    ("q10","1","q16"),
+    ("q10","4","q15"),
+    ("q10","5","q16"),
 
     ("q11","0","e"),
     ("q11","1","e"),
@@ -371,14 +318,14 @@ transitions7=[
     ("q13","0","e"),
     ("q13","1","e"),
 
-    ("q14","0","q19"),
-    ("q14","1","q20"),
+    ("q14","2","q19"),
+    ("q14","3","q20"),
 
-    ("q15","0","q21"),
-    ("q15","1","q21"),
+    ("q15","4","q21"),
+    ("q15","5","q21"),
 
-    ("q16","0","q23"),
-    ("q16","1","q24"),
+    ("q16","6","q23"),
+    ("q16","7","q24"),
 
     ("q17","0","e"),
     ("q17","1","e"),
@@ -386,27 +333,27 @@ transitions7=[
     ("q18","0","q25"),
     ("q18","1","q26"),
 
-    ("q19","0","q27"),
-    ("q19","1","q28"),
+    ("q19","2","q27"),
+    ("q19","3","q28"),
 
-    ("q20","0","q29"),
-    ("q20","1","q30"),
+    ("q20","4","q29"),
+    ("q20","5","q30"),
 
-    ("q21","0","q31"),
-    ("q21","1","q32"),
+    ("q21","6","q31"),
+    ("q21","7","q32"),
 
-    ("q22","0","q33"),
-    ("q22","1","q34"),
+    ("q22","8","q33"),
+    ("q22","9","q34"),
 
-    ("q23","0","q35"),
-    ("q23","1","q36"),
+    ("q23","a","q35"),
+    ("q23","b","q36"),
 
     ("q24","0","e"),
     ("q24","1","e"),
 
 ]
 transitions8=[
-      #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -416,8 +363,8 @@ transitions8=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -428,20 +375,20 @@ transitions8=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 
     ("q7","0","q11"),
     ("q7","1","q12"),
 
-    ("q8","0","q13"),
-    ("q8","1","q14"),
+    ("q8","2","q13"),
+    ("q8","3","q14"),
 
     ("q9","0","e"),
     ("q9","1","e"),
 
-    ("q10","0","q15"),
-    ("q10","1","q16"),
+    ("q10","4","q15"),
+    ("q10","5","q16"),
 
     ("q11","0","e"),
     ("q11","1","e"),
@@ -452,14 +399,14 @@ transitions8=[
     ("q13","0","e"),
     ("q13","1","e"),
 
-    ("q14","0","q19"),
-    ("q14","1","q20"),
+    ("q14","2","q19"),
+    ("q14","3","q20"),
 
-    ("q15","0","q21"),
-    ("q15","1","q21"),
+    ("q15","4","q21"),
+    ("q15","5","q21"),
 
-    ("q16","0","q23"),
-    ("q16","1","q24"),
+    ("q16","6","q23"),
+    ("q16","7","q24"),
 
     ("q17","0","e"),
     ("q17","1","e"),
@@ -467,20 +414,20 @@ transitions8=[
     ("q18","0","q25"),
     ("q18","1","q26"),
 
-    ("q19","0","q27"),
-    ("q19","1","q28"),
+    ("q19","2","q27"),
+    ("q19","3","q28"),
 
-    ("q20","0","q29"),
-    ("q20","1","q30"),
+    ("q20","4","q29"),
+    ("q20","5","q30"),
 
-    ("q21","0","q31"),
-    ("q21","1","q32"),
+    ("q21","6","q31"),
+    ("q21","7","q32"),
 
-    ("q22","0","q33"),
-    ("q22","1","q34"),
+    ("q22","8","q33"),
+    ("q22","9","q34"),
 
-    ("q23","0","q35"),
-    ("q23","1","q36"),
+    ("q23","a","q35"),
+    ("q23","b","q36"),
 
     ("q24","0","e"),
     ("q24","1","e"),
@@ -491,26 +438,26 @@ transitions8=[
     ("q26","0","e"),
     ("q26","1","e"),
 
-    ("q27","0","q39"),
-    ("q27","1","40"),
+    ("q27","2","q39"),
+    ("q27","3","40"),
 
-    ("q28","0","q41"),
-    ("q28","1","q42"),
+    ("q28","4","q41"),
+    ("q28","5","q42"),
 
-    ("q29","0","q43"),
-    ("q29","1","q44"),
+    ("q29","6","q43"),
+    ("q29","7","q44"),
 
     ("q30","0","e"),
     ("q30","1","e"),
 
-    ("q31","0","q45"),
-    ("q31","1","q46"),
+    ("q31","8","q45"),
+    ("q31","9","q46"),
 
     ("q32","0","e"),
     ("q32","1","e"),
 
-    ("q33","0","q47"),
-    ("q33","1","q48"),
+    ("q33","a","q47"),
+    ("q33","b","q48"),
 
     ("q34","0","e"),
     ("q34","1","e"),
@@ -522,7 +469,7 @@ transitions8=[
     ("q36","1","e"),
 ]
 transitions9=[
-      #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -532,8 +479,8 @@ transitions9=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -544,20 +491,20 @@ transitions9=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 
     ("q7","0","q11"),
     ("q7","1","q12"),
 
-    ("q8","0","q13"),
-    ("q8","1","q14"),
+    ("q8","2","q13"),
+    ("q8","3","q14"),
 
     ("q9","0","e"),
     ("q9","1","e"),
 
-    ("q10","0","q15"),
-    ("q10","1","q16"),
+    ("q10","4","q15"),
+    ("q10","5","q16"),
 
     ("q11","0","e"),
     ("q11","1","e"),
@@ -568,14 +515,14 @@ transitions9=[
     ("q13","0","e"),
     ("q13","1","e"),
 
-    ("q14","0","q19"),
-    ("q14","1","q20"),
+    ("q14","2","q19"),
+    ("q14","3","q20"),
 
-    ("q15","0","q21"),
-    ("q15","1","q21"),
+    ("q15","4","q21"),
+    ("q15","5","q21"),
 
-    ("q16","0","q23"),
-    ("q16","1","q24"),
+    ("q16","6","q23"),
+    ("q16","7","q24"),
 
     ("q17","0","e"),
     ("q17","1","e"),
@@ -583,20 +530,20 @@ transitions9=[
     ("q18","0","q25"),
     ("q18","1","q26"),
 
-    ("q19","0","q27"),
-    ("q19","1","q28"),
+    ("q19","2","q27"),
+    ("q19","3","q28"),
 
-    ("q20","0","q29"),
-    ("q20","1","q30"),
+    ("q20","4","q29"),
+    ("q20","5","q30"),
 
-    ("q21","0","q31"),
-    ("q21","1","q32"),
+    ("q21","6","q31"),
+    ("q21","7","q32"),
 
-    ("q22","0","q33"),
-    ("q22","1","q34"),
+    ("q22","8","q33"),
+    ("q22","9","q34"),
 
-    ("q23","0","q35"),
-    ("q23","1","q36"),
+    ("q23","a","q35"),
+    ("q23","b","q36"),
 
     ("q24","0","e"),
     ("q24","1","e"),
@@ -607,26 +554,26 @@ transitions9=[
     ("q26","0","e"),
     ("q26","1","e"),
 
-    ("q27","0","q39"),
-    ("q27","1","40"),
+    ("q27","2","q39"),
+    ("q27","3","40"),
 
-    ("q28","0","q41"),
-    ("q28","1","q42"),
+    ("q28","4","q41"),
+    ("q28","5","q42"),
 
-    ("q29","0","q43"),
-    ("q29","1","q44"),
+    ("q29","6","q43"),
+    ("q29","7","q44"),
 
     ("q30","0","e"),
     ("q30","1","e"),
 
-    ("q31","0","q45"),
-    ("q31","1","q46"),
+    ("q31","8","q45"),
+    ("q31","9","q46"),
 
     ("q32","0","e"),
     ("q32","1","e"),
 
-    ("q33","0","q47"),
-    ("q33","1","q48"),
+    ("q33","a","q47"),
+    ("q33","b","q48"),
 
     ("q34","0","e"),
     ("q34","1","e"),
@@ -658,8 +605,8 @@ transitions9=[
     ("q43","0","e"),
     ("q43","1","e"),
 
-    ("q44","0","q51"),
-    ("q44","1","q52"),
+    ("q44","2","q51"),
+    ("q44","3","q52"),
 
     ("q45","0","e"),
     ("q45","1","e"),
@@ -674,7 +621,7 @@ transitions9=[
     ("q48","1","e"),
 ]
 transitions10=[
-      #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -684,8 +631,8 @@ transitions10=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -696,20 +643,20 @@ transitions10=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 
     ("q7","0","q11"),
     ("q7","1","q12"),
 
-    ("q8","0","q13"),
-    ("q8","1","q14"),
+    ("q8","2","q13"),
+    ("q8","3","q14"),
 
     ("q9","0","e"),
     ("q9","1","e"),
 
-    ("q10","0","q15"),
-    ("q10","1","q16"),
+    ("q10","4","q15"),
+    ("q10","5","q16"),
 
     ("q11","0","e"),
     ("q11","1","e"),
@@ -720,14 +667,14 @@ transitions10=[
     ("q13","0","e"),
     ("q13","1","e"),
 
-    ("q14","0","q19"),
-    ("q14","1","q20"),
+    ("q14","2","q19"),
+    ("q14","3","q20"),
 
-    ("q15","0","q21"),
-    ("q15","1","q21"),
+    ("q15","4","q21"),
+    ("q15","5","q21"),
 
-    ("q16","0","q23"),
-    ("q16","1","q24"),
+    ("q16","6","q23"),
+    ("q16","7","q24"),
 
     ("q17","0","e"),
     ("q17","1","e"),
@@ -735,20 +682,20 @@ transitions10=[
     ("q18","0","q25"),
     ("q18","1","q26"),
 
-    ("q19","0","q27"),
-    ("q19","1","q28"),
+    ("q19","2","q27"),
+    ("q19","3","q28"),
 
-    ("q20","0","q29"),
-    ("q20","1","q30"),
+    ("q20","4","q29"),
+    ("q20","5","q30"),
 
-    ("q21","0","q31"),
-    ("q21","1","q32"),
+    ("q21","6","q31"),
+    ("q21","7","q32"),
 
-    ("q22","0","q33"),
-    ("q22","1","q34"),
+    ("q22","8","q33"),
+    ("q22","9","q34"),
 
-    ("q23","0","q35"),
-    ("q23","1","q36"),
+    ("q23","a","q35"),
+    ("q23","b","q36"),
 
     ("q24","0","e"),
     ("q24","1","e"),
@@ -759,26 +706,26 @@ transitions10=[
     ("q26","0","e"),
     ("q26","1","e"),
 
-    ("q27","0","q39"),
-    ("q27","1","40"),
+    ("q27","2","q39"),
+    ("q27","3","40"),
 
-    ("q28","0","q41"),
-    ("q28","1","q42"),
+    ("q28","4","q41"),
+    ("q28","5","q42"),
 
-    ("q29","0","q43"),
-    ("q29","1","q44"),
+    ("q29","6","q43"),
+    ("q29","7","q44"),
 
     ("q30","0","e"),
     ("q30","1","e"),
 
-    ("q31","0","q45"),
-    ("q31","1","q46"),
+    ("q31","8","q45"),
+    ("q31","9","q46"),
 
     ("q32","0","e"),
     ("q32","1","e"),
 
-    ("q33","0","q47"),
-    ("q33","1","q48"),
+    ("q33","a","q47"),
+    ("q33","b","q48"),
 
     ("q34","0","e"),
     ("q34","1","e"),
@@ -810,8 +757,8 @@ transitions10=[
     ("q43","0","e"),
     ("q43","1","e"),
 
-    ("q44","0","q51"),
-    ("q44","1","q52"),
+    ("q44","2","q51"),
+    ("q44","3","q52"),
 
     ("q45","0","e"),
     ("q45","1","e"),
@@ -830,9 +777,21 @@ transitions10=[
 
     ("q44","0","q51"),
     ("q44","1","q52"),
+
+    ("q49","0","e"),
+    ("q49","1","e"),
+
+    ("q50","0","e"),
+    ("q50","1","e"),
+
+    ("q51","0","e"),
+    ("q51","1","e"),
+
+    ("q52","0","e"),
+    ("q52","1","e"),
 ]
 transitions11=[
-      #Inicio
+    #Inicio
     ("q","0","q0"),
     ("q","1","c1"),
     #Ruta casa
@@ -842,8 +801,8 @@ transitions11=[
     ("q1","0","q3"),
     ("q1","1","q4"),
 
-    ("q2","0","q5"),
-    ("q2","1","q6"),
+    ("q2","2","q5"),
+    ("q2","3","q6"),
 
     ("q3","0","e"),
     ("q3","1","e"),
@@ -854,20 +813,20 @@ transitions11=[
     ("q5","0","e"),
     ("q5","1","e"),
 
-    ("q6","0","q9"),
-    ("q6","1","q10"),
+    ("q6","2","q9"),
+    ("q6","3","q10"),
 
     ("q7","0","q11"),
     ("q7","1","q12"),
 
-    ("q8","0","q13"),
-    ("q8","1","q14"),
+    ("q8","2","q13"),
+    ("q8","3","q14"),
 
     ("q9","0","e"),
     ("q9","1","e"),
 
-    ("q10","0","q15"),
-    ("q10","1","q16"),
+    ("q10","4","q15"),
+    ("q10","5","q16"),
 
     ("q11","0","e"),
     ("q11","1","e"),
@@ -878,14 +837,14 @@ transitions11=[
     ("q13","0","e"),
     ("q13","1","e"),
 
-    ("q14","0","q19"),
-    ("q14","1","q20"),
+    ("q14","2","q19"),
+    ("q14","3","q20"),
 
-    ("q15","0","q21"),
-    ("q15","1","q21"),
+    ("q15","4","q21"),
+    ("q15","5","q21"),
 
-    ("q16","0","q23"),
-    ("q16","1","q24"),
+    ("q16","6","q23"),
+    ("q16","7","q24"),
 
     ("q17","0","e"),
     ("q17","1","e"),
@@ -893,20 +852,20 @@ transitions11=[
     ("q18","0","q25"),
     ("q18","1","q26"),
 
-    ("q19","0","q27"),
-    ("q19","1","q28"),
+    ("q19","2","q27"),
+    ("q19","3","q28"),
 
-    ("q20","0","q29"),
-    ("q20","1","q30"),
+    ("q20","4","q29"),
+    ("q20","5","q30"),
 
-    ("q21","0","q31"),
-    ("q21","1","q32"),
+    ("q21","6","q31"),
+    ("q21","7","q32"),
 
-    ("q22","0","q33"),
-    ("q22","1","q34"),
+    ("q22","8","q33"),
+    ("q22","9","q34"),
 
-    ("q23","0","q35"),
-    ("q23","1","q36"),
+    ("q23","a","q35"),
+    ("q23","b","q36"),
 
     ("q24","0","e"),
     ("q24","1","e"),
@@ -917,26 +876,26 @@ transitions11=[
     ("q26","0","e"),
     ("q26","1","e"),
 
-    ("q27","0","q39"),
-    ("q27","1","40"),
+    ("q27","2","q39"),
+    ("q27","3","40"),
 
-    ("q28","0","q41"),
-    ("q28","1","q42"),
+    ("q28","4","q41"),
+    ("q28","5","q42"),
 
-    ("q29","0","q43"),
-    ("q29","1","q44"),
+    ("q29","6","q43"),
+    ("q29","7","q44"),
 
     ("q30","0","e"),
     ("q30","1","e"),
 
-    ("q31","0","q45"),
-    ("q31","1","q46"),
+    ("q31","8","q45"),
+    ("q31","9","q46"),
 
     ("q32","0","e"),
     ("q32","1","e"),
 
-    ("q33","0","q47"),
-    ("q33","1","q48"),
+    ("q33","a","q47"),
+    ("q33","b","q48"),
 
     ("q34","0","e"),
     ("q34","1","e"),
@@ -968,8 +927,8 @@ transitions11=[
     ("q43","0","e"),
     ("q43","1","e"),
 
-    ("q44","0","q51"),
-    ("q44","1","q52"),
+    ("q44","2","q51"),
+    ("q44","3","q52"),
 
     ("q45","0","e"),
     ("q45","1","e"),
@@ -1004,74 +963,74 @@ transitions11=[
 
 transitionsc2=[
     #Ruta colegio
-    ("c0","0","c1"),
-    ("c0","1","c2"),
+    ("c0","c","c1"),
+    ("c0","d","c2"),
 ]
 
 transitionsc3=[
     #Ruta Profesor-final
     ("c1","0","e"),
     #Ruta amiga
-    ("c2","0","c3"),
-    ("c2","1","c4"),
+    ("c2","c","c3"),
+    ("c2","d","c4"),
 ]
 transitionsc4=[
     #Ruta presionar
-    ("c3","0","c5"),
-    ("c3","1","c6"),
+    ("c3","c","c5"),
+    ("c3","d","c6"),
     #Ruta Buscar Gabriel
-    ("c4","0","c7"),
-    ("c4","1","c8"),
+    ("c4","e","c7"),
+    ("c4","f","c8"),
 ]
 transitionsc5=[
     #Ruta Amenazar Silencio
-    ("c5","0","c9"),
-    ("c5","1","c10"),
+    ("c5","c","c9"),
+    ("c5","d","c10"),
     #Ruta Cazar Gabriel
-    ("c6","0","c11"),
-    ("c6","1","c12"),
+    ("c6","e","c11"),
+    ("c6","f","c12"),
     #Ruta Perseguir
-    ("c7","0","c13"),
-    ("c7","1","c14"),
+    ("c7","g","c13"),
+    ("c7","h","c14"),
     #Ruta Policía-final
     ("c8","0","e"),
 ]
 transitionsc6=[
     #Ruta Plan en la noche
-    ("c9","0","c15"),
-    ("c9","1","c16"),
+    ("c9","c","c15"),
+    ("c9","d","c16"),
     #Ruta Plan en el día-final
     ("c10","0","e"),
     #Ruta Pasar derecho
-    ("c11","0","c17"),
-    ("c11","1","c18"),
+    ("c11","e","c17"),
+    ("c11","f","c18"),
     #Ruta Ir callejon-final
     ("c12","0","e"),
     #Ruta Busca afuera
-    ("c13","0","c19"),
-    ("c13","1","c20"),
+    ("c13","g","c19"),
+    ("c13","h","c20"),
     #Ruta Buscar piso 2°
-    ("c14","0","c21"),
-    ("c14","1","c22"),
+    ("c14","i","c21"),
+    ("c14","j","c22"),
 ]
 transitionsc7=[
     #Ruta Escucharle
-    ("c15","0","c23"),
-    ("c15","1","c24"),
-    ("c15","2","c25"),
+    ("c15","c","c23"),
+    ("c15","d","c24"),
+    ("c15","e","c25"),
     #Ruta Acabar con él-final
     ("c16","0","e"),
     #Ruta Saltar Obstáculo-final
     ("c17","0","e"),
     #Ruta Rodear Obstáculo
-    ("c18","0","c26"),
-    ("c18","1","c27"),
+    ("c18","f","c26"),
+    ("c18","g","c27"),
     #Ruta Ir contra profesor 
-    ("c19","0","c28"),
-    ("c19","1","c29"),
+    ("c19","h","c28"),
+    ("c19","i","c29"),
     #Ruta Aceptar reunión
-    ("c20","0","c30"),
-    ("c20","1","c31"),
+    ("c20","j","c30"),
+    ("c20","k","c31"),
     #Ruta Acercarse-final
     ("c21","0","e"),
     #Ruta Hablarle-final
@@ -1095,23 +1054,23 @@ transitionsc8=[
     #Ruta Sobornado-final
     ("c30","0","e"),
     #Ruta No aceptar
-    ("c31","0","c32"),
-    ("c31","1","c33"),
+    ("c31","c","c32"),
+    ("c31","d","c33"),
 ]
 transitionsc9=[
     #Ruta Confrontar
-    ("c32","0","34"),
-    ("c32","1","35"),
+    ("c32","c","34"),
+    ("c32","d","35"),
     #Ruta Disimular
-    ("c33","0","36"),
-    ("c33","1","37"),
+    ("c33","e","36"),
+    ("c33","f","37"),
 ]
 transitionsc10=[
     #Ruta Directamente-final
     ("c34","0","e"),
     #Ruta Sorpresa
-    ("c35","0","c38"),
-    ("c35","1","c39"),
+    ("c35","c","c38"),
+    ("c35","d","c39"),
     #Ruta Incendio-final
     ("c36","0","e"),
     #Ruta Policía-final
@@ -1214,99 +1173,323 @@ story11.add_transitions(transitionsc11)
 story11.add_start_state("q")
 story11.add_final_state("e")
 
-story1.add_final_state(q0)
-story1.add_final_state(c0)
-story2.add_final_state(q1)
-story2.add_final_state(q2)
-story2.add_final_state(c1)
-story2.add_final_state(c2)
-story3.add_final_state(q3)
-story3.add_final_state(q4)
-story3.add_final_state(q5)
-story3.add_final_state(q6)
-story3.add_final_state(c3)
-story3.add_final_state(c4)
-story4.add_final_state(q7)
-story4.add_final_state(q8)
-story4.add_final_state(q9)
-story4.add_final_state(q10)
-story4.add_final_state(c5)
-story4.add_final_state(c6)
-story4.add_final_state(c7)
-story4.add_final_state(c8)
-story5.add_final_state(q11)
-story5.add_final_state(q12)
-story5.add_final_state(q13)
-story5.add_final_state(q14)
-story5.add_final_state(q15)
-story5.add_final_state(q16)
-story5.add_final_state(c9)
-story5.add_final_state(c10)
-story5.add_final_state(c11)
-story5.add_final_state(c12)
-story5.add_final_state(c13)
-story5.add_final_state(c14)
-story6.add_final_state(q17)
-story6.add_final_state(q18)
-story6.add_final_state(q19)
-story6.add_final_state(q20)
-story6.add_final_state(q21)
-story6.add_final_state(q22)
-story6.add_final_state(q23)
-story6.add_final_state(q24)
-story6.add_final_state(c15)
-story6.add_final_state(c16)
-story6.add_final_state(c17)
-story6.add_final_state(c18)
-story6.add_final_state(c19)
-story6.add_final_state(c20)
-story6.add_final_state(c21)
-story6.add_final_state(c22)
-story7.add_final_state(q25)
-story7.add_final_state(q26)
-story7.add_final_state(q27)
-story7.add_final_state(q28)
-story7.add_final_state(q29)
-story7.add_final_state(q30)
-story7.add_final_state(q31)
-story7.add_final_state(q32)
-story7.add_final_state(q33)
-story7.add_final_state(q34)
-story7.add_final_state(q35)
-story7.add_final_state(q36)
-story7.add_final_state(c23)
-story7.add_final_state(c24)
-story7.add_final_state(c25)
-story7.add_final_state(c26)
-story7.add_final_state(c27)
-story7.add_final_state(c28)
-story7.add_final_state(c29)
-story7.add_final_state(c30)
-story7.add_final_state(c31)
-story8.add_final_state(q37)
-story8.add_final_state(q38)
-story8.add_final_state(q39)
-story8.add_final_state(q40)
-story8.add_final_state(q41)
-story8.add_final_state(q42)
-story8.add_final_state(q43)
-story8.add_final_state(q44)
-story8.add_final_state(q45)
-story8.add_final_state(q46)
-story8.add_final_state(q47)
-story8.add_final_state(q48)
-story8.add_final_state(c32)
-story8.add_final_state(c33)
-story9.add_final_state(q49)
-story9.add_final_state(q50)
-story9.add_final_state(q51)
-story9.add_final_state(q52)
-story9.add_final_state(c34)
-story9.add_final_state(c35)
-story9.add_final_state(c36)
-story9.add_final_state(c37)
-story10.add_final_state(c38)
-story10.add_final_state(c39)
+story1.add_final_state("q0")
+story1.add_final_state("c0")
+story2.add_final_state("q1")
+story2.add_final_state("q2")
+story2.add_final_state("c1")
+story2.add_final_state("c2")
+story3.add_final_state("q3")
+story3.add_final_state("q4")
+story3.add_final_state("q5")
+story3.add_final_state("q6")
+story3.add_final_state("c3")
+story3.add_final_state("c4")
+story4.add_final_state("q7")
+story4.add_final_state("q8")
+story4.add_final_state("q9")
+story4.add_final_state("q10")
+story4.add_final_state("c5")
+story4.add_final_state("c6")
+story4.add_final_state("c7")
+story4.add_final_state("c8")
+story5.add_final_state("q11")
+story5.add_final_state("q12")
+story5.add_final_state("q13")
+story5.add_final_state("q14")
+story5.add_final_state("q15")
+story5.add_final_state("q16")
+story5.add_final_state("c9")
+story5.add_final_state("c10")
+story5.add_final_state("c11")
+story5.add_final_state("c12")
+story5.add_final_state("c13")
+story5.add_final_state("c14")
+story6.add_final_state("q17")
+story6.add_final_state("q18")
+story6.add_final_state("q19")
+story6.add_final_state("q20")
+story6.add_final_state("q21")
+story6.add_final_state("q22")
+story6.add_final_state("q23")
+story6.add_final_state("q24")
+story6.add_final_state("c15")
+story6.add_final_state("c16")
+story6.add_final_state("c17")
+story6.add_final_state("c18")
+story6.add_final_state("c19")
+story6.add_final_state("c20")
+story6.add_final_state("c21")
+story6.add_final_state("c22")
+story7.add_final_state("q25")
+story7.add_final_state("q26")
+story7.add_final_state("q27")
+story7.add_final_state("q28")
+story7.add_final_state("q29")
+story7.add_final_state("q30")
+story7.add_final_state("q31")
+story7.add_final_state("q32")
+story7.add_final_state("q33")
+story7.add_final_state("q34")
+story7.add_final_state("q35")
+story7.add_final_state("q36")
+story7.add_final_state("c23")
+story7.add_final_state("c24")
+story7.add_final_state("c25")
+story7.add_final_state("c26")
+story7.add_final_state("c27")
+story7.add_final_state("c28")
+story7.add_final_state("c29")
+story7.add_final_state("c30")
+story7.add_final_state("c31")
+story8.add_final_state("q37")
+story8.add_final_state("q38")
+story8.add_final_state("q39")
+story8.add_final_state("q40")
+story8.add_final_state("q41")
+story8.add_final_state("q42")
+story8.add_final_state("q43")
+story8.add_final_state("q44")
+story8.add_final_state("q45")
+story8.add_final_state("q46")
+story8.add_final_state("q47")
+story8.add_final_state("q48")
+story8.add_final_state("c32")
+story8.add_final_state("c33")
+story9.add_final_state("q49")
+story9.add_final_state("q50")
+story9.add_final_state("q51")
+story9.add_final_state("q52")
+story9.add_final_state("c34")
+story9.add_final_state("c35")
+story9.add_final_state("c36")
+story9.add_final_state("c37")
+story10.add_final_state("c38")
+story10.add_final_state("c39")
+
 
 print(story11.accepts("0000"))
+   
+def dialogos(transitionLevel, string):
+    value = string[-1]
+    response = ""
+    match transitionLevel:
+        case 1:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+        case 2:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+        case 3:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case '2':
+                    response = ""
+                case '3':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+        case 4:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case '2':
+                    response = ""
+                case '3':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+                case 'e':
+                    response = ""
+                case 'f':
+                    response = ""
+        case 5:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case '2':
+                    response = ""
+                case '3':
+                    response = ""
+                case '4':
+                    response = ""
+                case '5':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+                case 'e':
+                    response = ""
+                case 'f':
+                    response = ""
+                case 'g':
+                    response = ""
+                case 'h':
+                    response = ""
+        case 6:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case '2':
+                    response = ""
+                case '3':
+                    response = ""
+                case '4':
+                    response = ""
+                case '5':
+                    response = ""
+                case '6':
+                    response = ""
+                case '7':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+                case 'e':
+                    response = ""
+                case 'f':
+                    response = ""
+                case 'g':
+                    response = ""
+                case 'h':
+                    response = ""
+                case 'i':
+                    response = ""
+                case 'j':
+                    response = ""
+        case 7:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case '2':
+                    response = ""
+                case '3':
+                    response = ""
+                case '4':
+                    response = ""
+                case '5':
+                    response = ""
+                case '6':
+                    response = ""
+                case '7':
+                    response = ""
+                case '8':
+                    response = ""
+                case '9':
+                    response = ""
+                case 'a':
+                    response = ""
+                case 'b':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+                case 'e':
+                    response = ""
+                case 'f':
+                    response = ""
+                case 'g':
+                    response = ""
+                case 'h':
+                    response = ""
+                case 'i':
+                    response = ""
+                case 'j':
+                    response = ""
+                case 'k':
+                    response = ""
+        case 8:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case '2':
+                    response = ""
+                case '3':
+                    response = ""
+                case '4':
+                    response = ""
+                case '5':
+                    response = ""
+                case '6':
+                    response = ""
+                case '7':
+                    response = ""
+                case '8':
+                    response = ""
+                case '9':
+                    response = ""
+                case 'a':
+                    response = ""
+                case 'b':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+        case 9:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case '2':
+                    response = ""
+                case '3':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+                case 'e':
+                    response = ""
+                case 'f':
+                    response = ""
+        case 10:
+            match value:
+                case '0':
+                    response = ""
+                case '1':
+                    response = ""
+                case 'c':
+                    response = ""
+                case 'd':
+                    response = ""
+        case 11:
+            match value:
+                case '0':
+                    response = "Texto de ejemplo - Vuelve a jugar"
+                case '1':
+                    response = "Texto de ejemplo - Dejar de jugar"
+    return response
+
 
