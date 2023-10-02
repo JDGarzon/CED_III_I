@@ -108,83 +108,131 @@ story.add_final_state("c1")
 l=[]
 transitions1=[
     #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
+    ("q","0","q1"),
+    ("q","1","c0"),
     #Ruta casa
     ("q1","0","q2"),
     ("q1","1","q3"),
+    #Ruta colegio
+    ("c0","0","c1"),
+    ("c0","1","c2"),
 ]
+
 transitions2=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Profesor-final
+    ("c1","0","e"),
+    #Ruta amiga
+    ("c2","0","c3"),
+    ("c2","1","c4"),
+
 ]
 transitions3=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta presionar
+    ("c3","0","c5"),
+    ("c3","1","c6"),
+    #Ruta Buscar Gabriel
+    ("c4","0","c7"),
+    ("c4","1","c8"),
 ]
 transitions4=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Amenazar Silencio
+    ("c5","0","c9"),
+    ("c5","1","c10"),
+    #Ruta Cazar Gabriel
+    ("c6","0","c11"),
+    ("c6","1","c12"),
+    #Ruta Perseguir
+    ("c7","0","c13"),
+    ("c7","1","c14"),
+    #Ruta Policía-final
+    ("c8","0","e"),
 ]
 transitions5=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Plan en la noche
+    ("c9","0","c15"),
+    ("c9","1","c16"),
+    #Ruta Plan en el día-final
+    ("c10","0","e"),
+    #Ruta Pasar derecho
+    ("c11","0","c17"),
+    ("c11","1","c18"),
+    #Ruta Ir callejon-final
+    ("c12","0","e"),
+    #Ruta Busca afuera
+    ("c13","0","c19"),
+    ("c13","1","c20"),
+    #Ruta Buscar piso 2°
+    ("c14","0","c21"),
+    ("c14","1","c22"),
 ]
 transitions6=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Escucharle
+    ("c15","0","c23"),
+    ("c15","1","c24"),
+    ("c15","1","c25"),
+    #Ruta Acabar con él-final
+    ("c16","0","e"),
+    #Ruta Saltar Obstáculo-final
+    ("c17","0","e"),
+    #Ruta Rodear Obstáculo
+    ("c18","0","c26"),
+    ("c18","1","c27"),
+    #Ruta Ir contra profesor 
+    ("c19","0","c28"),
+    ("c19","1","c29"),
+    #Ruta Aceptar reunión
+    ("c20","0","c30"),
+    ("c20","1","c31"),
+    #Ruta Acercarse-final
+    ("c21","0","e"),
+    #Ruta Hablarle-final
+    ("c22","0","e"),
 ]
 transitions7=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Perdonar-final
+    ("c23","0","e"),
+    #Ruta Huir-final
+    ("c24","0","e"),
+    #Ruta Acabarle-final
+    ("c25","0","e"),
+    #Ruta Forcejear-final
+    ("c26","0","e"),
+    #Ruta Redimir-final
+    ("c27","0","e"),
+    #Ruta Acabar con Gabriel-final
+    ("c28","0","e"),
+    #Ruta Rendirse-final
+    ("c29","0","e"),
+    #Ruta Sobornado-final
+    ("c30","0","e"),
+    #Ruta No aceptar
+    ("c31","0","c32"),
+    ("c31","1","c33"),
 ]
 transitions8=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Confrontar
+    ("c32","0","34"),
+    ("c32","1","35"),
+    #Ruta Disimular
+    ("c33","0","36"),
+    ("c33","1","37"),
 ]
 transitions9=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Directamente-final
+    ("c34","0","e"),
+    #Ruta Sorpresa
+    ("c35","0","c38"),
+    ("c35","1","c39"),
+    #Ruta Incendio-final
+    ("c36","0","e"),
+    #Ruta Policía-final
+    ("c37","0","e"),
 ]
 transitions10=[
-    #Inicio
-    ("q0","0","q1"),
-    ("q0","1","c1"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
+    #Ruta Venganza-final
+    ("c38","0","e"),
+    #Ruta Policía-final
+    ("c39","0","e"),
 ]
 transitions11=[
     #Inicio
