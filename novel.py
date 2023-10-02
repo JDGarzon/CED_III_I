@@ -3,10 +3,59 @@ from pyformlang.fst import FST
 from pyformlang.finite_automaton import DeterministicFiniteAutomaton, State , NondeterministicFiniteAutomaton , EpsilonNFA
 
 l=list()
-for i in range(1,12):
-   print(f"story{i}.add_transitions(transitions{i})")
-   print(f"story{i}.add_start_state(\"q\")")
-   print(f"story{i}.add_final_state(\"e\")")
+print(f"story1.add_final_state(q0)")
+print(f"story1.add_final_state(c0)")
+x =2
+for i in range(1,3):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(1,3):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =3
+for i in range(3,7):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(3,5):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =4
+for i in range(7,11):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(5,9):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =5
+for i in range(11,17):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(9,15):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =6
+for i in range(17,25):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(15,23):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =7
+for i in range(25,37):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(23,32):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =8
+for i in range(37,49):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(32,34):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =9
+for i in range(49,53):
+   print(f"story{x}.add_final_state(q{i})")
+for i in range(34,38):
+   print(f"story{x}.add_final_state(c{i})")
+
+x =10
+for i in range(38,40):
+   print(f"story{x}.add_final_state(c{i})")
 
 estado0="Estado 0"
 estado1="Estado 1"
@@ -121,16 +170,8 @@ l=[]
 transitions1=[
     #Inicio
     ("q","0","q0"),
-    ("q","1","c1"),
-
-    ("q","0","q1"),
     ("q","1","c0"),
-    #Ruta casa
-    ("q1","0","q2"),
-    ("q1","1","q3"),
-    #Ruta colegio
-    ("c0","0","c1"),
-    ("c0","1","c2"),
+    
 ]
 
 transitions2=[
@@ -962,13 +1003,19 @@ transitions11=[
 ]
 
 transitionsc2=[
+    #Ruta colegio
+    ("c0","0","c1"),
+    ("c0","1","c2"),
+]
+
+transitionsc3=[
     #Ruta Profesor-final
     ("c1","0","e"),
     #Ruta amiga
     ("c2","0","c3"),
     ("c2","1","c4"),
 ]
-transitionsc3=[
+transitionsc4=[
     #Ruta presionar
     ("c3","0","c5"),
     ("c3","1","c6"),
@@ -976,7 +1023,7 @@ transitionsc3=[
     ("c4","0","c7"),
     ("c4","1","c8"),
 ]
-transitionsc4=[
+transitionsc5=[
     #Ruta Amenazar Silencio
     ("c5","0","c9"),
     ("c5","1","c10"),
@@ -989,7 +1036,7 @@ transitionsc4=[
     #Ruta Policía-final
     ("c8","0","e"),
 ]
-transitionsc5=[
+transitionsc6=[
     #Ruta Plan en la noche
     ("c9","0","c15"),
     ("c9","1","c16"),
@@ -1007,11 +1054,11 @@ transitionsc5=[
     ("c14","0","c21"),
     ("c14","1","c22"),
 ]
-transitionsc6=[
+transitionsc7=[
     #Ruta Escucharle
     ("c15","0","c23"),
     ("c15","1","c24"),
-    ("c15","1","c25"),
+    ("c15","2","c25"),
     #Ruta Acabar con él-final
     ("c16","0","e"),
     #Ruta Saltar Obstáculo-final
@@ -1030,7 +1077,7 @@ transitionsc6=[
     #Ruta Hablarle-final
     ("c22","0","e"),
 ]
-transitionsc7=[
+transitionsc8=[
     #Ruta Perdonar-final
     ("c23","0","e"),
     #Ruta Huir-final
@@ -1051,7 +1098,7 @@ transitionsc7=[
     ("c31","0","c32"),
     ("c31","1","c33"),
 ]
-transitionsc8=[
+transitionsc9=[
     #Ruta Confrontar
     ("c32","0","34"),
     ("c32","1","35"),
@@ -1059,7 +1106,7 @@ transitionsc8=[
     ("c33","0","36"),
     ("c33","1","37"),
 ]
-transitionsc9=[
+transitionsc10=[
     #Ruta Directamente-final
     ("c34","0","e"),
     #Ruta Sorpresa
@@ -1070,7 +1117,7 @@ transitionsc9=[
     #Ruta Policía-final
     ("c37","0","e"),
 ]
-transitionsc10=[
+transitionsc11=[
     #Ruta Venganza-final
     ("c38","0","e"),
     #Ruta Policía-final
@@ -1082,36 +1129,184 @@ story1.add_transitions(transitions1)
 story1.add_start_state("q")
 story1.add_final_state("e")
 story2.add_transitions(transitions2)
+story2.add_transitions(transitionsc2)
 story2.add_start_state("q")
 story2.add_final_state("e")
 story3.add_transitions(transitions3)
+story3.add_transitions(transitionsc2)
 story3.add_transitions(transitionsc3)
 story3.add_start_state("q")
 story3.add_final_state("e")
 story4.add_transitions(transitions4)
+story4.add_transitions(transitionsc2)
+story4.add_transitions(transitionsc3)
+story4.add_transitions(transitionsc4)
 story4.add_start_state("q")
 story4.add_final_state("e")
 story5.add_transitions(transitions5)
+story5.add_transitions(transitionsc2)
+story5.add_transitions(transitionsc3)
+story5.add_transitions(transitionsc4)
+story5.add_transitions(transitionsc5)
 story5.add_start_state("q")
 story5.add_final_state("e")
 story6.add_transitions(transitions6)
+story6.add_transitions(transitionsc2)
+story6.add_transitions(transitionsc3)
+story6.add_transitions(transitionsc4)
+story6.add_transitions(transitionsc5)
+story6.add_transitions(transitionsc6)
 story6.add_start_state("q")
 story6.add_final_state("e")
 story7.add_transitions(transitions7)
+story7.add_transitions(transitionsc2)
+story7.add_transitions(transitionsc3)
+story7.add_transitions(transitionsc4)
+story7.add_transitions(transitionsc5)
+story7.add_transitions(transitionsc6)
+story7.add_transitions(transitionsc7)
 story7.add_start_state("q")
 story7.add_final_state("e")
 story8.add_transitions(transitions8)
+story8.add_transitions(transitionsc2)
+story8.add_transitions(transitionsc3)
+story8.add_transitions(transitionsc4)
+story8.add_transitions(transitionsc5)
+story8.add_transitions(transitionsc6)
+story8.add_transitions(transitionsc7)
+story8.add_transitions(transitionsc8)
 story8.add_start_state("q")
 story8.add_final_state("e")
 story9.add_transitions(transitions9)
+story9.add_transitions(transitionsc2)
+story9.add_transitions(transitionsc3)
+story9.add_transitions(transitionsc4)
+story9.add_transitions(transitionsc5)
+story9.add_transitions(transitionsc6)
+story9.add_transitions(transitionsc7)
+story9.add_transitions(transitionsc8)
+story9.add_transitions(transitionsc9)
 story9.add_start_state("q")
 story9.add_final_state("e")
 story10.add_transitions(transitions10)
+story10.add_transitions(transitionsc2)
+story10.add_transitions(transitionsc3)
+story10.add_transitions(transitionsc4)
+story10.add_transitions(transitionsc5)
+story10.add_transitions(transitionsc6)
+story10.add_transitions(transitionsc7)
+story10.add_transitions(transitionsc8)
+story10.add_transitions(transitionsc9)
+story10.add_transitions(transitionsc10)
 story10.add_start_state("q")
 story10.add_final_state("e")
 story11.add_transitions(transitions11)
+story11.add_transitions(transitionsc2)
+story11.add_transitions(transitionsc3)
+story11.add_transitions(transitionsc4)
+story11.add_transitions(transitionsc5)
+story11.add_transitions(transitionsc6)
+story11.add_transitions(transitionsc7)
+story11.add_transitions(transitionsc8)
+story11.add_transitions(transitionsc9)
+story11.add_transitions(transitionsc10)
+story11.add_transitions(transitionsc11)
 story11.add_start_state("q")
 story11.add_final_state("e")
+
+story1.add_final_state(q0)
+story1.add_final_state(c0)
+story2.add_final_state(q1)
+story2.add_final_state(q2)
+story2.add_final_state(c1)
+story2.add_final_state(c2)
+story3.add_final_state(q3)
+story3.add_final_state(q4)
+story3.add_final_state(q5)
+story3.add_final_state(q6)
+story3.add_final_state(c3)
+story3.add_final_state(c4)
+story4.add_final_state(q7)
+story4.add_final_state(q8)
+story4.add_final_state(q9)
+story4.add_final_state(q10)
+story4.add_final_state(c5)
+story4.add_final_state(c6)
+story4.add_final_state(c7)
+story4.add_final_state(c8)
+story5.add_final_state(q11)
+story5.add_final_state(q12)
+story5.add_final_state(q13)
+story5.add_final_state(q14)
+story5.add_final_state(q15)
+story5.add_final_state(q16)
+story5.add_final_state(c9)
+story5.add_final_state(c10)
+story5.add_final_state(c11)
+story5.add_final_state(c12)
+story5.add_final_state(c13)
+story5.add_final_state(c14)
+story6.add_final_state(q17)
+story6.add_final_state(q18)
+story6.add_final_state(q19)
+story6.add_final_state(q20)
+story6.add_final_state(q21)
+story6.add_final_state(q22)
+story6.add_final_state(q23)
+story6.add_final_state(q24)
+story6.add_final_state(c15)
+story6.add_final_state(c16)
+story6.add_final_state(c17)
+story6.add_final_state(c18)
+story6.add_final_state(c19)
+story6.add_final_state(c20)
+story6.add_final_state(c21)
+story6.add_final_state(c22)
+story7.add_final_state(q25)
+story7.add_final_state(q26)
+story7.add_final_state(q27)
+story7.add_final_state(q28)
+story7.add_final_state(q29)
+story7.add_final_state(q30)
+story7.add_final_state(q31)
+story7.add_final_state(q32)
+story7.add_final_state(q33)
+story7.add_final_state(q34)
+story7.add_final_state(q35)
+story7.add_final_state(q36)
+story7.add_final_state(c23)
+story7.add_final_state(c24)
+story7.add_final_state(c25)
+story7.add_final_state(c26)
+story7.add_final_state(c27)
+story7.add_final_state(c28)
+story7.add_final_state(c29)
+story7.add_final_state(c30)
+story7.add_final_state(c31)
+story8.add_final_state(q37)
+story8.add_final_state(q38)
+story8.add_final_state(q39)
+story8.add_final_state(q40)
+story8.add_final_state(q41)
+story8.add_final_state(q42)
+story8.add_final_state(q43)
+story8.add_final_state(q44)
+story8.add_final_state(q45)
+story8.add_final_state(q46)
+story8.add_final_state(q47)
+story8.add_final_state(q48)
+story8.add_final_state(c32)
+story8.add_final_state(c33)
+story9.add_final_state(q49)
+story9.add_final_state(q50)
+story9.add_final_state(q51)
+story9.add_final_state(q52)
+story9.add_final_state(c34)
+story9.add_final_state(c35)
+story9.add_final_state(c36)
+story9.add_final_state(c37)
+story10.add_final_state(c38)
+story10.add_final_state(c39)
 
 print(story11.accepts("0000"))
 
