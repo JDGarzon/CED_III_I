@@ -1,7 +1,7 @@
 import re
 from pyformlang.fst import FST
 from pyformlang.finite_automaton import DeterministicFiniteAutomaton, State , NondeterministicFiniteAutomaton , EpsilonNFA
-
+from pyformlang.cfg import CFG
 l=list()
 
 estado0="Estado 0"
@@ -1267,8 +1267,107 @@ story9.add_final_state("c37")
 story10.add_final_state("c38")
 story10.add_final_state("c39")
 
+#Reemplaza los nombres y mantiene todo lo demas igual
+reemplazar = FST()
+name=""
+
+lista=[
+    ("q0","A","q0",["A"]),
+    ("q0","B","q0",["B"]),
+    ("q0","C","q0",["C"]),
+    ("q0","D","q0",["D"]),
+    ("q0","E","q0",["E"]),
+    ("q0","F","q0",["F"]),
+    ("q0","G","q0",["G"]),
+    ("q0","H","q0",["H"]),
+    ("q0","I","q0",["I"]),
+    ("q0","J","q0",["J"]),
+    ("q0","K","q0",["K"]),
+    ("q0","L","q0",["L"]),
+    ("q0","M","q0",["M"]),
+    ("q0","N","q0",["N"]),
+    ("q0","O","q0",["O"]),
+    ("q0","P","q0",["P"]),
+    ("q0","Q","q0",["Q"]),
+    ("q0","R","q0",["R"]),
+    ("q0","S","q0",["S"]),
+    ("q0","T","q0",["T"]),
+    ("q0","U","q0",["U"]),
+    ("q0","V","q0",["V"]),
+    ("q0","W","q0",["W"]),
+    ("q0","X","q0",["X"]),
+    ("q0","Y","q0",["Y"]),
+    ("q0","Z","q0",["Z"]),
+    ("q0","a","q0",["a"]),
+    ("q0","b","q0",["b"]),
+    ("q0","c","q0",["c"]),
+    ("q0","d","q0",["d"]),
+    ("q0","e","q0",["e"]),
+    ("q0","f","q0",["f"]),
+    ("q0","g","q0",["g"]),
+    ("q0","h","q0",["h"]),
+    ("q0","i","q0",["i"]),
+    ("q0","j","q0",["j"]),
+    ("q0","k","q0",["k"]),
+    ("q0","l","q0",["l"]),
+    ("q0","m","q0",["m"]),
+    ("q0","n","q0",["n"]),
+    ("q0","o","q0",["o"]),
+    ("q0","p","q0",["p"]),
+    ("q0","q","q0",["q"]),
+    ("q0","r","q0",["r"]),
+    ("q0","s","q0",["s"]),
+    ("q0","t","q0",["t"]),
+    ("q0","u","q0",["u"]),
+    ("q0","v","q0",["v"]),
+    ("q0","w","q0",["w"]),
+    ("q0","x","q0",["x"]),
+    ("q0","y","q0",["y"]),
+    ("q0","z","q0",["z"]),
+    ("q0"," ","q0",[" "]),
+    ("q0",".","q0",["."]),
+    ("q0",",","q0",[","]),
+    ("q0","1","q0",["1"]),
+    ("q0","2","q0",["2"]),
+    ("q0","3","q0",["3"]),
+    ("q0","4","q0",["4"]),
+    ("q0","5","q0",["5"]),
+    ("q0","6","q0",["6"]),
+    ("q0","7","q0",["7"]),
+    ("q0","8","q0",["8"]),
+    ("q0","9","q0",["9"]),
+    ("q0","0","q0",["0"]),
+    ("q0","ñ","q0",["ñ"]),
+    ("q0","#","q1",[""]),
+    ("q1","$","q2",[""]),
+    ("q2","%","q3",[name]),
+    ("q3","epsilon","q0",[""]),
+]
+reemplazar.add_transitions(lista)
+reemplazar.add_start_state("q0")
+reemplazar.add_final_state("q0")
+
+
+h = CFG.from_text("""
+S -> a S | A
+A -> b A | epsilon""")
+print(h.get_cnf_parse_tree("ab"))
 
 print(story11.accepts("0000"))
+
+from pyformlang.cfg import CFG
+
+# Define a CFG for generating simple dialogues
+dialogue_grammar = CFG.from_text("""
+S -> Greeting Name Question
+Greeting -> "Hello" | "Hi" | "Hey"
+Name -> "John" | "Mary" | "Bob"
+Question -> "How are you?" | "What's up?" | "How's it going?"
+""")
+
+# Generate a dialogue
+dialogue = dialogue_grammar.get_words()
+print(dialogue.close())
    
 def dialogos(transitionLevel, string):
     value = string[-1]
