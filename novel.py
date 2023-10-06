@@ -3,13 +3,9 @@ from pyformlang.fst import FST
 from pyformlang.finite_automaton import DeterministicFiniteAutomaton, State , NondeterministicFiniteAutomaton , EpsilonNFA
 from pyformlang.cfg import CFG
 
-
-def gameExecution():
-    d = 2
+sequence = ""
 
 l=list()
-
-sequence = ""
 
 estado0="Estado 0"
 estado1="Estado 1"
@@ -1906,9 +1902,8 @@ B -> b """)
 def generateSequence(transitionLevel, digitOption):
     digitOption = digitOption.str.lower()
     if (cfg1.contains(digitOption)):
-        sequence += convertOptionToValidSequence(transitionLevel, digitOption)
-        return True
-    return False
+        return convertOptionToValidSequence(transitionLevel, digitOption)
+    return ''
 
 def validate_name(name):
     if len(name) > 0:
@@ -2016,6 +2011,23 @@ def translate(toReplace,toTranslate):
 
     ns=[list(map(lambda x:"".join(x),list(reemplazar.translate(x)))) for x in [toReplace]]
     return ns[0][0]
+
+def gameExecution():
+    sequence = ''
+    continueGame = True
+    transitionLevel = 0
+    print(dialogos(0,''))
+    while (continueGame==True):
+        transitionLevel += 1
+        opcionElegida = input()
+        optionToInsert = generateSequence(transitionLevel, opcionElegida)
+        while (optionToInsert == ''):
+            print("Se ingreso un dato invalido. Por favor seleciona una de las opciones indicadas. Vamos, intentalo de nuevo!")
+            opcionElegida = input()
+            optionToInsert = generateSequence(transitionLevel, opcionElegida)
+        sequence += optionToInsert
+        print(dialogos(transitionLevel,sequence))
+
 
 print(dialogos(1,'1'))
 stringToReplace="#$%"
