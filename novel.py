@@ -1652,7 +1652,7 @@ def convertOptionToValidSequence(transitionLevel, digitOption):
     if digitOption == 'z':
         return 'z'
     
-    if (digitOption != 'a' | digitOption != 'b'):
+    if (digitOption != 'a' or digitOption != 'b'):
         return '-1'
     
     if (transitionLevel ==1):
@@ -1900,7 +1900,7 @@ A -> a
 B -> b """)
 
 def generateSequence(transitionLevel, digitOption):
-    digitOption = digitOption.str.lower()
+    digitOption = digitOption.lower()
     if (cfg1.contains(digitOption)):
         return convertOptionToValidSequence(transitionLevel, digitOption)
     return ''
@@ -2016,7 +2016,7 @@ def gameExecution():
     sequence = ''
     continueGame = True
     transitionLevel = 0
-    print(dialogos(0,''))
+    print(dialogos(0,'1'))
     while (continueGame==True):
         transitionLevel += 1
         opcionElegida = input()
@@ -2029,7 +2029,5 @@ def gameExecution():
         print(dialogos(transitionLevel,sequence))
 
 
-print(dialogos(1,'1'))
-stringToReplace="#$%"
-stringToTranslate="Nombre"
-print(translate(stringToReplace,stringToTranslate))
+
+gameExecution()
