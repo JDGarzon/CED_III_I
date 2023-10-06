@@ -1218,6 +1218,8 @@ def dialogos(transitionLevel, string):
                 case 'c':
                     #Hablar con el profesor: 0c
                     response = "Hablas con el profesor director de su clase. Sorprendido de verte allí, te dice que no tiene idea de por qué tu hija terminó de esa manera, que él la notaba normal hasta antes del suceso, y que mejor dejes que la policía haga su trabajo. Intentas hablar más con él, pero te dice que está muy ocupado, y te advierte de que si no dejas de “perturbar el ambiente estudiantil” llamará a la policía. Decepcionado y confundido, regresas a tu rutina de destrucción personal, abandonándolo todo, sin saber la verdad, y sin que se haga justicia, ya que la policía nunca encontró nada. END"
+                    response+="A. Continuar"
+                    response+="B. Terminar"
                 case 'd':
                     #Hablar con Valentina: 0d
                     response = "Decides preguntarle a Valentina sobre lo que le pasó a tu hija. Al principio no te quiere responder nada, te evita y sigue su camino. Sin embargo, cuando le preguntas la razón voltea y, nerviosa, te dice en voz baja, y de una manera preocupada “Todo es culpa de #$%”. Después de eso, sale corriendo. "
@@ -2055,3 +2057,4 @@ def gameExecution():
             continueGame=True
             sequence = ''
             print("¡Genial! Vamos a jugar de nuevo.")
+
