@@ -1592,13 +1592,13 @@ def dialogos(transitionLevel, string):
                     response = "Con el corazón en la mano debido a tanta adrenalina, llamas a la policía. No tardan mucho en llegar y llevarse al padre y al hijo. Saliste vivo, con dinero y haciendo justicia. END"
     return response
 
-def convertOptionToValidSequence(transitionLevel, digitOption):
+def changeName(name):
+    current.setName(name)
+
+def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
     if digitOption == 'z':
         return 'z'
-    
-    if (digitOption != 'a' or digitOption != 'b'):
-        return '-1'
-    
+        
     if (transitionLevel ==1):
         match digitOption:
             case 'a': digitOption ='0'
@@ -1846,20 +1846,13 @@ B -> b """)
 end = re.compile(r'\bEND$')
 nameRegex = re.compile(r'^[a-zA-Z]+$')
 
-def generateSequence(transitionLevel, digitOption):
-    digitOption = digitOption.lower()
+def generateSequence(transitionLevel, digitOption,sequence):
     if (cfg1.contains(digitOption)):
-        return convertOptionToValidSequence(transitionLevel, digitOption)
+        return convertOptionToValidSequence(transitionLevel, digitOption, sequence)
     return ''
 
 def validate_name(name):
     return nameRegex.match(name)
-    
-def validate_answer(answer):
-    if len(answer) == 1 and (answer=='a' or answer=='b'):
-        return True
-    else:
-        return False
     
 def translate(toReplace,toTranslate):
     reemplazar = FST()
@@ -1960,6 +1953,71 @@ def translate(toReplace,toTranslate):
     reemplazar.add_final_state("q0")
     ns=[list(map(lambda x:"".join(x),list(reemplazar.translate(x)))) for x in [toReplace]]
     return ns[0][0]
+
+class Destroyer:
+    def __init__(self):
+        self.destroy =lambda: print("No se ha definido una función de destrucción")
+
+    def setDestroy(self,newDestroy):
+        self.destroy = newDestroy
+
+    def executeDestroy(self):
+        self.destroy()
+
+destroyer = Destroyer()
+def setDestroy(newDestroy):
+    destroyer.setDestroy(newDestroy)
+
+class Current:
+    def __init__(self):
+        self. transitionLevel = 0
+        self.endReached = False
+        self.name="Gabriel"
+        self.sequence = ''
+    def setCurrent(self,newCurrent):
+        self.transitionLevel = newCurrent
+
+    def getCurrent(self):
+        return self.transitionLevel
+    def getEndReached(self):
+        return self.endReached
+    def setEndReached(self,newEndReached):
+        self.endReached = newEndReached
+    def getName(self):
+        return self.name
+    def setName(self,newName):
+        self.name = newName
+    def getSequence(self):
+        return self.sequence
+    def setSequence(self,newSequence):
+        self.sequence = newSequence
+    
+current = Current()
+
+def advance(opcionElegida,current):
+    if(not current.getEndReached()):
+        sequence=current.getSequence()
+        current.setCurrent(current.getCurrent()+1)
+        optionToInsert = generateSequence(current.getCurrent(), opcionElegida,current.getSequence())
+        sequence += optionToInsert
+        dialogue=dialogos(current.getCurrent(),sequence)
+        dialogue= translate(dialogue,current.getName())
+        if (end.search(dialogue)):
+            current.setEndReached(True)
+            current.setSequence(sequence)
+            return dialogue
+        else:
+            current.setSequence(sequence)
+            return dialogue
+    else:
+        if(opcionElegida=="a"):
+            current.setCurrent(0)
+            current.setEndReached(False)
+            current.setSequence("")
+            return dialogos(0,"a")
+        else:
+            destroyer.executeDestroy()
+
 
 def gameExecution():
     sequence = ''
