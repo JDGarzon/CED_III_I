@@ -5,105 +5,6 @@ from pyformlang.cfg import CFG
 
 sequence = ""
 
-l=list()
-
-estado0="Estado 0"
-estado1="Estado 1"
-estado2="Estado 2"
-estado3="Estado 3"
-estado4="Estado 4"
-estado5="Estado 5"
-estado6="Estado 6"
-estado7="Estado 7"
-estado8="Estado 8"
-estado9="Estado 9"
-estado10="Estado 10"
-estado11="Estado 11"
-estado12="Estado 12"
-estado13="Estado 13"
-estado14="Estado 14"
-estado15="Estado 15"
-estado16="Estado 16"
-estado17="Estado 17"
-estado18="Estado 18"
-estado19="Estado 19"
-estado20="Estado 20"
-estado21="Estado 21"
-estado22="Estado 22"
-estado23="Estado 23"
-estado24="Estado 24"
-estado25="Estado 25"
-estado26="Estado 26"
-estado27="Estado 27"
-estado28="Estado 28"
-estado29="Estado 29"
-estado30="Estado 30"
-estado31="Estado 31"
-estado32="Estado 32"
-estado33="Estado 33"
-estado34="Estado 34"
-estado35="Estado 35"
-estado36="Estado 36"
-estado37="Estado 37"
-estado38="Estado 38"
-estado39="Estado 39"
-estado40="Estado 40"
-estado41="Estado 41"
-estado42="Estado 42"
-estado43="Estado 43"
-estado44="Estado 44"
-estado45="Estado 45"
-estado46="Estado 46"
-estado47="Estado 47"
-estado48="Estado 48"
-estado49="Estado 49"
-estado50="Estado 50"
-estado51="Estado 51"
-estado52="Estado 52"
-estado53="Estado 53"
-estado54="Estado 54"
-estado55="Estado 55"
-estado56="Estado 56"
-estado57="Estado 57"
-estado58="Estado 58"
-estado59="Estado 59"
-estado60="Estado 60"
-estado61="Estado 61"
-estado62="Estado 62"
-estado63="Estado 63"
-estado64="Estado 64"
-estado65="Estado 65"
-estado66="Estado 66"
-estado67="Estado 67"
-estado68="Estado 68"
-estado69="Estado 69"
-estado70="Estado 70"
-estado71="Estado 71"
-estado72="Estado 72"
-estado73="Estado 73"
-estado74="Estado 74"
-estado75="Estado 75"
-estado76="Estado 76"
-estado77="Estado 77"
-estado78="Estado 78"
-estado79="Estado 79"
-estado80="Estado 80"
-estado81="Estado 81"
-estado82="Estado 82"
-estado83="Estado 83"
-estado84="Estado 84"
-estado85="Estado 85"
-estado86="Estado 86"
-estado87="Estado 87"
-estado88="Estado 88"
-estado89="Estado 89"
-estado90="Estado 90"
-estado91="Estado 91"
-estado92="Estado 92"
-estado93="Estado 93"
-estado94="Estado 94"
-estado95="Estado 95"
-
 story1=DeterministicFiniteAutomaton()
 story2=DeterministicFiniteAutomaton()
 story3=DeterministicFiniteAutomaton()
@@ -116,7 +17,6 @@ story9=DeterministicFiniteAutomaton()
 story10=DeterministicFiniteAutomaton()
 story11=DeterministicFiniteAutomaton()
 
-l=[]
 transitions1=[
     #Inicio
     ("q","0","q0"),
@@ -131,12 +31,6 @@ transitions2=[
     #Ruta casa
     ("q0","0","q1"),
     ("q0","1","q2"),
-]
-p=[
-
-("q","0","q"),
-("q","1","q"),
-
 ]
 transitions3=[
     #Inicio
@@ -1282,6 +1176,10 @@ def dialogos(transitionLevel, string):
             response+="Te culpas por no haber estado más pendiente antes, por no haber indagado en su cambio drástico de actitud, ni en su completa falta de interés en ir al colegio, a pesar de que estaba a punto de graduarse. Todo por asumir que era algo típico de su adolescencia. "
             response+=" Su suicidio aún no está plenamente investigado, sin embargo, no tienes paciencia para esperar a la policía, quieres respuestas, y las buscarás por tu cuenta "
             response+="( Necesitas información, divagando en dónde puedes encontrarla, a tu mente viene ir a la habitación de tu hija o ir a su colegio ¿qué decides hacer? )"
+            response+="¿Que quieres hacer?: "
+            response+="A. Ir a la habitación"
+            response+="B. Ir al colegio"
+
         case 1:
             match value:
                 case '0':
@@ -1290,24 +1188,33 @@ def dialogos(transitionLevel, string):
                     response +="Mientras subes las escaleras hacia su habitación, cada paso te parece una eternidad. Abres la puerta con cuidado y te enfrentas a su mundo, que ahora parece congelado en el tiempo. Las paredes están adornadas con posters de sus bandas favoritas y fotos de recuerdos con sus amigos. "
                     response +="Su cama está sin hacer, y su escritorio está lleno de libros y notas de clase. La computadora está apagada. Todo parece bastante desordenado. "
                     response +="(Piensas en qué podrías hacer para obtener algo de información, puedes ordenar la habitación, o revisar la computadora)"
-
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Ordenar la habitacion"
+                    response+="B. Revisar computadora"
                 case '1':
                     #Ir al colegio de tu hija: 1
                     response = "Optas por ir a investigar al colegio de tu hija. Manejas hasta el colegio y un vez en la entrada puedes ver a algunos estudiantes y profesores, todo sigue su curso habitual, sientes que no es justo, pero te tragas la indignación para después. "
                     response +="Sabes que debes hablar con alguien que conozca a tu hija y pueda ofrecerte información útil sobre lo que pasó. Caminas hacia su salón, justo a tiempo para que las clases terminen. "
                     response +="Reconoces a su profesor y a Valentina, su mejor amiga. Recuerdas cuando se quedaba a dormir con tu hija, era un escándalo, uno que no puedes parar de extrañar. Deberías hablar con alguno de los dos antes de que se marchen)"
-
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Hablar con el profesor"
+                    response+="B. Hablar con su mejor amiga"
         case 2:
             match value:
                 case '0':
                     #Ordenar la habitación: 00
                     response = "Aunque el llanto brote de ti con solo respirar en esa habitación, decides poner las cosas en su sitio. En el proceso notas un cuaderno muy extraño, estaba envuelto en fomi y está cerrado con un candado. Sospechas que se trata de su diario. Lo dejas a un lado mientras terminas de ordenar la habitación, ahora con el objetivo de encontrar la llave.  Cuando estabas a punto de darte por vencido, se te ocurre revisar debajo del colchón, y eureka, encuentras una pequeña llave que seguramente encajará. "
                     response +="(Pero cuando tienes su diario justo al frente de ti, otra duda te asalta, deberías ver el diario y hurgar en los pensamientos más íntimos de tu hija por una respuesta, o quizá sea lo mejor rendirte, y dejarle el trabajo a la policía.)"
-
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Ver el diario"
+                    response+="B. No ver el diario"
                 case '1':
                     #Revisar la computadora: 01
                     response = "Decides ignorar el desorden de la habitación y vas directo al computador. Una vez lo enciendes, te das cuenta de que no pide contraseña para entrar, así que cuando inicias sesión. Dentro del escritorio no hay íconos, solo está la papelera de reciclaje y un video titulado “Avanza”. Una vez lo ves, no puedes parar de llorar. El video consistía en tu hija despidiéndose de ustedes, sus padres, recordando los momentos felices y rogando que sigan sus vidas sin importar que ella ya no esté. Te dijo que cuides a mamá, que adoptes un gato para ella, ya que, aunque siempre había querido uno, nunca lo tuvo porque su hija era alérgica. Te pide que no la abandones, te pide que no busques culpables, te pide que Avances. "
                     response +="(Con tus lágrimas cubriendo toda tu cara, y un nudo en la garganta que te hace sentir como si se fuera a partir en dos, no sabes qué hacer. ¿Le haces caso a tu hija e intentas seguir a delante, o investigas más para encontrar la causa de que ella se fuera?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Hacer caso a tu hija"
+                    response+="B. Investigar más"
                 case 'c':
                     #Hablar con el profesor: 0c
                     response = "Hablas con el profesor director de su clase. Sorprendido de verte allí, te dice que no tiene idea de por qué tu hija terminó de esa manera, que él la notaba normal hasta antes del suceso, y que mejor dejes que la policía haga su trabajo. Intentas hablar más con él, pero te dice que está muy ocupado, y te advierte de que si no dejas de “perturbar el ambiente estudiantil” llamará a la policía. Decepcionado y confundido, regresas a tu rutina de destrucción personal, abandonándolo todo, sin saber la verdad, y sin que se haga justicia, ya que la policía nunca encontró nada. END"
@@ -1315,7 +1222,9 @@ def dialogos(transitionLevel, string):
                     #Hablar con Valentina: 0d
                     response = "Decides preguntarle a Valentina sobre lo que le pasó a tu hija. Al principio no te quiere responder nada, te evita y sigue su camino. Sin embargo, cuando le preguntas la razón voltea y, nerviosa, te dice en voz baja, y de una manera preocupada “Todo es culpa de #$%”. Después de eso, sale corriendo. "
                     response +="(Estás muy confundido, habías escuchado hablar de #$% antes, sabes quién es, sabes dónde encontrarlo, pero no sabes lo que hizo. Valentina aún no está muy lejos, puedes presionarla para que te cuente los detalles de lo sucedido, o buscar a #$%, y que te los diga él mismo.)"
-
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Presionar a Valentina"
+                    response+="B. Buscar a #$%"
         case 3:
             match value:
                 case '0':
@@ -1328,7 +1237,9 @@ def dialogos(transitionLevel, string):
                     response +="Entre todo el caos, logras distinguir lo siguiente: "
                     response +="“ … #$% es muy genial, ayer me invitó a … Estoy muy emocionada por ir al concierto de los … ESTO NO PUEDE ESTAR PASANDO … ya no sé qué hacer, estoy sola, ni siquiera Valen … Lo siento. “  "
                     response += "(Lo único que sabes es que ese tal #$% tiene algo que ver con lo que pasó. Furioso, te dispones a ir a buscarlo, a interrogarlo, lo que sea por saber más de lo que pasó. Sin embargo, tu esposa, que te estaba observando todo este tiempo te detiene, quiere hablar contigo, saber qué piensas, saber cómo estás, ¿la escuchas o te marchas?)"
-
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Escuchar a tu esposa"
+                    response+="B. No escuchar a tu esposa"
                 case '2':
                     #Le haces caso a la grabación de tu hija : 012
                     response = "Decides ignorar todos tus delirios de saber la verdad por tu cuenta, de encontrar un culpable y hacerlo pagar, ese es el trabajo de la policía. Aunque te duela demasiado, hacerle caso a tu hija es lo mejor, tu esposa también está sufriendo, tienen que abordar el tema juntos. Así que decides avanzar junto a ella, todo mejorará. END"
@@ -1336,25 +1247,40 @@ def dialogos(transitionLevel, string):
                     #Investigar más: 013
                     response = "Le pides perdón a tu hija por no respetar sus últimos deseos, pero no puedes rendirte tan fácil. Sigues investigando su computador, y descubres que no cerró sesión en una de sus redes sociales, así que comienzas a buscar entre las conversaciones. No habían muchos mensajes,  al parecer es una de esas redes sociales donde solo se comparten videos. Pero el chat más reciente llama enormemente tu atención. Era tu hija, rogándole a un tal #$% atención, que dejase de ignorarla, que necesitaba ayuda, que se haga responsable, que lo perdonaba si lo hacía. No encuentras nada más de utilidad en esa computadora."
                     response +="(Recuerdas haber visto a los padres de ese #$% en las reuniones del colegio, así que no será difícil saber donde encontrarlos. Acudes directamente a la policía con lo que sabes ahora, ¿o vas a hablar con sus padres?)"
-
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Llamar a la policía"
+                    response+="B. Hablar con los padres de #$%"
                 case 'c':
                     #Presionar a Valentina: 0dc
                     response = "Alcanzas a Valentina y la tomas por el brazo, intenta resistirse, así que no te queda otra opción que apretar más fuerte. Le preguntas furioso la verdad de lo que pasó, y ella, sin tener ninguna otra opción, te relata con la voz entrecortada que todo se fue al carajo el día en el que fueron con un grupo de estudiantes a un concierto, entre ellos estaba #$%, un chico que le gustaba demasiado a tu hija; Resulta que #$% se dio cuenta rápidamente de los sentimientos de tu hija hacia él, y decidió aprovecharse de ellos, llegando a extremos que fueron en contra de la voluntad de tu hija, sin embargo, ella quería creer en él; Pero #$% se distanció después de lo sucedido, no contestaba, la abandonó completamente; Meses, después, tu hija le comentó a Valentina que estaba embarazada, así que estaba decidida a confrontar a #$% de cualquier forma, y le pedía su apoyo para ello; Pero Valentina le dio la espalda, todo porque el padre de #$% es el mismísimo profesor director de su salón, y prometió recomendarla a una buena universidad si se mantenía alejada del asunto."
                     response +="(Valentina no para de disculparse, aunque no debería hacerlo contigo precisamente. Ahora que sabes lo que pasó en realidad, no puedes pensar claramente, todo tu ser gira en vengarte por lo que ese maldito le hizo a tu hija. Pero Valentina te dice que no hagas ninguna estupidez, va a llamar a la policía. A lo lejos vez a #$% salir del colegio, ¿vas a por él, aunque Valentina llame a la policía, o decides amenazarla para que no lo haga?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Amenazar a Valentina"
+                    response+="B. Perseguir a #$%"
                 case 'd':
                     #Buscar a #$%: 0dd
                     response = "Quieres saber lo que sucedió, y si la culpa es de #$%, ¿quién mejor que él para que te de las respuestas necesarias? No tardas mucho en encontrarle, sin embargo, en el instante que #$% se da cuenta de que tú te aproximas hacia él, comienza a correr con todas sus fuerzas hacia dentro del colegio. "
                     response +="(Ante tal reacción, para ti ya no hay más sospechas, ¿qué harás? ¿Llamarás a la policía, seguro de que tienes razón, o perseguirás a #$%, para obtener más información)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Perseguir a #$%"
+                    response+="B. LLamar a la Policia"
         case 4:
             match value:
                 case '0':
                     #Escuchar a tu esposa: 0010
                     response = "Escuchas lo que ella te tiene que decir. Entre lágrimas, te expresa lo mucho que le duele que estés tan distante, que te nota raro, y le aterra pensar que vayas a cometer alguna estupidez. Quiere afrontar la situación contigo, como siempre lo han hecho, quiere confiar en que la policía les dirá la respuesta, y sabe que tu hija no hubiera pedido venganza."
                     response +="(No sabes qué decir, quieres correr y abrazarla con todas tus fuerzas como siempre, pero a la vez te sientes ansioso por saber la verdad por tu cuenta, no confías en la policía. ¿Le haces caso a tu mujer o te marchas?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Escuchar a tu esposa"
+                    response+="B. No escuchar a tu esposa"
                 case '1':
                     #No escuchar a tu esposa: 0011
                     response = "No quieres saber lo que tu esposa tiene para decirte, no te va a convencer, así que no gastarás tiempo en dejar que lo intente. Te marchas, dispuesto a hablar con #$% y preguntarle si sabe algo de lo sucedido. "
                     response +="(Sin embargo, ya es de noche. Sabes dónde viven los padres de #$% gracias al grupo que hicieron en el colegio, pero estás seguro de que sea una buena idea ir a esta hora. Puedes ir de todas formas o presentar el diario a la policía, dejándole el resto a ellos.)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Ir a la casa de #$%"
+                    response+="B. Vas a la policia"
+                
                 case '2':
                     #Llamar a la policía: 0dc2
                     response = "Llegas a la comisaría convencido de que la policía esta vez podrá ayudarte con lo que sabes. Pero una vez investigan a #$%, dicen que no encontraron nada que haga que tenga que ver con el suicidio de tu hija. Además, te prohíben investigar por tu cuenta, ya que los padres de #$% pusieron una fuerte queja al departamento de policía, y no quieren más problemas. Pasaron los días y la investigación nunca llegó a nada, nunca supiste por qué lo hizo, moriste en el alcohol, atormentado por la culpa que tú mismo te impusiste. END"
@@ -1362,17 +1288,30 @@ def dialogos(transitionLevel, string):
                     #Hablar con los padres de #$%: 0dd3
                     response = "Una vez llegas a su casa, tocas el timbre y te presentas como el padre Vanesa. Justo cuando terminas de introducirte, detrás de la puerta todo queda en silencio un tiempo, luego de eso, la vos del padre te dice que están muy ocupados justo ahora, que no pueden hablar contigo, así que lo mejor es que te marches. Sin embargo, tú no te vas a ir, y luego de insistir con que solo quieres hacerles unas preguntas, te gritan que te marches o llamarán a la policía."
                     response +="(¿Por qué no quieren hablar contigo, acaso esconden algo? Ese pensamiento consume todo tu ser, así que, furioso, contemplas dos opciones, seguir insistiendo pacíficamente, o entrar violentamente a la casa para conseguir respuestas, ¿Qué vas a hacer?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Insistir violentamente"
+                    response+="B. Insistir pacíficamente"
                 case 'c':
                     #Amenazar a Valentina: 0dc4
                     response = "No vas a dejar que esa chica llame a la policía, y piensas dejárselo bien claro. Luego de hacerle entender que le pasará lo mismo que a #$% si llega a decir una palabra, te dispones a darle caza, sin embargo, tardaste bastante hablando con Valentina, así que alcanzarlo ahora tomará un tiempo."
                     response +="(Planeas ir a por #$% sin importar qué, ¿vas ya mismo o esperas a la noche?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Vas por #$% en el día"
+                    response+="B. Vas por #$% en la noche"
                 case 'd':
                     #Perseguir a #$%: 0dd5
                     response = "Ignoras completamente las amenazas de Valentina y te aproximas furioso a donde se encuentra #$%. Sin embargo, este apenas te ve comienza a correr hacia la calle."
                     response +="(Durante la persecución, #$% gira una esquina, y cuando haces lo mismo, ya no lo ves. Hay un callejón a la derecha, ¿investigas el callejón o continúas corriendo hacia el frente?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Sigues derecho"
+                    response+="B. Giras el callejón"
                 case 'e':
                     #Perseguir a #$%: 0dd6
-                    response = "Partes determinado a encontrar a #$%, y una vez llegas a la casa, comienzas a tocar el timbre, esperando alguna respuesta. Sin embargo, la puerta se abre, y entre la oscuridad emerge un potente golpe. Despiertas encerrado en la comisaría, el diario no está, y pese a tus declaraciones, los agentes dicen que irrumpiste en la casa de una familia con intenciones violentas, y que ellos te noquearon en defensa personal mientras llegaba la policía. Te sueltan luego de unos días, prohibiéndote acercarte a la familia de #$%. Sin el diario, no tienes nada más de lo que agarrarte para buscar respuestas, así que nunca supiste la verdad."
+                    response = "No hay tiempo de llamar a la policía, si Gabriel hizo algo tan horrible que le provoca correr nada mas verte, lo podrás llevar tú mismo a la justicia."
+                    response +="(Mientras lo perseguías, pierdes su rastro entre la multitud de estudiantes que salen disparados a sus casas, solo pudo haber hecho dos cosas, subir al segundo piso, o salir por del colegio por la puerta al final del pasillo, ¿Qué camino eliges?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Buscas a #$% en el segundo piso"
+                    response+="B. Buscas a #$% fuera del colegio"
                 case 'f':
                     #Policia: 0dd7
                     response = "Llamas a la policía, sin embargo, no sabes cómo explicarles que tienes la sospecha de que un chico de grado 11 hizo algo terrible. Aun así, envían una patrulla y, luego de un gran ajetreo, dan con #$%, el cual estaba con su padre, el profesor director del salón en donde estudiaba tu hija. Luego de una charla, los policías se marchan, no sin antes multarte por causar semejante alboroto en un colegio, luego recibes una denuncia por parte de los padres de #$%, y se te prohíbe acercarte a cualquiera de los miembros de esa familia. Nunca supiste lo que pasó. END"
@@ -1385,6 +1324,9 @@ def dialogos(transitionLevel, string):
                     #No escuchar a tu esposa: 00111
                     response = "Pese a lo conmovido que estás, no puedes abandonar la idea de saber la verdad, así que te marchas prometiendo volver cuando se haya hecho justicia."
                     response +="(Pero tu esposa te detiene, te agarra fuertemente del brazo y te implora que no te vayas, no quiere que la dejes sola, ni mucho menos que termines haciendo alguna tontería. Pero tú estás demasiado determinado como para cambiar de opinión. ¿Qué vas a hacer, forcejear con ella, o intentar convencerla de que adopte tu determinación?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Forcejear con tu esposa"
+                    response+="B. Convencer a tu esposa"
                 case '2':
 
                     #Ir a la casa de #$%: 00122
@@ -1393,14 +1335,23 @@ def dialogos(transitionLevel, string):
                     #Vas a la policia: 00133
                     response = "Llegas a la estación de policía con el Diario de tu hija. Y después de explicar la situación, lo entregas con la promesa de que ellos lo examinarán y te informarán en unas semanas."
                     response +="(Pero no estás satisfecho, quieres que lo hagan lo más pronto posible, que le den la importancia necesaria. ¿Presionas a la policía, o eres paciente y regresas a tu casa?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Eres paciente"
+                    response+="B. Presionas a la policía"
                 case '4':
                     #Insistir violentamente: 0dd44
                     response = "Ya has tenido suficiente, si no abren la puerta, lo harás por ti mismo. Comienzas a patear la puerta, mientras escuchas que toda la conmoción que pasa al otro lado. Logras romperla y esquivas el golpe que el padre de #$% dirigía a tu cara con un bate."
                     response +="(¿Qué harás ahora? Seguro la policía viene en camino, necesitas respuestas rápido. ¿Corres y tomas a la madre como rehén, o las buscas en el padre?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Tomas a la madre como rehén"
+                    response+="B. Luchas con el esposo"
                 case '5':
                     #Insistir pacíficamente: 0dd55
                     response = "Ya no puedes más. Les imploras por una respuesta, no quieres vivir sin saber por qué lo hizo, por qué alguien tan amable y bondadosa terminó quitándose la vida. Solo hay silencio al otro lado, seguramente ya han llamado a la policía, no hay mucho que hacer."
                     response +="(¿Insistes un poco más, o te rindes?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Insistes más a los padres"
+                    response+="B. Te rindes"
                 case 'c':
                     #Vas por #$% en el día 0dc6
                     response = "No puedes esperar más, tiene que pagar. Te subes en tu carro y lo persigues, lo encuentras en una avenida, y sin pensarlo dos veces, bajas del auto y te abalanzas sobre él. Sin embargo, no puedes hacer mucho, la gente de alrededor de confronta y terminas siendo golpeado por muchas personas, las cuales querían defender a un chico de 18 años de un señor loco que se bajó de un carro a pegarle. Luchas con todas tus fuerzas, pero entre toda la confusión, algún desquiciado te hizo una herida con algo diferente a sus puños. Pierdes las fuerzas y, mientras caes al suelo, te das cuenta de que no te volverás a levantar. END"
@@ -1408,10 +1359,16 @@ def dialogos(transitionLevel, string):
                     #Vas por #$% en la noche 0dd7
                     response = "Decides esperar y tener un buen plan para efectuar tu venganza. Valentina te había dicho que #$% iba mucho a comprar cigarrillos por la noche, así que aguardarás a que él vaya a ti por la noche. Todo sucede como lo planeaste. Lo tomas por sorpresa y le tapas la boca, le atas y lo llevas a tu carro. Conduces a toda velocidad fuera de la ciudad, la adrenalina no para de correr por tu cuerpo. Te quieres vengar, y lo harás. "
                     response +="(Sin embargo, cuando al fin te detienes y bajas junto a #$%, no puedes evitar sentir algo extraño, algo que te detiene. Puedes acabar con #$% ahí mismo, sin oír si tiene algo para decir, o puedes escucharle.)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Escuchas a #$% secuestrado"
+                    response+="B. Acabas con #$% secuestrado"
                 case 'e':
                     #Sigues derecho: 0dd5e
                     response = "Corres hacia el frente, con la esperanza de encontrarle cuando gires la próxima esquina y alcanzarle. Y efectivamente pasó eso, si bien el chico es rápido, no tiene tanta resistencia como tú, así que cada vez estás más cerca de alcanzarle."
                     response +="(#$% se da cuenta de esto, y decide tirarte un cesto de basura que había en la calle. Estás muy cerca. ¿Saltas el cesto, o frenas y lo rodeas?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Saltas el obstáculo"
+                    response+="B. Rodeas el obstáculo"
                 case 'f':
                     #Giras el callejón: 0dd6f
                     response = "Giras hacia el callejón y te adentras en él. Llegas al final sin encontrarle, y mientras te dispones a seguir tu cometido, sientes como una hoja fría te atraviesa el hombro lentamente. Te quieren robar. Furioso, forcejeas, no tienes tiempo para esto, quieres alcanzarle y hacerle pagar, pero al delincuente no le importan tus razones, está drogado, y si no le das lo que quiere cometerá una locura. Y así fue. END"
@@ -1419,10 +1376,16 @@ def dialogos(transitionLevel, string):
                     #Buscas a #$% en el segundo piso: 0dd44g
                     response = "Subes al segundo piso. Encuentras a #$% intentando acceder a un curso, pero vuelve a correr justo cuando te ve. La persecución llega hasta unas escaleras. #$% te dice que no te acerques más, que la policía seguro ya viene en camino, que te vayas por donde viniste."
                     response +="(Notas que ya está cansado, así que no crees tener problemas en atraparlo si continúa la persecución, sin embargo, se ve demasiado asustado. ¿Deberías intentar hablarle desde la distancia, o atraparlo para interrogarle sin que pueda llegar a escapar?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Intentas atrapar a #$% en el colegio"
+                    response+="B. Hablas con #$% en el colegio"
                 case 'h':
                     #Buscas a #$% fuera del colegio: 0dd44h
                     response = "Sales del colegio en busca del chico, pero no hay rastros de él en ninguna parte. Das un vistazo al colegio desde afuera y lo ves en el segundo piso, entrando a un salón. Cuando llegas, te recibe el profesor director del curso, quien fue también profesor de tu hija y que es padre de #$%. Te pide hablar, si accedes no llamará a la policía y si esta llega por alguien más les convencerá de que es todo un malentendido."
                     response +="(¿Qué vas a hacer, escuchar lo que tiene que decir o ignorar todo y arremeter en contra de #$%?)"
+                    response+="¿Que quieres hacer?: "
+                    response+="A. Atraviesas al padre de #$% en el colegio"
+                    response+="B. Aceptas hablar con el padre de #$%"
         case 6:
             match value:
                 case '0':
