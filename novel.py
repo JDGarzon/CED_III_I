@@ -1998,6 +1998,72 @@ def translate(toReplace,toTranslate):
     ns=[list(map(lambda x:"".join(x),list(reemplazar.translate(x)))) for x in [toReplace]]
     return ns[0][0]
 
+class Destroyer:
+    def __init__(self):
+        self.destroy =lambda: print("No se ha definido una función de destrucción")
+
+    def setDestroy(self,newDestroy):
+        self.destroy = newDestroy
+
+    def executeDestroy(self):
+        self.destroy()
+
+destroyer = Destroyer()
+def setDestroy(newDestroy):
+    destroyer.setDestroy(newDestroy)
+
+class Current:
+    def __init__(self):
+        self. transitionLevel = 0
+        self.endReached = False
+        self.name="Gabriel"
+        self.sequence = ''
+
+    def setCurrent(self,newCurrent):
+        self.transitionLevel = newCurrent
+
+    def getCurrent(self):
+        return self.transitionLevel
+    def getEndReached(self):
+        return self.endReached
+    def setEndReached(self,newEndReached):
+        self.endReached = newEndReached
+    def getName(self):
+        return self.name
+    def setName(self,newName):
+        self.name = newName
+    def getSequence(self):
+        return self.sequence
+    def setSequence(self,newSequence):
+        self.sequence = newSequence
+    
+current = Current()
+
+def advance(opcionElegida,current):
+    if(not current.getEndReached()):
+        sequence=current.getSequence()
+        current.setCurrent(current.getCurrent()+1)
+        optionToInsert = generateSequence(current.getCurrent(), opcionElegida)
+        sequence += optionToInsert
+        dialogue=dialogos(current.getCurrent(),sequence)
+        dialogue= translate(dialogue,current.getName())
+        if (end.search(dialogue)):
+            current.setEndReached(True)
+            current.setSequence(sequence)
+            return dialogue
+        else:
+            current.setSequence(sequence)
+            return dialogue
+    else:
+        if(opcionElegida=="a"):
+            current.setCurrent(0)
+            current.setEndReached(False)
+            current.setSequence("")
+            return dialogos(0,"a")
+        else:
+            destroyer.executeDestroy()
+
+
 def gameExecution():
     sequence = ''
     continueGame = True
