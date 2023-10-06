@@ -1629,13 +1629,10 @@ def dialogos(transitionLevel, string):
                     response = "Con el corazón en la mano debido a tanta adrenalina, llamas a la policía. No tardan mucho en llegar y llevarse al padre y al hijo. Saliste vivo, con dinero y haciendo justicia. END"
     return response
 
-def convertOptionToValidSequence(transitionLevel, digitOption):
+def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
     if digitOption == 'z':
         return 'z'
-    
-    if (digitOption != 'a' or digitOption != 'b'):
-        return '-1'
-    
+        
     if (transitionLevel ==1):
         match digitOption:
             case 'a': digitOption ='0'
@@ -1883,20 +1880,13 @@ B -> b """)
 end = re.compile(r'\bEND$')
 nameRegex = re.compile(r'^[a-zA-Z]+$')
 
-def generateSequence(transitionLevel, digitOption):
-    digitOption = digitOption.lower()
+def generateSequence(transitionLevel, digitOption,sequence):
     if (cfg1.contains(digitOption)):
-        return convertOptionToValidSequence(transitionLevel, digitOption)
+        return convertOptionToValidSequence(transitionLevel, digitOption, sequence)
     return ''
 
 def validate_name(name):
     return nameRegex.match(name)
-    
-def validate_answer(answer):
-    if len(answer) == 1 and (answer=='a' or answer=='b'):
-        return True
-    else:
-        return False
     
 def translate(toReplace,toTranslate):
     reemplazar = FST()
@@ -2018,7 +2008,6 @@ class Current:
         self.endReached = False
         self.name="Gabriel"
         self.sequence = ''
-
     def setCurrent(self,newCurrent):
         self.transitionLevel = newCurrent
 
@@ -2043,7 +2032,7 @@ def advance(opcionElegida,current):
     if(not current.getEndReached()):
         sequence=current.getSequence()
         current.setCurrent(current.getCurrent()+1)
-        optionToInsert = generateSequence(current.getCurrent(), opcionElegida)
+        optionToInsert = generateSequence(current.getCurrent(), opcionElegida,current.getSequence())
         sequence += optionToInsert
         dialogue=dialogos(current.getCurrent(),sequence)
         dialogue= translate(dialogue,current.getName())
