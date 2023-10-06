@@ -1271,27 +1271,8 @@ story10.add_final_state("c39")
 
 #Reemplaza los nombres y mantiene todo lo demas igual
 
-h = CFG.from_text("""
-S -> a S | A
-A -> b A | epsilon""")
-print()
-
-print(story11.accepts("0000"))
-
 from pyformlang.cfg import CFG
 
-# Define a CFG for generating simple dialogues
-dialogue_grammar = CFG.from_text("""
-S -> Greeting Name Question
-Greeting -> "Hello" | "Hi" | "Hey"
-Name -> "John" | "Mary" | "Bob"
-Question -> "How are you?" | "What's up?" | "How's it going?"
-""")
-
-# Generate a dialogue
-dialogue = dialogue_grammar.get_words()
-print(dialogue.close())
-   
 def dialogos(transitionLevel, string):
     value = string[-1]
     response = ""
@@ -1329,7 +1310,7 @@ def dialogos(transitionLevel, string):
                     response +="(Con tus lágrimas cubriendo toda tu cara, y un nudo en la garganta que te hace sentir como si se fuera a partir en dos, no sabes qué hacer. ¿Le haces caso a tu hija e intentas seguir a delante, o investigas más para encontrar la causa de que ella se fuera?)"
                 case 'c':
                     #Hablar con el profesor: 0c
-                    response = "Hablas con el profesor director de su clase. Sorprendido de verte allí, te dice que no tiene idea de por qué tu hija terminó de esa manera, que él la notaba normal hasta antes del suceso, y que mejor dejes que la policía haga su trabajo. Intentas hablar más con él, pero te dice que está muy ocupado, y te advierte de que si no dejas de “perturbar el ambiente estudiantil” llamará a la policía. Decepcionado y confundido, regresas a tu rutina de destrucción personal, abandonándolo todo, sin saber la verdad, y sin que se haga justicia, ya que la policía nunca encontró nada."
+                    response = "Hablas con el profesor director de su clase. Sorprendido de verte allí, te dice que no tiene idea de por qué tu hija terminó de esa manera, que él la notaba normal hasta antes del suceso, y que mejor dejes que la policía haga su trabajo. Intentas hablar más con él, pero te dice que está muy ocupado, y te advierte de que si no dejas de “perturbar el ambiente estudiantil” llamará a la policía. Decepcionado y confundido, regresas a tu rutina de destrucción personal, abandonándolo todo, sin saber la verdad, y sin que se haga justicia, ya que la policía nunca encontró nada. END"
                 case 'd':
                     #Hablar con Valentina: 0d
                     response = "Decides preguntarle a Valentina sobre lo que le pasó a tu hija. Al principio no te quiere responder nada, te evita y sigue su camino. Sin embargo, cuando le preguntas la razón voltea y, nerviosa, te dice en voz baja, y de una manera preocupada “Todo es culpa de Gabriel”. Después de eso, sale corriendo. "
@@ -1339,7 +1320,7 @@ def dialogos(transitionLevel, string):
             match value:
                 case '0':
                     #No ver el diario: 000
-                    response = "Mientras te debatías entre ver o no el diario, llega tu esposa y te confronta. Al verte tan alterado decide directamente quitarte el diario de las manos, causando una pelea. A raíz de todo eso tu vida solo siguió empeorando. Te separaste, y en tu soledad, solo podías seguir pensando la falta que tu hija le hacía a tu vida. Al final, tuviste el mismo destino que ella, todo porque estabas lleno de culpa por no haber hecho lo suficiente. "
+                    response = "Mientras te debatías entre ver o no el diario, llega tu esposa y te confronta. Al verte tan alterado decide directamente quitarte el diario de las manos, causando una pelea. A raíz de todo eso tu vida solo siguió empeorando. Te separaste, y en tu soledad, solo podías seguir pensando la falta que tu hija le hacía a tu vida. Al final, tuviste el mismo destino que ella, todo porque estabas lleno de culpa por no haber hecho lo suficiente. END"
                 case '1':
                     #Ver el diario: 001
                     response = "Con cuidado, abres el diario y comienzas a leer sus pensamientos más íntimos. No lo piensas dos veces y decides leer las últimas páginas, buscando alguna razón. "
@@ -1350,7 +1331,7 @@ def dialogos(transitionLevel, string):
 
                 case '2':
                     #Le haces caso a la grabación de tu hija : 012
-                    response = "Decides ignorar todos tus delirios de saber la verdad por tu cuenta, de encontrar un culpable y hacerlo pagar, ese es el trabajo de la policía. Aunque te duela demasiado, hacerle caso a tu hija es lo mejor, tu esposa también está sufriendo, tienen que abordar el tema juntos. Así que decides avanzar junto a ella, todo mejorará. "
+                    response = "Decides ignorar todos tus delirios de saber la verdad por tu cuenta, de encontrar un culpable y hacerlo pagar, ese es el trabajo de la policía. Aunque te duela demasiado, hacerle caso a tu hija es lo mejor, tu esposa también está sufriendo, tienen que abordar el tema juntos. Así que decides avanzar junto a ella, todo mejorará. END"
                 case '3':
                     #Investigar más: 013
                     response = "Le pides perdón a tu hija por no respetar sus últimos deseos, pero no puedes rendirte tan fácil. Sigues investigando su computador, y descubres que no cerró sesión en una de sus redes sociales, así que comienzas a buscar entre las conversaciones. No habían muchos mensajes,  al parecer es una de esas redes sociales donde solo se comparten videos. Pero el chat más reciente llama enormemente tu atención. Era tu hija, rogándole a un tal Gabriel atención, que dejase de ignorarla, que necesitaba ayuda, que se haga responsable, que lo perdonaba si lo hacía. No encuentras nada más de utilidad en esa computadora."
@@ -1376,7 +1357,7 @@ def dialogos(transitionLevel, string):
                     response +="(Sin embargo, ya es de noche. Sabes dónde viven los padres de Gabriel gracias al grupo que hicieron en el colegio, pero estás seguro de que sea una buena idea ir a esta hora. Puedes ir de todas formas o presentar el diario a la policía, dejándole el resto a ellos.)"
                 case '2':
                     #Llamar a la policía: 0dc2
-                    response = "Llegas a la comisaría convencido de que la policía esta vez podrá ayudarte con lo que sabes. Pero una vez investigan a Gabriel, dicen que no encontraron nada que haga que tenga que ver con el suicidio de tu hija. Además, te prohíben investigar por tu cuenta, ya que los padres de Gabriel pusieron una fuerte queja al departamento de policía, y no quieren más problemas. Pasaron los días y la investigación nunca llegó a nada, nunca supiste por qué lo hizo, moriste en el alcohol, atormentado por la culpa que tú mismo te impusiste. "
+                    response = "Llegas a la comisaría convencido de que la policía esta vez podrá ayudarte con lo que sabes. Pero una vez investigan a Gabriel, dicen que no encontraron nada que haga que tenga que ver con el suicidio de tu hija. Además, te prohíben investigar por tu cuenta, ya que los padres de Gabriel pusieron una fuerte queja al departamento de policía, y no quieren más problemas. Pasaron los días y la investigación nunca llegó a nada, nunca supiste por qué lo hizo, moriste en el alcohol, atormentado por la culpa que tú mismo te impusiste. END"
                 case '3':
                     #Hablar con los padres de Gabriel: 0dd3
                     response = "Una vez llegas a su casa, tocas el timbre y te presentas como el padre Vanesa. Justo cuando terminas de introducirte, detrás de la puerta todo queda en silencio un tiempo, luego de eso, la vos del padre te dice que están muy ocupados justo ahora, que no pueden hablar contigo, así que lo mejor es que te marches. Sin embargo, tú no te vas a ir, y luego de insistir con que solo quieres hacerles unas preguntas, te gritan que te marches o llamarán a la policía."
@@ -1394,12 +1375,12 @@ def dialogos(transitionLevel, string):
                     response = "Partes determinado a encontrar a Gabriel, y una vez llegas a la casa, comienzas a tocar el timbre, esperando alguna respuesta. Sin embargo, la puerta se abre, y entre la oscuridad emerge un potente golpe. Despiertas encerrado en la comisaría, el diario no está, y pese a tus declaraciones, los agentes dicen que irrumpiste en la casa de una familia con intenciones violentas, y que ellos te noquearon en defensa personal mientras llegaba la policía. Te sueltan luego de unos días, prohibiéndote acercarte a la familia de Gabriel. Sin el diario, no tienes nada más de lo que agarrarte para buscar respuestas, así que nunca supiste la verdad."
                 case 'f':
                     #Policia: 0dd7
-                    response = "Llamas a la policía, sin embargo, no sabes cómo explicarles que tienes la sospecha de que un chico de grado 11 hizo algo terrible. Aun así, envían una patrulla y, luego de un gran ajetreo, dan con Gabriel, el cual estaba con su padre, el profesor director del salón en donde estudiaba tu hija. Luego de una charla, los policías se marchan, no sin antes multarte por causar semejante alboroto en un colegio, luego recibes una denuncia por parte de los padres de Gabriel, y se te prohíbe acercarte a cualquiera de los miembros de esa familia. Nunca supiste lo que pasó. "
+                    response = "Llamas a la policía, sin embargo, no sabes cómo explicarles que tienes la sospecha de que un chico de grado 11 hizo algo terrible. Aun así, envían una patrulla y, luego de un gran ajetreo, dan con Gabriel, el cual estaba con su padre, el profesor director del salón en donde estudiaba tu hija. Luego de una charla, los policías se marchan, no sin antes multarte por causar semejante alboroto en un colegio, luego recibes una denuncia por parte de los padres de Gabriel, y se te prohíbe acercarte a cualquiera de los miembros de esa familia. Nunca supiste lo que pasó. END"
         case 5:
             match value:
                 case '0':
                     #Escuchar a tu esposa: 00100
-                    response = "La abrazas con fuerza, y le prometes que superarán esto juntos. Le pides perdón por haberte ausentado, y, a punto de romper en llanto, juras materializar la bondad que hacía especial a tu hija. Los años pasaron, y aprendieron a recordarla con cariño, la policía nunca encontró nada. "
+                    response = "La abrazas con fuerza, y le prometes que superarán esto juntos. Le pides perdón por haberte ausentado, y, a punto de romper en llanto, juras materializar la bondad que hacía especial a tu hija. Los años pasaron, y aprendieron a recordarla con cariño, la policía nunca encontró nada. END"
                 case '1':
                     #No escuchar a tu esposa: 00111
                     response = "Pese a lo conmovido que estás, no puedes abandonar la idea de saber la verdad, así que te marchas prometiendo volver cuando se haya hecho justicia."
@@ -1407,7 +1388,7 @@ def dialogos(transitionLevel, string):
                 case '2':
 
                     #Ir a la casa de Gabriel: 00122
-                    response = "Partes determinado a encontrar a Gabriel, y una vez llegas a la casa, comienzas a tocar el timbre, esperando alguna respuesta. Sin embargo, la puerta se abre, y entre la oscuridad emerge un potente golpe. Despiertas encerrado en la comisaría, el diario no está, y pese a tus declaraciones, los agentes dicen que irrumpiste en la casa de una familia con intenciones violentas, y que ellos te noquearon en defensa personal mientras llegaba la policía. Te sueltan luego de unos días, prohibiéndote acercarte a la familia de Gabriel. Sin el diario, no tienes nada más de lo que agarrarte para buscar respuestas, así que nunca supiste la verdad. "
+                    response = "Partes determinado a encontrar a Gabriel, y una vez llegas a la casa, comienzas a tocar el timbre, esperando alguna respuesta. Sin embargo, la puerta se abre, y entre la oscuridad emerge un potente golpe. Despiertas encerrado en la comisaría, el diario no está, y pese a tus declaraciones, los agentes dicen que irrumpiste en la casa de una familia con intenciones violentas, y que ellos te noquearon en defensa personal mientras llegaba la policía. Te sueltan luego de unos días, prohibiéndote acercarte a la familia de Gabriel. Sin el diario, no tienes nada más de lo que agarrarte para buscar respuestas, así que nunca supiste la verdad. END"
                 case '3':
                     #Vas a la policia: 00133
                     response = "Llegas a la estación de policía con el Diario de tu hija. Y después de explicar la situación, lo entregas con la promesa de que ellos lo examinarán y te informarán en unas semanas."
@@ -1422,7 +1403,7 @@ def dialogos(transitionLevel, string):
                     response +="(¿Insistes un poco más, o te rindes?)"
                 case 'c':
                     #Vas por Gabriel en el día 0dc6
-                    response = "No puedes esperar más, tiene que pagar. Te subes en tu carro y lo persigues, lo encuentras en una avenida, y sin pensarlo dos veces, bajas del auto y te abalanzas sobre él. Sin embargo, no puedes hacer mucho, la gente de alrededor de confronta y terminas siendo golpeado por muchas personas, las cuales querían defender a un chico de 18 años de un señor loco que se bajó de un carro a pegarle. Luchas con todas tus fuerzas, pero entre toda la confusión, algún desquiciado te hizo una herida con algo diferente a sus puños. Pierdes las fuerzas y, mientras caes al suelo, te das cuenta de que no te volverás a levantar."
+                    response = "No puedes esperar más, tiene que pagar. Te subes en tu carro y lo persigues, lo encuentras en una avenida, y sin pensarlo dos veces, bajas del auto y te abalanzas sobre él. Sin embargo, no puedes hacer mucho, la gente de alrededor de confronta y terminas siendo golpeado por muchas personas, las cuales querían defender a un chico de 18 años de un señor loco que se bajó de un carro a pegarle. Luchas con todas tus fuerzas, pero entre toda la confusión, algún desquiciado te hizo una herida con algo diferente a sus puños. Pierdes las fuerzas y, mientras caes al suelo, te das cuenta de que no te volverás a levantar. END"
                 case 'd':
                     #Vas por Gabriel en la noche 0dd7
                     response = "Decides esperar y tener un buen plan para efectuar tu venganza. Valentina te había dicho que Gabriel iba mucho a comprar cigarrillos por la noche, así que aguardarás a que él vaya a ti por la noche. Todo sucede como lo planeaste. Lo tomas por sorpresa y le tapas la boca, le atas y lo llevas a tu carro. Conduces a toda velocidad fuera de la ciudad, la adrenalina no para de correr por tu cuerpo. Te quieres vengar, y lo harás. "
@@ -1433,7 +1414,7 @@ def dialogos(transitionLevel, string):
                     response +="(Gabriel se da cuenta de esto, y decide tirarte un cesto de basura que había en la calle. Estás muy cerca. ¿Saltas el cesto, o frenas y lo rodeas?)"
                 case 'f':
                     #Giras el callejón: 0dd6f
-                    response = "Giras hacia el callejón y te adentras en él. Llegas al final sin encontrarle, y mientras te dispones a seguir tu cometido, sientes como una hoja fría te atraviesa el hombro lentamente. Te quieren robar. Furioso, forcejeas, no tienes tiempo para esto, quieres alcanzarle y hacerle pagar, pero al delincuente no le importan tus razones, está drogado, y si no le das lo que quiere cometerá una locura. Y así fue."
+                    response = "Giras hacia el callejón y te adentras en él. Llegas al final sin encontrarle, y mientras te dispones a seguir tu cometido, sientes como una hoja fría te atraviesa el hombro lentamente. Te quieren robar. Furioso, forcejeas, no tienes tiempo para esto, quieres alcanzarle y hacerle pagar, pero al delincuente no le importan tus razones, está drogado, y si no le das lo que quiere cometerá una locura. Y así fue. END"
                 case 'g':
                     #Buscas a Gabriel en el segundo piso: 0dd44g
                     response = "Subes al segundo piso. Encuentras a Gabriel intentando acceder a un curso, pero vuelve a correr justo cuando te ve. La persecución llega hasta unas escaleras. Gabriel te dice que no te acerques más, que la policía seguro ya viene en camino, que te vayas por donde viniste."
@@ -1446,7 +1427,7 @@ def dialogos(transitionLevel, string):
             match value:
                 case '0':
                     #forcejear con tu esposa: 001110
-                    response = "Forcejeas con tu esposa, no quieres lastimarle, solo quieres que te suelte, quieres salir y buscar al culpable, sabes que hay uno, lo sientes, y quieres hacerle pagar. Pero tu esposa no se rinde, el conflicto avanza, y tú, cansado de todo, la empujas hacia atrás con fuerza. No mediste tu fuerza, ni viste a dónde la empujaste. Se rompió el cuello con el filo de un mueble para guardar porcelana. Todo es silencio, te arrepientes de cada segundo de tu existencia. Te entregas a la policía y mueres en la cárcel, infeliz hasta tu último día."
+                    response = "Forcejeas con tu esposa, no quieres lastimarle, solo quieres que te suelte, quieres salir y buscar al culpable, sabes que hay uno, lo sientes, y quieres hacerle pagar. Pero tu esposa no se rinde, el conflicto avanza, y tú, cansado de todo, la empujas hacia atrás con fuerza. No mediste tu fuerza, ni viste a dónde la empujaste. Se rompió el cuello con el filo de un mueble para guardar porcelana. Todo es silencio, te arrepientes de cada segundo de tu existencia. Te entregas a la policía y mueres en la cárcel, infeliz hasta tu último día. END"
                 case '1':
                     #convencer a tu esposa: 001111
                     response = "Con tu esposa fuertemente aferrada a ti, decides que lo mejor es lograr que te entienda, que se una junto a ti para encontrar la verdad."
@@ -1472,27 +1453,27 @@ def dialogos(transitionLevel, string):
                     response = "(Aún no te das por vencido, con tus últimas fuerzas, quieres convencerlos hablándoles de justicia, ¿o amenazándoles?)"
                 case '7':
                     #Te rindes: 0dd66
-                    response = "Te rindes y esperas a que la policía llegue. Llegan dos patrullas y te detienen sin escuchar una sola palabra de lo que tienes que decir. No tienes más pruebas que un chat, y luego de que te prohíban acercarte a esa familia el resto de tu vida, pierdes la esperanza en encontrar la verdad."
+                    response = "Te rindes y esperas a que la policía llegue. Llegan dos patrullas y te detienen sin escuchar una sola palabra de lo que tienes que decir. No tienes más pruebas que un chat, y luego de que te prohíban acercarte a esa familia el resto de tu vida, pierdes la esperanza en encontrar la verdad. END"
                 case 'c':
                     #Escuchas a Gabriel secuestrado: 0dd44g6
                     response = "Decides quitarle la cinta de la boca a Gabriel y escuchar lo que tiene que decirte. Al principio dice que estás loco, que lo dejes ir, y que te van a encerrar. Pero luego de un silencio de unos minutos, comienza a disculparse, sabe que lo que hizo fue horrible, y que no sabía que tu hija haría algo como eso, él solo quería escapar de la responsabilidad. Es lo que mejor sabe hacer."
                     response +="(Gabriel te dice que acepta ir a prisión, ya no va a escapar más. Ahora está en tu mano lo que hacer con él. Puedes perdonarle y entregarlo a la policía, o cobrar su vida por la de tu hija.)"
                 case 'd':
                     #Acabas con Gabriel secuestrado: 0dd44g7
-                    response = "Escucharlo no va a cambiar lo que hizo. Acabas con él con odio, cercenando su vida lentamente, tu hija también sufrió mucho antes de morir, al fin y al cabo. Cuando terminas, escapas lejos, escondiendo el cadáver lo mejor que puedes. Te terminan encontrando, y mueres de viejo en la cárcel, habiendo efectuado tu venganza, pero sin sentirte satisfecho del todo."
+                    response = "Escucharlo no va a cambiar lo que hizo. Acabas con él con odio, cercenando su vida lentamente, tu hija también sufrió mucho antes de morir, al fin y al cabo. Cuando terminas, escapas lejos, escondiendo el cadáver lo mejor que puedes. Te terminan encontrando, y mueres de viejo en la cárcel, habiendo efectuado tu venganza, pero sin sentirte satisfecho del todo. END"
                 case 'e':
                     #Saltas el obstáculo: 0dd5e8
-                    response = "Saltas con todas tus fuerzas el cesto de basura. Pero nunca has sido tan ágil, terminas tropezando y dándote un gran golpe en la cabeza. Despiertas en el hospital, con la policía esperando a que te recuperes para encerrarte por intentar hacerle daño a un chico de 18 años. Cuando explicas lo que pasó, investigan y no llegan a nada. Valentina les dijo que te mintió porque estaba asustada, y Gabriel dijo que corrió porque gritaste que lo ibas a matar, aunque nunca lo hiciste. Eres encarcelado, y cuando sales de prisión ya todo es demasiado tarde."
+                    response = "Saltas con todas tus fuerzas el cesto de basura. Pero nunca has sido tan ágil, terminas tropezando y dándote un gran golpe en la cabeza. Despiertas en el hospital, con la policía esperando a que te recuperes para encerrarte por intentar hacerle daño a un chico de 18 años. Cuando explicas lo que pasó, investigan y no llegan a nada. Valentina les dijo que te mintió porque estaba asustada, y Gabriel dijo que corrió porque gritaste que lo ibas a matar, aunque nunca lo hiciste. Eres encarcelado, y cuando sales de prisión ya todo es demasiado tarde. END"
                 case 'f':
                     #Rodeas el obstáculo: 0dd5e9
                     response = "Decides no tomarte el obstáculo a la ligera y lo rodeas, teniendo cuidado de que no te atropellen. Gabriel, cansado de toda la persecución, se esconde en una construcción sin acabar. Lo sigues a través de los pisos hasta que llegas arriba del todo. Está demasiado alto como para saltar y seguir vivo, así que Gabriel ya no tiene escapatoria."
                     response +="(Mientras te acercas a él, te grita que te detengas, que sabe lo que hizo y no quiere seguir escapando más. Acepta entregarse a la policía. ¿Lo entregarás a la Policía, o tomarás la justicia por tus propias manos?)"
                 case 'g':
                     #Intentas atrapar a Gabriel en el colegio: 0dd44g8
-                    response = "Te aproximas rápidamente ante el ya exhausto Gabriel. Él corre por las escaleras, pero lo ves tropezar y escuchas como cae con fuerza. Llegas a las escaleras, pero Gabriel ya no se mueve. Te encierran en prisión gracias a lo sucedido. Nunca supiste lo que pasó en realidad con tu hija."
+                    response = "Te aproximas rápidamente ante el ya exhausto Gabriel. Él corre por las escaleras, pero lo ves tropezar y escuchas como cae con fuerza. Llegas a las escaleras, pero Gabriel ya no se mueve. Te encierran en prisión gracias a lo sucedido. Nunca supiste lo que pasó en realidad con tu hija. END"
                 case 'h':
                     #Hablas con Gabriel en el colegio: 0dd44h9
-                    response = "Accedes a hablar. Gabriel se arrodilla, y sin decirte nada más, comienza a llorar pidiéndote perdón. La policía llega, y es entonces cuando Gabriel confiesa: Salieron a un concierto, y esa noche la violó y la embarazó, pero decidió evitarla por todos los medios posibles, dejándola sola con su problema. Aseguró no sospechar que ella se quitaría la vida, pero el delito ya estaba hecho. Fue a prisión, como él ya tenía 18 cuando eso sucedió tardó más en salir. Supiste la verdad y llevaste al culpable a la justicia. . ."
+                    response = "Accedes a hablar. Gabriel se arrodilla, y sin decirte nada más, comienza a llorar pidiéndote perdón. La policía llega, y es entonces cuando Gabriel confiesa: Salieron a un concierto, y esa noche la violó y la embarazó, pero decidió evitarla por todos los medios posibles, dejándola sola con su problema. Aseguró no sospechar que ella se quitaría la vida, pero el delito ya estaba hecho. Fue a prisión, como él ya tenía 18 cuando eso sucedió tardó más en salir. Supiste la verdad y llevaste al culpable a la justicia. . . END"
                 case 'i':
                     #Atraviesas al padre de Gabriel en el colegio: 0dd44g5i
                     response = "No quieres perder más tiempo, quieres interrogar a Gabriel, y eso harás. Sin embargo, el padre comienza una pelea contigo en defensa de su hijo. Furioso, sales vencedor, dejando al padre en el piso, con la nariz rota y sin apenas tener fuerzas para moverse. Te aproximas a Gabriel, quien, asustado por toda la pelea, se había arrinconado en una esquina. Es tu momento de interrogarle, de saber lo que hizo, pero cuando te ve a los ojos, sientes que está viendo a un monstruo. En ese momento piensas en tu hija, recuerdas su sonrisa, su bondad, lo felices que los hacía a todos, jamás hubieras querido que te vea así."
@@ -1509,7 +1490,7 @@ def dialogos(transitionLevel, string):
                     response +="(Ves que algo se rompe dentro de ella, y sale corriendo hacia su habitación. ¿Le sigues o te marchas?)"
                 case '1':
                     #Hablas del odio con tu esposa: 0011111
-                    response = "Le comunicas a tu esposa el odio que te tienes por quien tenga la culpa de haber hecho que tu hija se quitara la vida. Le gritas que ese odio es lo que te motiva a actuar, y que no puedes estar en paz que quien tenga la culpa tenga su merecido. Notas que la expresión de tu esposa cambió, y te dice que te teme. Te amenaza con llamar a la policía si intentas hacer alguna tontería. Ante tal amenaza, decides no hacer nada. Pasan los años, terminas por divorciarte, y pasas el resto de tu vida solo. Odiándote a ti mismo."
+                    response = "Le comunicas a tu esposa el odio que te tienes por quien tenga la culpa de haber hecho que tu hija se quitara la vida. Le gritas que ese odio es lo que te motiva a actuar, y que no puedes estar en paz que quien tenga la culpa tenga su merecido. Notas que la expresión de tu esposa cambió, y te dice que te teme. Te amenaza con llamar a la policía si intentas hacer alguna tontería. Ante tal amenaza, decides no hacer nada. Pasan los años, terminas por divorciarte, y pasas el resto de tu vida solo. Odiándote a ti mismo. END"
                 case '2':
                     #Eres paciente en casa: 0011222
                     response = "Pese a las ganas de tomar un trago, permaneces esperando en casa, junto a tu esposa. Pasan las semanas y la policía te informa que logró ver lo que estaba escrito en el diario de tu hija: Gabriel abusó sexualmente de ella, y después de eso no mostró interés en continuar siquiera hablando con ella, quien aún seguía creyendo en que él cambiaría de opinión. Pasaron los días y ella se dio cuenta de que quedó embarazada, decidida a confrontarle, fue a buscar apoyo en su mejor amiga, la cual le dio la espalda. Asustada de hacerlo sola, decidió que lo mejor era acabar con todo ella misma, y así lo hizo"
@@ -1520,7 +1501,7 @@ def dialogos(transitionLevel, string):
                     response +="(Ahora que sabes la verdad, la policía te informa que van a arrestarle mañana. ¿Dejarás a la policía acabar el trabajo, o harás justicia tú mismo?)"
                 case '4':
                     #Intentas escapar de la cárcel: 0dc334
-                    response = "Intentas escapar de la cárcel, ¿qué tan complicado puede ser? Respuesta rápida, mucho. Te terminan mandando a otra cárcel a la par que aumentan tu condena. Cuando sales de prisión ya nada tiene sentido, estás solo y nunca supiste lo que pasó con tu hija."
+                    response = "Intentas escapar de la cárcel, ¿qué tan complicado puede ser? Respuesta rápida, mucho. Te terminan mandando a otra cárcel a la par que aumentan tu condena. Cuando sales de prisión ya nada tiene sentido, estás solo y nunca supiste lo que pasó con tu hija. END"
                 case '5':
                     #Esperas en la cárcel: 0dc335
                     response = "Esperas en la cárcel, pasan las semanas y te un guardia te envía el siguiente comunicado: “La investigación fue fructífera, encontramos que Gabriel abusó sexualmente de ella, y después de eso no mostró interés en continuar siquiera hablando con ella, quien aún seguía creyendo en que él cambiaría de opinión. Pasaron los días y ella se dio cuenta de que quedó embarazada, decidida a confrontarle, fue a buscar apoyo en su mejor amiga, la cual le dio la espalda. Asustada de hacerlo sola, decidió que lo mejor era acabar con todo ella misma.”. Pasan los días y, entre los reclusos nuevos, ves que entra Gabriel."
@@ -1531,41 +1512,41 @@ def dialogos(transitionLevel, string):
                     response +="(Ahora sabes lo que causó que ella se fuera, y tienes en tus manos a la madre del culpable. Tu hija significaba todo para ti, puedes dejar que se entreguen a la policía, o quitarle a Gabriel algo igual de importante para siempre.)"
                 case '7':
                     #Sueltas a la esposa: 0dd44g47
-                    response = "Confiando en lo que el padre de Gabriel te promete, sueltas a tu rehén, quien corre llorando a sus brazos. Sin embargo, en vez de obtener la verdad, recibes un golpe en la cabeza. Despiertas encerrado en la comisaría. Se te acusa por irrumpir en una vivienda con intenciones violentas, y que ellos te noquearon en defensa personal mientras llegaba la policía. No tienes ninguna prueba para librarte de esta situación, te condenan a algunos años de prisión. Cuando sales ya nada tiene sentido."
+                    response = "Confiando en lo que el padre de Gabriel te promete, sueltas a tu rehén, quien corre llorando a sus brazos. Sin embargo, en vez de obtener la verdad, recibes un golpe en la cabeza. Despiertas encerrado en la comisaría. Se te acusa por irrumpir en una vivienda con intenciones violentas, y que ellos te noquearon en defensa personal mientras llegaba la policía. No tienes ninguna prueba para librarte de esta situación, te condenan a algunos años de prisión. Cuando sales ya nada tiene sentido. END"
                 case '8':
                     #Atacas con la botella: 0dd44g58
                     response = "Agarras la botella y la revientas contra la cabeza de tu adversario. Cae al suelo en dolor, y aprovechas para tomar ventaja de él. Cuando lo haces, le gritas a su esposa que te diga la verdad de lo que pasó, ella, aterrada, te dice: “Fue nuestro hijo, Gabriel abusó de tu hija sexualmente después de un concierto, no se quería arruinar su vida por ese error, así que nos lo comentó, y estábamos listos para defenderle cuando ella le denunciara. Pero nunca lo hizo, y cuando nos enteramos de que había terminado con su vida, estábamos tan asustados que decidimos que nadie diría nada sobre el tema.”"
                     response +="(Ahora sabes lo que causó que ella se fuera, y tienes en tus manos al padre del culpable. Tu hija significaba todo para ti, puedes dejar que se entreguen a la policía, o quitarle a Gabriel algo igual de importante para siempre.)"
                 case '9':
                     #Atacas con el lapicero: 0dd44g59
-                    response = "Agarras el lapicero y lo entierras con fuerza sobre el ojo de tu adversario. Un chorro de sangre comienza a brotar, y entre más sangre sale, menos razón te queda. Como si tus instintos más bajos se salieran de control por el pánico y la adrenalina, terminas por terminar el trabajo. Te encarcelan por homicidio, entre otros cuantos cargos más. Te pudres en prisión, obsesionado con saber lo que pasó, hasta el fin de tus días."
+                    response = "Agarras el lapicero y lo entierras con fuerza sobre el ojo de tu adversario. Un chorro de sangre comienza a brotar, y entre más sangre sale, menos razón te queda. Como si tus instintos más bajos se salieran de control por el pánico y la adrenalina, terminas por terminar el trabajo. Te encarcelan por homicidio, entre otros cuantos cargos más. Te pudres en prisión, obsesionado con saber lo que pasó, hasta el fin de tus días. END"
                 case 'a':
                     #Le hablas a los padres sobre la justicia: 0dd44hja
-                    response = "Tu hija era todo para ti, ellos como padres que son seguro lo entienden, también quisieran saber lo que sucedió si su hijo corriera con el mismo destino. Imploras que, si tienen algo que ver, por favor dejen que se haga justicia, ningún padre merece perder a su hija y nunca saber la razón. Ya no les pides respuestas, ahora, les pides ayuda. La policía llega, pero cuando se dirigían a llevarte, la puerta se abre, son los padres de Gabriel, junto con él, los que terminan subiendo a la estación de policía. Pasan los días y se te explica lo que sucedió: Gabriel abusó sexualmente de tu hija, y después de eso no mostró interés en continuar siquiera hablando con ella, quien aún seguía creyendo en que él cambiaría de opinión. Pasaron los días y ella se dio cuenta de que quedó embarazada, decidida a confrontarle, fue a buscar apoyo en su mejor amiga, la cual le dio la espalda. Asustada de hacerlo sola, decidió que lo mejor era acabar con todo ella misma. Gabriel quería arruinar su vida a los 18 años por ese error, así que les comentó a sus padres la situación, y ellos estaban listos para defenderle cuando ella le denunciara. Pero nunca lo hizo, y cuando se enteraron de que había terminado con su vida, estaban tan asustados que decidieron que ocultar todo. Pero les hiciste entrar en razón. Ahora Gabriel está en la cárcel, supiste lo que pasó, y se hizo justicia."
+                    response = "Tu hija era todo para ti, ellos como padres que son seguro lo entienden, también quisieran saber lo que sucedió si su hijo corriera con el mismo destino. Imploras que, si tienen algo que ver, por favor dejen que se haga justicia, ningún padre merece perder a su hija y nunca saber la razón. Ya no les pides respuestas, ahora, les pides ayuda. La policía llega, pero cuando se dirigían a llevarte, la puerta se abre, son los padres de Gabriel, junto con él, los que terminan subiendo a la estación de policía. Pasan los días y se te explica lo que sucedió: Gabriel abusó sexualmente de tu hija, y después de eso no mostró interés en continuar siquiera hablando con ella, quien aún seguía creyendo en que él cambiaría de opinión. Pasaron los días y ella se dio cuenta de que quedó embarazada, decidida a confrontarle, fue a buscar apoyo en su mejor amiga, la cual le dio la espalda. Asustada de hacerlo sola, decidió que lo mejor era acabar con todo ella misma. Gabriel quería arruinar su vida a los 18 años por ese error, así que les comentó a sus padres la situación, y ellos estaban listos para defenderle cuando ella le denunciara. Pero nunca lo hizo, y cuando se enteraron de que había terminado con su vida, estaban tan asustados que decidieron que ocultar todo. Pero les hiciste entrar en razón. Ahora Gabriel está en la cárcel, supiste lo que pasó, y se hizo justicia. END"
                 case 'b':
                     #Amenzas a los padres: 0dd44hjb
-                    response = "Amenazas a los padres con entrar violentamente si no les das una respuesta, comienzas a golpear con fuerza la puerta, pero ellos empujan desde el otro lado. La policía llega con dos patrullas y te detienen sin escuchar una sola palabra de lo que tienes que decir. No tienes más pruebas que un chat, y luego de que te prohíban acercarte a esa familia el resto de tu vida y te encarcelen pierdes la esperanza en encontrar la verdad."
+                    response = "Amenazas a los padres con entrar violentamente si no les das una respuesta, comienzas a golpear con fuerza la puerta, pero ellos empujan desde el otro lado. La policía llega con dos patrullas y te detienen sin escuchar una sola palabra de lo que tienes que decir. No tienes más pruebas que un chat, y luego de que te prohíban acercarte a esa familia el resto de tu vida y te encarcelen pierdes la esperanza en encontrar la verdad. END"
                 case 'c':
                     #Perdonas a Gabriel secuestrado: 0dd44g6c
-                    response = "Ves a Gabriel y piensas en tu hija, recuerdas su sonrisa, su bondad, lo felices que los hacía a todos, ella jamás habría permitido que le quitases la vida a un ser humano, sin importar las razones. Decides perdonar a Gabriel, él te pide ir a la comisaría, y se entrega sin rechistar. Hiciste justicia sin convertirte en un monstruo para tu hija, esperas que ella pueda descansar en paz, y tú quieres hacer lo mismo, dentro de algunos años, podrás hacerlo."
+                    response = "Ves a Gabriel y piensas en tu hija, recuerdas su sonrisa, su bondad, lo felices que los hacía a todos, ella jamás habría permitido que le quitases la vida a un ser humano, sin importar las razones. Decides perdonar a Gabriel, él te pide ir a la comisaría, y se entrega sin rechistar. Hiciste justicia sin convertirte en un monstruo para tu hija, esperas que ella pueda descansar en paz, y tú quieres hacer lo mismo, dentro de algunos años, podrás hacerlo. END"
                 case 'd':
                     #Matas a Gabriel secuestrado: 0dd44g7d
-                    response = "Escucharlo no va a cambiar lo que hizo. Acabas con él rápidamente. Cuando terminas, no puedes ni siquiera ver la escena, sientes que te has convertido en un monstruo. Vas directamente a una estación de policía y te entregas. Hiciste justicia, pero pagaste mucho a cambio. Te pudres en la cárcel deprimido, y pasas tus días vagando en tu mente entre toneladas de culpa."
+                    response = "Escucharlo no va a cambiar lo que hizo. Acabas con él rápidamente. Cuando terminas, no puedes ni siquiera ver la escena, sientes que te has convertido en un monstruo. Vas directamente a una estación de policía y te entregas. Hiciste justicia, pero pagaste mucho a cambio. Te pudres en la cárcel deprimido, y pasas tus días vagando en tu mente entre toneladas de culpa. END"
                 case 'e':
                     #Forcejeas con Gabriel en construcción: 0dd5e9e
-                    response = "Cegado en vengarte decides abalanzarte sobre él y hacerle pagar lo que hizo. Comienzan a forcejear violentamente, acercándose cada vez más al borde del edificio. Gabriel te implora que te detengas, que él de verdad se entregará y pagará en prisión por lo que hizo, pero para ti no es suficiente. De repente, ambos se resbalan y comienzan a caer. Ves como el cielo se aleja mientras el suelo se hace cada vez más grande, la expresión de Gabriel es de total terror. Pero tu ya no puedes pensar en nada más, por fin todo terminó, si tienes que morir para llevarte a ese bastardo está bien, al fin y al cabo, se lo merece. Caes al suelo, y todo se viste de un negro tan potente que difumina tu conciencia hasta que tu mera existencia se dispersa"
+                    response = "Cegado en vengarte decides abalanzarte sobre él y hacerle pagar lo que hizo. Comienzan a forcejear violentamente, acercándose cada vez más al borde del edificio. Gabriel te implora que te detengas, que él de verdad se entregará y pagará en prisión por lo que hizo, pero para ti no es suficiente. De repente, ambos se resbalan y comienzan a caer. Ves como el cielo se aleja mientras el suelo se hace cada vez más grande, la expresión de Gabriel es de total terror. Pero tu ya no puedes pensar en nada más, por fin todo terminó, si tienes que morir para llevarte a ese bastardo está bien, al fin y al cabo, se lo merece. Caes al suelo, y todo se viste de un negro tan potente que difumina tu conciencia hasta que tu mera existencia se dispersa. END"
                 case 'f':
                     #Aceptar que Gabriel se entregue en construcción: 
-                    response="Ves a Gabriel y piensas en tu hija, recuerdas su sonrisa, su bondad, lo felices que los hacía a todos, ella jamás habría permitido que le quitases la vida a un ser humano, sin importar las razones. Decides perdonar a Gabriel, él te pide ir a la comisaría, y se entrega sin rechistar. Hiciste justicia sin convertirte en un monstruo para tu hija, esperas que ella pueda descansar en paz, y tú quieres hacer lo mismo, dentro de algunos años, podrás hacerlo"
+                    response="Ves a Gabriel y piensas en tu hija, recuerdas su sonrisa, su bondad, lo felices que los hacía a todos, ella jamás habría permitido que le quitases la vida a un ser humano, sin importar las razones. Decides perdonar a Gabriel, él te pide ir a la comisaría, y se entrega sin rechistar. Hiciste justicia sin convertirte en un monstruo para tu hija, esperas que ella pueda descansar en paz, y tú quieres hacer lo mismo, dentro de algunos años, podrás hacerlo. END"
                 case 'g':
                     #Sacarle respuestas a Gabriel en colegio: 0dd44g8f
-                    response = "Arremetes contra un asustado Gabriel en busca de respuestas. Lo único que logras es lastimarlo sin sentido, nunca te dijo nada porque estaba petrificado del miedo. La policía llega y te detienen al instante. Te pudres en prisión sin saber lo que le pasó a tu hija, arrepintiéndote de todo."
+                    response = "Arremetes contra un asustado Gabriel en busca de respuestas. Lo único que logras es lastimarlo sin sentido, nunca te dijo nada porque estaba petrificado del miedo. La policía llega y te detienen al instante. Te pudres en prisión sin saber lo que le pasó a tu hija, arrepintiéndote de todo. END"
                 case 'h':
                     #Rendirte en colegio: 0dd44h9g
-                    response = "Te arrodillas y le pides perdón a Gabriel por lo que estás haciendo, le pides perdón a tu hija, porque estás seguro de que si te viera ahora mismo saldría corriendo y te odiaría, le pides perdón a todos por el alboroto, y te resignas a esperar a la policía. Sin embargo, Gabriel comienza a hablar, confiesa lo que hizo, como abusó de tu hija y huyó a los brazos de sus padres para no hacerse responsable de nada, se arrepiente de no haber hablado con tu hija, más aún cuando se enteró que estaba embarazada, el no pensó que ella se quitaría la vida. Llega la policía y termina por llevarse a ambos. Sales de prisión después de unos meses, ya sabes lo que pasó, y el culpable seguirá ahí dentro por un tiempo."
+                    response = "Te arrodillas y le pides perdón a Gabriel por lo que estás haciendo, le pides perdón a tu hija, porque estás seguro de que si te viera ahora mismo saldría corriendo y te odiaría, le pides perdón a todos por el alboroto, y te resignas a esperar a la policía. Sin embargo, Gabriel comienza a hablar, confiesa lo que hizo, como abusó de tu hija y huyó a los brazos de sus padres para no hacerse responsable de nada, se arrepiente de no haber hablado con tu hija, más aún cuando se enteró que estaba embarazada, el no pensó que ella se quitaría la vida. Llega la policía y termina por llevarse a ambos. Sales de prisión después de unos meses, ya sabes lo que pasó, y el culpable seguirá ahí dentro por un tiempo. END"
                 case 'i':
                     #Aceptar el soborno: 0dd44h9h
-                    response = "Lleno de miedo, aceptas el soborno. Por la seguridad de tu esposa, usas parte del dinero para mudarse de la ciudad. Los años pasan y la culpa no ha parado de crecer, pero no hay nada que hacer ya. Fuiste un cobarde, y lo serás el resto de tu vida."
+                    response = "Lleno de miedo, aceptas el soborno. Por la seguridad de tu esposa, usas parte del dinero para mudarse de la ciudad. Los años pasan y la culpa no ha parado de crecer, pero no hay nada que hacer ya. Fuiste un cobarde, y lo serás el resto de tu vida. END"
                 case 'j':
                     #Rehusarte al soborno: 0dd44h9i
                     response = "No te vas a rendir tan fácil, sin embargo, decirle que no a alguien en la posición en la que te encuentras no es la mejor idea."
@@ -1574,35 +1555,35 @@ def dialogos(transitionLevel, string):
             match value:
                 case '0':
                      #Vas detras de tu esposa: 0dd44hjj 
-                    response = "Sigues a tu esposa hacia la habitación, le abrazas y te das cuenta de lo que has hecho. Al fin ves lo absurdo que es buscar culpables en una situación como esta. No eres un detective, tampoco un matón, ni mucho menos un asesino; eres un padre que ha perdido a su hija, pero también eres un esposo, y eso no va a cambiar. Afrontarás todo junto a tu esposa, y saldrán juntos de lo que sea, incluido este dolor."
+                    response = "Sigues a tu esposa hacia la habitación, le abrazas y te das cuenta de lo que has hecho. Al fin ves lo absurdo que es buscar culpables en una situación como esta. No eres un detective, tampoco un matón, ni mucho menos un asesino; eres un padre que ha perdido a su hija, pero también eres un esposo, y eso no va a cambiar. Afrontarás todo junto a tu esposa, y saldrán juntos de lo que sea, incluido este dolor. END"
                 case '1':
                     #Te marchas: 0dd44hjk
-                    response = "Ignoras el llanto de tu esposa y te marchas, aunque no puedes parar de pensar en lo que dijo, en su reacción, y en cómo la hiciste sentir. Al final decides volver y hablar bien con ella, pero ya es demasiado tarde, dejó una nota pidiéndote perdón, ya que ella también era culpable, también era su hija. Decides acompañarla, con tal ya no tienes nada más que perder."
+                    response = "Ignoras el llanto de tu esposa y te marchas, aunque no puedes parar de pensar en lo que dijo, en su reacción, y en cómo la hiciste sentir. Al final decides volver y hablar bien con ella, pero ya es demasiado tarde, dejó una nota pidiéndote perdón, ya que ella también era culpable, también era su hija. Decides acompañarla, con tal ya no tienes nada más que perder. END"
                 case '2':
                     #Dejas que la policía arreste a Gabriel: 0dd44hja2
-                    response = "Decides esperar, la policía hace su trabajo y Gabriel termina en prisión. Se hizo justicia, la vida continúa junto a tu esposa mientras esperas que tu hija pueda descansar en paz."
+                    response = "Decides esperar, la policía hace su trabajo y Gabriel termina en prisión. Se hizo justicia, la vida continúa junto a tu esposa mientras esperas que tu hija pueda descansar en paz. END"
                 case '3':
                     #Buscas vengaza por tu cuenta: 0dd44hja3
                     response = "(No hay mucho tiempo que perder, así que tienes que vengarte esta noche, tampoco tienes tiempo para un elaborado plan, las únicas opciones que tienes son incendiar su casa, o irrumpir en ella directamente.)"
                 case '4':
                     #Dejar a la policía pero borracho: 0dd44hja4
-                    response = "/Decides esperar, la policía hace su trabajo y Gabriel termina en prisión. Se hizo justicia, y aunque después la relación con tu ahora exesposa se haya arruinado por el alcohol, la vida continúa. Esperas que tu hija pueda descansar en paz."
+                    response = "Decides esperar, la policía hace su trabajo y Gabriel termina en prisión. Se hizo justicia, y aunque después la relación con tu ahora exesposa se haya arruinado por el alcohol, la vida continúa. Esperas que tu hija pueda descansar en paz. END"
                 case '5':
                     #Buscas venganza por tu cuenta, pero borracho
-                    response="No hay mucho tiempo que perder, así que tienes que vengarte esta noche. Borracho, no piensas mucho en algún plan, simplemente vas e irrumpes en la casa de Gabriel. Torpemente intentas ejercer tu venganza, pero solo terminas siendo golpeado por su padre. Luego te encarcelan un tiempo, sales y tu vida no tiene sentido, estás solo y no hiciste lo correcto"
+                    response="No hay mucho tiempo que perder, así que tienes que vengarte esta noche. Borracho, no piensas mucho en algún plan, simplemente vas e irrumpes en la casa de Gabriel. Torpemente intentas ejercer tu venganza, pero solo terminas siendo golpeado por su padre. Luego te encarcelan un tiempo, sales y tu vida no tiene sentido, estás solo y no hiciste lo correcto. END"
                 case '6':
                     #Atacas a Gabriel en la cárcel: 0dc3355
-                    response = "Te abalanzas hacia Gabriel con todas tus fuerzas, dispuesto a hacerle pagar por lo que hizo. Sin embargo, los otros reclusos te detienen, dándote una golpiza que te deja muy mal herido. Después del incidente de trasladan a otra prisión, donde cumples el resto de tu condena amargado de por vida por no haber podido vengarte adecuadamente."
+                    response = "Te abalanzas hacia Gabriel con todas tus fuerzas, dispuesto a hacerle pagar por lo que hizo. Sin embargo, los otros reclusos te detienen, dándote una golpiza que te deja muy mal herido. Después del incidente de trasladan a otra prisión, donde cumples el resto de tu condena amargado de por vida por no haber podido vengarte adecuadamente. END"
                 case '7':
                     #Culpas a Gabriel en la cárcel: 0dc3356
                     response = "Decides no abalanzarte como un loco y atacar con gente que sabe tu historia después. El plan funciona, y entre todos terminan dándole una golpiza a Gabriel. Llega un momento en que el resto te dice que ya es suficiente, sin embargo, los recuerdos de tu hija solo te llenan de ira, no conoces final"
                     response +="(Puedes acabar con Gabriel, o parar.)"
                 case '8':
                     #Vengarze con la madre o padre: 0dd44g47
-                    response = "Ya no hay vuelta atrás, decides acabar con la vida de tu víctima y escapar lo más lejos que puedas. Lo haces, y mientras escuchas el llanto de su pareja, sales corriendo del sitio. La venganza está hecha, Gabriel jamás olvidará ese día, mucho menos porque es su culpa. La policía te termina encontrando y te pudres en prisión. Sacrificaste tu libertad, y con ella, parte de tu humanidad para lograr tu venganza, pero estás satisfecho."
+                    response = "Ya no hay vuelta atrás, decides acabar con la vida de tu víctima y escapar lo más lejos que puedas. Lo haces, y mientras escuchas el llanto de su pareja, sales corriendo del sitio. La venganza está hecha, Gabriel jamás olvidará ese día, mucho menos porque es su culpa. La policía te termina encontrando y te pudres en prisión. Sacrificaste tu libertad, y con ella, parte de tu humanidad para lograr tu venganza, pero estás satisfecho. END"
                 case '9':
                     #Escapas y vas a la policía con padre o madre: 0dd44g48
-                    response = "Sales corriendo de la casa, directo a la estación de policía para contarles todo. Arrestan a Gabriel, pero a ti también, lo que hiciste no fue correcto y ahora estás pagando por ello en la cárcel por un tiempo, pero se hizo justicia, ya nada más te importa, solo te queda esperar."
+                    response = "Sales corriendo de la casa, directo a la estación de policía para contarles todo. Arrestan a Gabriel, pero a ti también, lo que hiciste no fue correcto y ahora estás pagando por ello en la cárcel por un tiempo, pero se hizo justicia, ya nada más te importa, solo te queda esperar. END"
                 case 'a':
                     #Confrontas al padre en ese momento
                     response = "(Pese a la difícil situación, decides que lo mejor es confrontarlo en el momento. Puedes abalanzarte directamente o intentar sorprenderlo, ¿qué decides?)"
@@ -1614,38 +1595,38 @@ def dialogos(transitionLevel, string):
             match value:
                 case '0':
                     #Irrumpir en la casa de Gabriel: 0dd44hjab
-                    response = "Sabes que está mal, que es peligroso, pero no te importa. Una vez llegas a la casa, observas que están cenando, se ven tristes, pero no te importa. Entras, la puerta estaba abierta parece que estaban esperando a alguien, pero no te importa. Irrumpes en el comedor, agarrando uno de lo cuchillos, dispuesto a cometer una atrocidad, no te importan los gritos de todos en la habitación. Te acercas a Gabriel con las peores intenciones, pero antes de hacer nada se te van las luces. Despiertas en una celda, lo arruinaste, tu estupidez lo arruinó todo, tu esposa no sabe qué pensar de ti, ya habían resuelto lo que sucedió, ya se iba a hacer justicia. Pero para ti no fue suficiente, y ahora pagarás por ello en prisión."
+                    response = "Sabes que está mal, que es peligroso, pero no te importa. Una vez llegas a la casa, observas que están cenando, se ven tristes, pero no te importa. Entras, la puerta estaba abierta parece que estaban esperando a alguien, pero no te importa. Irrumpes en el comedor, agarrando uno de lo cuchillos, dispuesto a cometer una atrocidad, no te importan los gritos de todos en la habitación. Te acercas a Gabriel con las peores intenciones, pero antes de hacer nada se te van las luces. Despiertas en una celda, lo arruinaste, tu estupidez lo arruinó todo, tu esposa no sabe qué pensar de ti, ya habían resuelto lo que sucedió, ya se iba a hacer justicia. Pero para ti no fue suficiente, y ahora pagarás por ello en prisión. END"
                 case '1':
                     #Incendiar la casa después de esperar: 0dd44hja3c
-                    response = "Cae la noche y te acercas sigilosamente al tanque de gas de repuesto que tienen fuera de su casa, tus conocimientos de ingeniería te permiten crear una fuga que vaya directamente dentro de la casa, y luego solo es cuestión de esperar y lanzar la cerilla. Todo vuela por los aires, incluido tú, volaste demasiado fuerte del sitio. La luz de la explosión fue la última luz que viste."
+                    response = "Cae la noche y te acercas sigilosamente al tanque de gas de repuesto que tienen fuera de su casa, tus conocimientos de ingeniería te permiten crear una fuga que vaya directamente dentro de la casa, y luego solo es cuestión de esperar y lanzar la cerilla. Todo vuela por los aires, incluido tú, volaste demasiado fuerte del sitio. La luz de la explosión fue la última luz que viste. END"
                 case '2':
                     #Parar de golpear a Gabriel en prisión 0dc3356d
-                    response = "Paras, ves al culpable de todo al frente de ti, pero paras. No sabes si es porque no quieres convertirte en un asesino, o solo porque si lo acabas ya no saldrás de prisión, pero paras. Te marchas y dejas a Gabriel ahí, golpeado hasta tu saciedad. Sales de prisión y continúas tu vida, supiste la verdad y pudiste darle una golpiza al culpable."
+                    response = "Paras, ves al culpable de todo al frente de ti, pero paras. No sabes si es porque no quieres convertirte en un asesino, o solo porque si lo acabas ya no saldrás de prisión, pero paras. Te marchas y dejas a Gabriel ahí, golpeado hasta tu saciedad. Sales de prisión y continúas tu vida, supiste la verdad y pudiste darle una golpiza al culpable. END"
                 case '3':
                     #Acabar con Gabriel en prisión después de golpearlo
-                    response = "Ves al culpable de todo al frente de ti, parar para ti no es una opción. No te importa convertirte en un asesino, tampoco te importa ya no salir de prisión, no vas a parar. Para cuando el resto te detiene a la fuerza, ya es demasiado tarde. Te marchas y dejas a Gabriel ahí, muerto por tu venganza. Te trasladan a otra prisión, aunque ya te da igual. Sacrificaste tu libertad, y con ella, parte de tu humanidad para lograr tu venganza, pero estás satisfecho."
+                    response = "Ves al culpable de todo al frente de ti, parar para ti no es una opción. No te importa convertirte en un asesino, tampoco te importa ya no salir de prisión, no vas a parar. Para cuando el resto te detiene a la fuerza, ya es demasiado tarde. Te marchas y dejas a Gabriel ahí, muerto por tu venganza. Te trasladan a otra prisión, aunque ya te da igual. Sacrificaste tu libertad, y con ella, parte de tu humanidad para lograr tu venganza, pero estás satisfecho. END"
                 case 'c':
                     #Atacar a tu enemigo directamente
-                    response = "No esperas ni un segundo y te abalanzas sobre el padre de Gabriel. La pistola si estaba cargada."
+                    response = "No esperas ni un segundo y te abalanzas sobre el padre de Gabriel. La pistola si estaba cargada. END"
                 case 'd':
                     #Ataque sorpresa
                     response = "Decides simular que te vas, pero justo antes de abrir la puerta, te volteas rápidamente y tienes la suerte de que el golpe con el da en la mano del padre de Gabriel, lo que te permite acercarte y neutralizar su amenaza."
                     response +="(Tomas el arma, tienes el control. ¿Llamas a la policía o decides vengarte a sangre fría de esa maldita familia por tu cuenta?)"
                 case 'e':
                     #Incendiar la casa después de disimular
-                    response = "Cae la noche y te acercas sigilosamente al tanque de gas de repuesto que tienen fuera de su casa, tus conocimientos de ingeniería te permiten crear una fuga que vaya directamente dentro de la casa, y luego solo es cuestión de esperar y lanzar la cerilla. Todo vuela por los aires, incluido tú, volaste demasiado fuerte del sitio. La luz de la explosión fue la última luz que viste."
+                    response = "Cae la noche y te acercas sigilosamente al tanque de gas de repuesto que tienen fuera de su casa, tus conocimientos de ingeniería te permiten crear una fuga que vaya directamente dentro de la casa, y luego solo es cuestión de esperar y lanzar la cerilla. Todo vuela por los aires, incluido tú, volaste demasiado fuerte del sitio. La luz de la explosión fue la última luz que viste. END"
                 case 'f':
                     #Correr a la policía después de disimular
-                    response = "No te la piensas dos veces y vas directamente a la policía. Todo sale bien, arrestan al padre y al hijo. Resulta que confiaron completamente en que dejarías de intentarlo, tanto así que no se preocuparon en lo más mínimo de lo que fueras a hacer después. Saliste vivo, con dinero y haciendo justicia."
+                    response = "No te la piensas dos veces y vas directamente a la policía. Todo sale bien, arrestan al padre y al hijo. Resulta que confiaron completamente en que dejarías de intentarlo, tanto así que no se preocuparon en lo más mínimo de lo que fueras a hacer después. Saliste vivo, con dinero y haciendo justicia. END"
 
         case 10:
             match value:
                 case '0':
                     #Vengarte a sangre fría: 0dd44hja30
-                    response = "La primera bala fue para el padre, la segunda para la madre, la tercera para Gabriel. Ya no te importaba nada, la cuarta bala sería para ti, sino fuera porque la policía llegó a tiempo. Enloqueciste en prisión, tus ojos vacíos habían perdido todo rastro de humanidad."
+                    response = "La primera bala fue para el padre, la segunda para la madre, la tercera para Gabriel. Ya no te importaba nada, la cuarta bala sería para ti, sino fuera porque la policía llegó a tiempo. Enloqueciste en prisión, tus ojos vacíos habían perdido todo rastro de humanidad. END"
                 case '1':
                     #Llamar a la policía: 0dd44hja21
-                    response = "Con el corazón en la mano debido a tanta adrenalina, llamas a la policía. No tardan mucho en llegar y llevarse al padre y al hijo. Saliste vivo, con dinero y haciendo justicia."
+                    response = "Con el corazón en la mano debido a tanta adrenalina, llamas a la policía. No tardan mucho en llegar y llevarse al padre y al hijo. Saliste vivo, con dinero y haciendo justicia. END"
     return response
 
 def convertOptionToValidSequence(transitionLevel, digitOption):
@@ -1899,6 +1880,9 @@ S -> A | B
 A -> a
 B -> b """)
 
+end = re.compile(r'\bEND$')
+nameRegex = re.compile(r'^[a-zA-Z]+$')
+
 def generateSequence(transitionLevel, digitOption):
     digitOption = digitOption.lower()
     if (cfg1.contains(digitOption)):
@@ -1906,10 +1890,7 @@ def generateSequence(transitionLevel, digitOption):
     return ''
 
 def validate_name(name):
-    if len(name) > 0:
-        return True
-    else:
-        return False
+    return nameRegex.match(name)
     
 def validate_answer(answer):
     if len(answer) == 1 and (answer=='a' or answer=='b'):
@@ -2015,19 +1996,38 @@ def translate(toReplace,toTranslate):
 def gameExecution():
     sequence = ''
     continueGame = True
-    transitionLevel = 0
-    print(dialogos(0,'1'))
-    while (continueGame==True):
-        transitionLevel += 1
-        opcionElegida = input()
-        optionToInsert = generateSequence(transitionLevel, opcionElegida)
-        while (optionToInsert == ''):
-            print("Se ingreso un dato invalido. Por favor seleciona una de las opciones indicadas. Vamos, intentalo de nuevo!")
+    tryAgain=True
+    while (tryAgain==True):
+        transitionLevel = 0
+        print(dialogos(0,'1'))
+        while (continueGame==True):
+            transitionLevel += 1
             opcionElegida = input()
             optionToInsert = generateSequence(transitionLevel, opcionElegida)
-        sequence += optionToInsert
-        print(dialogos(transitionLevel,sequence))
+            while (optionToInsert == ''):
+                print("Se ingreso un dato invalido. Por favor seleciona una de las opciones indicadas. Vamos, intentalo de nuevo!")
+                opcionElegida = input()
+                optionToInsert = generateSequence(transitionLevel, opcionElegida)
+            sequence += optionToInsert
+            dialogue=dialogos(transitionLevel,sequence)
+            if (end.search(dialogue)):
+                print(dialogue)
+                continueGame = False
+            else:
+                print(dialogue)
+        print("¿Quieres volver a jugar? (S/N)")
+        answer = input()
+        if (answer != 'N' or answer != 'n' or answer != 'S' or answer != 's'):
+            print("Se ingreso un dato invalido. Por favor ingresa S para volver a jugar o N para salir.")
+            answer = input()
+        if (answer == 'N' or answer == 'n'):
+            tryAgain=False
+             print("¡Genial! Gracias por jugar")
+        else:
+            tryAgain=True
+            continueGame=True
+            sequence = ''
+            print("¡Genial! Vamos a jugar de nuevo.")
+        
 
 
-
-gameExecution()
