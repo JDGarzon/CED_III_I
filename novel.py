@@ -1629,6 +1629,9 @@ def dialogos(transitionLevel, string):
                     response = "Con el corazón en la mano debido a tanta adrenalina, llamas a la policía. No tardan mucho en llegar y llevarse al padre y al hijo. Saliste vivo, con dinero y haciendo justicia. END"
     return response
 
+def changeName(name):
+    current.setName(name)
+
 def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
     if digitOption == 'z':
         return 'z'
