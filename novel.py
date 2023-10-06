@@ -4,6 +4,8 @@ from pyformlang.finite_automaton import DeterministicFiniteAutomaton, State , No
 from pyformlang.cfg import CFG
 l=list()
 
+sequence = ""
+
 estado0="Estado 0"
 estado1="Estado 1"
 estado2="Estado 2"
@@ -163,14 +165,14 @@ transitions4=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -189,14 +191,14 @@ transitions5=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -207,8 +209,8 @@ transitions5=[
     ("q8","2","q13"),
     ("q8","3","q14"),
 
-    ("q9","0","e"),
-    ("q9","1","e"),
+    ("q9","z","e"),
+    ("q9","z","e"),
 
     ("q10","4","q15"),
     ("q10","5","q16"),
@@ -228,14 +230,14 @@ transitions6=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -246,20 +248,20 @@ transitions6=[
     ("q8","2","q13"),
     ("q8","3","q14"),
 
-    ("q9","0","e"),
-    ("q9","1","e"),
+    ("q9","z","e"),
+    ("q9","z","e"),
 
     ("q10","4","q15"),
     ("q10","5","q16"),
 
-    ("q11","0","e"),
-    ("q11","1","e"),
+    ("q11","z","e"),
+    ("q11","z","e"),
 
     ("q12","0","17"),
     ("q12","1","q18"),
 
-    ("q13","0","e"),
-    ("q13","1","e"),
+    ("q13","z","e"),
+    ("q13","z","e"),
 
     ("q14","2","q19"),
     ("q14","3","q20"),
@@ -285,14 +287,14 @@ transitions7=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -303,20 +305,20 @@ transitions7=[
     ("q8","2","q13"),
     ("q8","3","q14"),
 
-    ("q9","0","e"),
-    ("q9","1","e"),
+    ("q9","z","e"),
+    ("q9","z","e"),
 
     ("q10","4","q15"),
     ("q10","5","q16"),
 
-    ("q11","0","e"),
-    ("q11","1","e"),
+    ("q11","z","e"),
+    ("q11","z","e"),
 
     ("q12","0","17"),
     ("q12","1","q18"),
 
-    ("q13","0","e"),
-    ("q13","1","e"),
+    ("q13","z","e"),
+    ("q13","z","e"),
 
     ("q14","2","q19"),
     ("q14","3","q20"),
@@ -327,8 +329,8 @@ transitions7=[
     ("q16","6","q23"),
     ("q16","7","q24"),
 
-    ("q17","0","e"),
-    ("q17","1","e"),
+    ("q17","z","e"),
+    ("q17","z","e"),
 
     ("q18","0","q25"),
     ("q18","1","q26"),
@@ -348,8 +350,8 @@ transitions7=[
     ("q23","a","q35"),
     ("q23","b","q36"),
 
-    ("q24","0","e"),
-    ("q24","1","e"),
+    ("q24","z","e"),
+    ("q24","z","e"),
 
 ]
 transitions8=[
@@ -366,14 +368,14 @@ transitions8=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -384,20 +386,20 @@ transitions8=[
     ("q8","2","q13"),
     ("q8","3","q14"),
 
-    ("q9","0","e"),
-    ("q9","1","e"),
+    ("q9","z","e"),
+    ("q9","z","e"),
 
     ("q10","4","q15"),
     ("q10","5","q16"),
 
-    ("q11","0","e"),
-    ("q11","1","e"),
+    ("q11","z","e"),
+    ("q11","z","e"),
 
     ("q12","0","17"),
     ("q12","1","q18"),
 
-    ("q13","0","e"),
-    ("q13","1","e"),
+    ("q13","z","e"),
+    ("q13","z","e"),
 
     ("q14","2","q19"),
     ("q14","3","q20"),
@@ -408,8 +410,8 @@ transitions8=[
     ("q16","6","q23"),
     ("q16","7","q24"),
 
-    ("q17","0","e"),
-    ("q17","1","e"),
+    ("q17","z","e"),
+    ("q17","z","e"),
 
     ("q18","0","q25"),
     ("q18","1","q26"),
@@ -429,14 +431,14 @@ transitions8=[
     ("q23","a","q35"),
     ("q23","b","q36"),
 
-    ("q24","0","e"),
-    ("q24","1","e"),
+    ("q24","z","e"),
+    ("q24","z","e"),
 
     ("q25","0","q37"),
     ("q25","1","q38"),
 
-    ("q26","0","e"),
-    ("q26","1","e"),
+    ("q26","z","e"),
+    ("q26","z","e"),
 
     ("q27","2","q39"),
     ("q27","3","40"),
@@ -447,26 +449,26 @@ transitions8=[
     ("q29","6","q43"),
     ("q29","7","q44"),
 
-    ("q30","0","e"),
-    ("q30","1","e"),
+    ("q30","z","e"),
+    ("q30","z","e"),
 
     ("q31","8","q45"),
     ("q31","9","q46"),
 
-    ("q32","0","e"),
-    ("q32","1","e"),
+    ("q32","z","e"),
+    ("q32","z","e"),
 
     ("q33","a","q47"),
     ("q33","b","q48"),
 
-    ("q34","0","e"),
-    ("q34","1","e"),
+    ("q34","z","e"),
+    ("q34","z","e"),
 
-    ("q35","0","e"),
-    ("q35","1","e"),
+    ("q35","z","e"),
+    ("q35","z","e"),
 
-    ("q36","0","e"),
-    ("q36","1","e"),
+    ("q36","z","e"),
+    ("q36","z","e"),
 ]
 transitions9=[
     #Inicio
@@ -482,14 +484,14 @@ transitions9=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -500,20 +502,20 @@ transitions9=[
     ("q8","2","q13"),
     ("q8","3","q14"),
 
-    ("q9","0","e"),
-    ("q9","1","e"),
+    ("q9","z","e"),
+    ("q9","z","e"),
 
     ("q10","4","q15"),
     ("q10","5","q16"),
 
-    ("q11","0","e"),
-    ("q11","1","e"),
+    ("q11","z","e"),
+    ("q11","z","e"),
 
     ("q12","0","17"),
     ("q12","1","q18"),
 
-    ("q13","0","e"),
-    ("q13","1","e"),
+    ("q13","z","e"),
+    ("q13","z","e"),
 
     ("q14","2","q19"),
     ("q14","3","q20"),
@@ -524,8 +526,8 @@ transitions9=[
     ("q16","6","q23"),
     ("q16","7","q24"),
 
-    ("q17","0","e"),
-    ("q17","1","e"),
+    ("q17","z","e"),
+    ("q17","z","e"),
 
     ("q18","0","q25"),
     ("q18","1","q26"),
@@ -545,14 +547,14 @@ transitions9=[
     ("q23","a","q35"),
     ("q23","b","q36"),
 
-    ("q24","0","e"),
-    ("q24","1","e"),
+    ("q24","z","e"),
+    ("q24","z","e"),
 
     ("q25","0","q37"),
     ("q25","1","q38"),
 
-    ("q26","0","e"),
-    ("q26","1","e"),
+    ("q26","z","e"),
+    ("q26","z","e"),
 
     ("q27","2","q39"),
     ("q27","3","40"),
@@ -563,62 +565,62 @@ transitions9=[
     ("q29","6","q43"),
     ("q29","7","q44"),
 
-    ("q30","0","e"),
-    ("q30","1","e"),
+    ("q30","z","e"),
+    ("q30","z","e"),
 
     ("q31","8","q45"),
     ("q31","9","q46"),
 
-    ("q32","0","e"),
-    ("q32","1","e"),
+    ("q32","z","e"),
+    ("q32","z","e"),
 
     ("q33","a","q47"),
     ("q33","b","q48"),
 
-    ("q34","0","e"),
-    ("q34","1","e"),
+    ("q34","z","e"),
+    ("q34","z","e"),
 
-    ("q35","0","e"),
-    ("q35","1","e"),
+    ("q35","z","e"),
+    ("q35","z","e"),
 
-    ("q36","0","e"),
-    ("q36","1","e"),
+    ("q36","z","e"),
+    ("q36","z","e"),
 
-    ("q37","0","e"),
-    ("q37","1","e"),
+    ("q37","z","e"),
+    ("q37","z","e"),
 
-    ("q38","0","e"),
-    ("q38","1","e"),
+    ("q38","z","e"),
+    ("q38","z","e"),
 
-    ("q39","0","e"),
-    ("q39","1","e"),
+    ("q39","z","e"),
+    ("q39","z","e"),
 
     ("q40","0","q49"),
     ("q40","1","q50"),
 
-    ("q41","0","e"),
-    ("q41","1","e"),
+    ("q41","z","e"),
+    ("q41","z","e"),
     
-    ("q42","0","e"),
-    ("q42","1","e"),
+    ("q42","z","e"),
+    ("q42","z","e"),
 
-    ("q43","0","e"),
-    ("q43","1","e"),
+    ("q43","z","e"),
+    ("q43","z","e"),
 
     ("q44","2","q51"),
     ("q44","3","q52"),
 
-    ("q45","0","e"),
-    ("q45","1","e"),
+    ("q45","z","e"),
+    ("q45","z","e"),
 
-    ("q46","0","e"),
-    ("q46","1","e"),
+    ("q46","z","e"),
+    ("q46","z","e"),
 
-    ("q47","0","e"),
-    ("q47","1","e"),
+    ("q47","z","e"),
+    ("q47","z","e"),
     
-    ("q48","0","e"),
-    ("q48","1","e"),
+    ("q48","z","e"),
+    ("q48","z","e"),
 ]
 transitions10=[
     #Inicio
@@ -634,14 +636,14 @@ transitions10=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -652,20 +654,20 @@ transitions10=[
     ("q8","2","q13"),
     ("q8","3","q14"),
 
-    ("q9","0","e"),
-    ("q9","1","e"),
+    ("q9","z","e"),
+    ("q9","z","e"),
 
     ("q10","4","q15"),
     ("q10","5","q16"),
 
-    ("q11","0","e"),
-    ("q11","1","e"),
+    ("q11","z","e"),
+    ("q11","z","e"),
 
     ("q12","0","17"),
     ("q12","1","q18"),
 
-    ("q13","0","e"),
-    ("q13","1","e"),
+    ("q13","z","e"),
+    ("q13","z","e"),
 
     ("q14","2","q19"),
     ("q14","3","q20"),
@@ -676,8 +678,8 @@ transitions10=[
     ("q16","6","q23"),
     ("q16","7","q24"),
 
-    ("q17","0","e"),
-    ("q17","1","e"),
+    ("q17","z","e"),
+    ("q17","z","e"),
 
     ("q18","0","q25"),
     ("q18","1","q26"),
@@ -697,14 +699,14 @@ transitions10=[
     ("q23","a","q35"),
     ("q23","b","q36"),
 
-    ("q24","0","e"),
-    ("q24","1","e"),
+    ("q24","z","e"),
+    ("q24","z","e"),
 
     ("q25","0","q37"),
     ("q25","1","q38"),
 
-    ("q26","0","e"),
-    ("q26","1","e"),
+    ("q26","z","e"),
+    ("q26","z","e"),
 
     ("q27","2","q39"),
     ("q27","3","40"),
@@ -715,62 +717,62 @@ transitions10=[
     ("q29","6","q43"),
     ("q29","7","q44"),
 
-    ("q30","0","e"),
-    ("q30","1","e"),
+    ("q30","z","e"),
+    ("q30","z","e"),
 
     ("q31","8","q45"),
     ("q31","9","q46"),
 
-    ("q32","0","e"),
-    ("q32","1","e"),
+    ("q32","z","e"),
+    ("q32","z","e"),
 
     ("q33","a","q47"),
     ("q33","b","q48"),
 
-    ("q34","0","e"),
-    ("q34","1","e"),
+    ("q34","z","e"),
+    ("q34","z","e"),
 
-    ("q35","0","e"),
-    ("q35","1","e"),
+    ("q35","z","e"),
+    ("q35","z","e"),
 
-    ("q36","0","e"),
-    ("q36","1","e"),
+    ("q36","z","e"),
+    ("q36","z","e"),
 
-    ("q37","0","e"),
-    ("q37","1","e"),
+    ("q37","z","e"),
+    ("q37","z","e"),
 
-    ("q38","0","e"),
-    ("q38","1","e"),
+    ("q38","z","e"),
+    ("q38","z","e"),
 
-    ("q39","0","e"),
-    ("q39","1","e"),
+    ("q39","z","e"),
+    ("q39","z","e"),
 
     ("q40","0","q49"),
     ("q40","1","q50"),
 
-    ("q41","0","e"),
-    ("q41","1","e"),
+    ("q41","z","e"),
+    ("q41","z","e"),
     
-    ("q42","0","e"),
-    ("q42","1","e"),
+    ("q42","z","e"),
+    ("q42","z","e"),
 
-    ("q43","0","e"),
-    ("q43","1","e"),
+    ("q43","z","e"),
+    ("q43","z","e"),
 
     ("q44","2","q51"),
     ("q44","3","q52"),
 
-    ("q45","0","e"),
-    ("q45","1","e"),
+    ("q45","z","e"),
+    ("q45","z","e"),
 
-    ("q46","0","e"),
-    ("q46","1","e"),
+    ("q46","z","e"),
+    ("q46","z","e"),
 
-    ("q47","0","e"),
-    ("q47","1","e"),
+    ("q47","z","e"),
+    ("q47","z","e"),
     
-    ("q48","0","e"),
-    ("q48","1","e"),
+    ("q48","z","e"),
+    ("q48","z","e"),
 
     ("q40","0","q49"),
     ("q40","1","q50"),
@@ -778,17 +780,17 @@ transitions10=[
     ("q44","0","q51"),
     ("q44","1","q52"),
 
-    ("q49","0","e"),
-    ("q49","1","e"),
+    ("q49","z","e"),
+    ("q49","z","e"),
 
-    ("q50","0","e"),
-    ("q50","1","e"),
+    ("q50","z","e"),
+    ("q50","z","e"),
 
-    ("q51","0","e"),
-    ("q51","1","e"),
+    ("q51","z","e"),
+    ("q51","z","e"),
 
-    ("q52","0","e"),
-    ("q52","1","e"),
+    ("q52","z","e"),
+    ("q52","z","e"),
 ]
 transitions11=[
     #Inicio
@@ -804,14 +806,14 @@ transitions11=[
     ("q2","2","q5"),
     ("q2","3","q6"),
 
-    ("q3","0","e"),
-    ("q3","1","e"),
+    ("q3","z","e"),
+    ("q3","z","e"),
 
     ("q4","0","q7"),
     ("q4","1","q8"),
 
-    ("q5","0","e"),
-    ("q5","1","e"),
+    ("q5","z","e"),
+    ("q5","z","e"),
 
     ("q6","2","q9"),
     ("q6","3","q10"),
@@ -822,20 +824,20 @@ transitions11=[
     ("q8","2","q13"),
     ("q8","3","q14"),
 
-    ("q9","0","e"),
-    ("q9","1","e"),
+    ("q9","z","e"),
+    ("q9","z","e"),
 
     ("q10","4","q15"),
     ("q10","5","q16"),
 
-    ("q11","0","e"),
-    ("q11","1","e"),
+    ("q11","z","e"),
+    ("q11","z","e"),
 
     ("q12","0","17"),
     ("q12","1","q18"),
 
-    ("q13","0","e"),
-    ("q13","1","e"),
+    ("q13","z","e"),
+    ("q13","z","e"),
 
     ("q14","2","q19"),
     ("q14","3","q20"),
@@ -846,8 +848,8 @@ transitions11=[
     ("q16","6","q23"),
     ("q16","7","q24"),
 
-    ("q17","0","e"),
-    ("q17","1","e"),
+    ("q17","z","e"),
+    ("q17","z","e"),
 
     ("q18","0","q25"),
     ("q18","1","q26"),
@@ -867,14 +869,14 @@ transitions11=[
     ("q23","a","q35"),
     ("q23","b","q36"),
 
-    ("q24","0","e"),
-    ("q24","1","e"),
+    ("q24","z","e"),
+    ("q24","z","e"),
 
     ("q25","0","q37"),
     ("q25","1","q38"),
 
-    ("q26","0","e"),
-    ("q26","1","e"),
+    ("q26","z","e"),
+    ("q26","z","e"),
 
     ("q27","2","q39"),
     ("q27","3","40"),
@@ -885,62 +887,62 @@ transitions11=[
     ("q29","6","q43"),
     ("q29","7","q44"),
 
-    ("q30","0","e"),
-    ("q30","1","e"),
+    ("q30","z","e"),
+    ("q30","z","e"),
 
     ("q31","8","q45"),
     ("q31","9","q46"),
 
-    ("q32","0","e"),
-    ("q32","1","e"),
+    ("q32","z","e"),
+    ("q32","z","e"),
 
     ("q33","a","q47"),
     ("q33","b","q48"),
 
-    ("q34","0","e"),
-    ("q34","1","e"),
+    ("q34","z","e"),
+    ("q34","z","e"),
 
-    ("q35","0","e"),
-    ("q35","1","e"),
+    ("q35","z","e"),
+    ("q35","z","e"),
 
-    ("q36","0","e"),
-    ("q36","1","e"),
+    ("q36","z","e"),
+    ("q36","z","e"),
 
-    ("q37","0","e"),
-    ("q37","1","e"),
+    ("q37","z","e"),
+    ("q37","z","e"),
 
-    ("q38","0","e"),
-    ("q38","1","e"),
+    ("q38","z","e"),
+    ("q38","z","e"),
 
-    ("q39","0","e"),
-    ("q39","1","e"),
+    ("q39","z","e"),
+    ("q39","z","e"),
 
     ("q40","0","q49"),
     ("q40","1","q50"),
 
-    ("q41","0","e"),
-    ("q41","1","e"),
+    ("q41","z","e"),
+    ("q41","z","e"),
     
-    ("q42","0","e"),
-    ("q42","1","e"),
+    ("q42","z","e"),
+    ("q42","z","e"),
 
-    ("q43","0","e"),
-    ("q43","1","e"),
+    ("q43","z","e"),
+    ("q43","z","e"),
 
     ("q44","2","q51"),
     ("q44","3","q52"),
 
-    ("q45","0","e"),
-    ("q45","1","e"),
+    ("q45","z","e"),
+    ("q45","z","e"),
 
-    ("q46","0","e"),
-    ("q46","1","e"),
+    ("q46","z","e"),
+    ("q46","z","e"),
 
-    ("q47","0","e"),
-    ("q47","1","e"),
+    ("q47","z","e"),
+    ("q47","z","e"),
     
-    ("q48","0","e"),
-    ("q48","1","e"),
+    ("q48","z","e"),
+    ("q48","z","e"),
 
     ("q40","0","q49"),
     ("q40","1","q50"),
@@ -948,17 +950,17 @@ transitions11=[
     ("q44","0","q51"),
     ("q44","1","q52"),
 
-    ("q49","0","e"),
-    ("q49","1","e"),
+    ("q49","z","e"),
+    ("q49","z","e"),
 
-    ("q50","0","e"),
-    ("q50","1","e"),
+    ("q50","z","e"),
+    ("q50","z","e"),
 
-    ("q51","0","e"),
-    ("q51","1","e"),
+    ("q51","z","e"),
+    ("q51","z","e"),
 
-    ("q52","0","e"),
-    ("q52","1","e"),
+    ("q52","z","e"),
+    ("q52","z","e"),
 ]
 
 transitionsc2=[
@@ -969,7 +971,7 @@ transitionsc2=[
 
 transitionsc3=[
     #Ruta Profesor-final
-    ("c1","0","e"),
+    ("c1","z","e"),
     #Ruta amiga
     ("c2","c","c3"),
     ("c2","d","c4"),
@@ -993,19 +995,19 @@ transitionsc5=[
     ("c7","g","c13"),
     ("c7","h","c14"),
     #Ruta Policía-final
-    ("c8","0","e"),
+    ("c8","z","e"),
 ]
 transitionsc6=[
     #Ruta Plan en la noche
     ("c9","c","c15"),
     ("c9","d","c16"),
     #Ruta Plan en el día-final
-    ("c10","0","e"),
+    ("c10","z","e"),
     #Ruta Pasar derecho
     ("c11","e","c17"),
     ("c11","f","c18"),
     #Ruta Ir callejon-final
-    ("c12","0","e"),
+    ("c12","z","e"),
     #Ruta Busca afuera
     ("c13","g","c19"),
     ("c13","h","c20"),
@@ -1017,42 +1019,41 @@ transitionsc7=[
     #Ruta Escucharle
     ("c15","c","c23"),
     ("c15","d","c24"),
-    ("c15","e","c25"),
     #Ruta Acabar con él-final
-    ("c16","0","e"),
+    ("c16","z","e"),
     #Ruta Saltar Obstáculo-final
-    ("c17","0","e"),
+    ("c17","z","e"),
     #Ruta Rodear Obstáculo
-    ("c18","f","c26"),
-    ("c18","g","c27"),
+    ("c18","e","c26"),
+    ("c18","f","c27"),
     #Ruta Ir contra profesor 
-    ("c19","h","c28"),
-    ("c19","i","c29"),
+    ("c19","g","c28"),
+    ("c19","h","c29"),
     #Ruta Aceptar reunión
-    ("c20","j","c30"),
-    ("c20","k","c31"),
+    ("c20","i","c30"),
+    ("c20","j","c31"),
     #Ruta Acercarse-final
-    ("c21","0","e"),
+    ("c21","z","e"),
     #Ruta Hablarle-final
-    ("c22","0","e"),
+    ("c22","z","e"),
 ]
 transitionsc8=[
     #Ruta Perdonar-final
-    ("c23","0","e"),
+    ("c23","z","e"),
     #Ruta Huir-final
-    ("c24","0","e"),
+    ("c24","z","e"),
     #Ruta Acabarle-final
-    ("c25","0","e"),
+    ("c25","z","e"),
     #Ruta Forcejear-final
-    ("c26","0","e"),
+    ("c26","z","e"),
     #Ruta Redimir-final
-    ("c27","0","e"),
+    ("c27","z","e"),
     #Ruta Acabar con Gabriel-final
-    ("c28","0","e"),
+    ("c28","z","e"),
     #Ruta Rendirse-final
-    ("c29","0","e"),
+    ("c29","z","e"),
     #Ruta Sobornado-final
-    ("c30","0","e"),
+    ("c30","z","e"),
     #Ruta No aceptar
     ("c31","c","c32"),
     ("c31","d","c33"),
@@ -1067,20 +1068,20 @@ transitionsc9=[
 ]
 transitionsc10=[
     #Ruta Directamente-final
-    ("c34","0","e"),
+    ("c34","z","e"),
     #Ruta Sorpresa
     ("c35","c","c38"),
     ("c35","d","c39"),
     #Ruta Incendio-final
-    ("c36","0","e"),
+    ("c36","z","e"),
     #Ruta Policía-final
-    ("c37","0","e"),
+    ("c37","z","e"),
 ]
 transitionsc11=[
     #Ruta Venganza-final
-    ("c38","0","e"),
+    ("c38","z","e"),
     #Ruta Policía-final
-    ("c39","0","e"),
+    ("c39","z","e"),
 ]
 
 
@@ -1591,4 +1592,259 @@ def dialogos(transitionLevel, string):
                     response = "Texto de ejemplo - Dejar de jugar"
     return response
 
+def convertOptionToValidSequence(transitionLevel, digitOption):
+    if digitOption == 'z':
+        return 'z'
+    
+    if (digitOption != 'a' | digitOption != 'b'):
+        return '-1'
+    
+    if (transitionLevel ==1):
+        match digitOption:
+            case 'a': digitOption ='0'
+            case 'b': digitOption ='1'
+        return digitOption
+    
+    lastOption = sequence[-1]
 
+    match (transitionLevel):
+        case 2:
+            match lastOption:
+                case '0':
+                    match digitOption:
+                        case 'a': digitOption ='0' # q0 - q1
+                        case 'b': digitOption ='1' # q0 - q2
+                case '1':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c0 - c1
+                        case 'b': digitOption ='d' # c0 - c2
+                case _:
+                    digitOption ='z'
+
+        case 3:
+            match lastOption:
+                case '0':
+                    match digitOption:
+                        case 'a': digitOption ='0'  # q1 - q3
+                        case 'b': digitOption ='1'  # q1 - q4
+                case '1':
+                    match digitOption:
+                        case 'a': digitOption ='2'  # q2 - q5
+                        case 'b': digitOption ='3'  # q1 - q6
+
+                case 'd':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c2 - c3
+                        case 'b': digitOption ='d' # c2 - c4
+                case _:
+                    digitOption ='z'
+        case 4:
+            match lastOption:
+                case '1':
+                    match digitOption:
+                        case 'a': digitOption ='0' # q4 - q7
+                        case 'b': digitOption ='1' # q4 - q8
+                
+                case '3':
+                    match digitOption:
+                        case 'a': digitOption ='2' # q6 - q9
+                        case 'b': digitOption ='3' # q6 - q10
+
+                case 'c':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c3 - c5
+                        case 'b': digitOption ='d' # c2 - c6
+                case 'd':
+                    match digitOption:
+                        case 'a': digitOption ='e' # c4 - c7
+                        case 'b': digitOption ='f' # c2 - c8
+                case _:
+                    digitOption ='z'
+        case 5:
+            match lastOption:
+                case '0':
+                    match digitOption:
+                        case 'a': digitOption ='0' # q7 - q11
+                        case 'b': digitOption ='1' # q7 - q12
+                case '1':
+                    match digitOption:
+                        case 'a': digitOption ='2' # q8 - q13
+                        case 'b': digitOption ='3' # q8 - q14
+                case '3':
+                    match digitOption:
+                        case 'a': digitOption ='4' # q10 - q15
+                        case 'b': digitOption ='5' # q10 - q16
+
+                case 'c':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c5 - c9
+                        case 'b': digitOption ='d' # c5 - c10
+                case 'd':
+                    match digitOption:
+                        case 'a': digitOption ='e' # c6 - c11
+                        case 'b': digitOption ='f' # c6 - c12
+                case 'e':
+                    match digitOption:
+                        case 'a': digitOption ='g' # c7 - c13
+                        case 'b': digitOption ='h' # c7 - c14
+                case _:
+                    digitOption ='z'
+        case 6:
+            match lastOption:
+                case '1':
+                    match digitOption:
+                        case 'a': digitOption ='0' # q12 - q17
+                        case 'b': digitOption ='1' # q12 - q18
+                case '3':
+                    match digitOption:
+                        case 'a': digitOption ='2' # q14 - q19
+                        case 'b': digitOption ='3' # q14 - q20
+                case '4':
+                    match digitOption:
+                        case 'a': digitOption ='4' # q15 - q21
+                        case 'b': digitOption ='5' # q15 - q22
+                case '5':
+                    match digitOption:
+                        case 'a': digitOption ='6' # q16 - q23
+                        case 'b': digitOption ='7' # q16 - q24
+
+                case 'c':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c9 - c15
+                        case 'b': digitOption ='d' # c9 - c16
+                case 'e':
+                    match digitOption:
+                        case 'a': digitOption ='e' # c11 - c17
+                        case 'b': digitOption ='f' # c11 - c18
+                case 'g':
+                    match digitOption:
+                        case 'a': digitOption ='g' # c13 - c19
+                        case 'b': digitOption ='h' # c13 - c20
+                case 'h':
+                    match digitOption:
+                        case 'a': digitOption ='i' # c14 - c21
+                        case 'b': digitOption ='j' # c14 - c22
+                case _:
+                    digitOption ='z'
+        case 7:
+            match lastOption:
+                case '1':
+                    match digitOption:
+                        case 'a': digitOption ='0' # q18 - q25
+                        case 'b': digitOption ='1' # q18 - q26
+                case '2':
+                    match digitOption:
+                        case 'a': digitOption ='2' # q19 - q27
+                        case 'b': digitOption ='3' # q19 - q28
+                case '3':
+                    match digitOption:
+                        case 'a': digitOption ='4' # q20 - q29
+                        case 'b': digitOption ='5' # q20 - q30
+                case '4':
+                    match digitOption:
+                        case 'a': digitOption ='6' # q21 - q31
+                        case 'b': digitOption ='7' # q21 - q32
+                case '5':
+                    match digitOption:
+                        case 'a': digitOption ='8' # q22 - q33
+                        case 'b': digitOption ='9' # q22 - q34
+                case '6':
+                    match digitOption:
+                        case 'a': digitOption ='a' # q23 - q35
+                        case 'b': digitOption ='b' # q23 - q36
+                
+                case 'c':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c15 - c23
+                        case 'b': digitOption ='d' # c15 - c24
+                case 'f':
+                    match digitOption:
+                        case 'a': digitOption ='e' # c18 - c26
+                        case 'b': digitOption ='f' # c18 - c27
+                case 'g':
+                    match digitOption:
+                        case 'a': digitOption ='g' # c19 - c28
+                        case 'b': digitOption ='h' # c19 - c29
+                case 'h':
+                    match digitOption:
+                        case 'a': digitOption ='i' # c20 - c30
+                        case 'b': digitOption ='j' # c20 - c31
+                case _:
+                    digitOption ='z'
+        case 8:
+            match lastOption:
+                case '0':
+                    match digitOption:
+                        case 'a': digitOption ='0' # q25 - q37
+                        case 'b': digitOption ='1' # q25 - q38
+                case '2':
+                    match digitOption:
+                        case 'a': digitOption ='2' # q27 - q39
+                        case 'b': digitOption ='3' # q27 - q40
+                case '3':
+                    match digitOption:
+                        case 'a': digitOption ='4' # q28 - q41
+                        case 'b': digitOption ='5' # q28 - q42
+                case '4':
+                    match digitOption:
+                        case 'a': digitOption ='6' # q29 - q43
+                        case 'b': digitOption ='7' # q29 - q44
+                case '6':
+                    match digitOption:
+                        case 'a': digitOption ='8' # q31 - q45
+                        case 'b': digitOption ='9' # q31 - q46
+                case '8':
+                    match digitOption:
+                        case 'a': digitOption ='a' # q33 - q47
+                        case 'b': digitOption ='b' # q33 - q48
+                
+                case 'j':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c31 - c32
+                        case 'b': digitOption ='d' # c31 - c33
+                case _:
+                    digitOption ='z'
+        case 9:
+            match lastOption:
+                case '3':
+                    match digitOption:
+                        case 'a': digitOption ='0' # q40 - q49
+                        case 'b': digitOption ='1' # q40 - q50
+                case '7':
+                    match digitOption:
+                        case 'a': digitOption ='2' # q44 - q51
+                        case 'b': digitOption ='3' # q44 - q52
+
+                case 'c':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c32 - c34
+                        case 'b': digitOption ='d' # c32 - c35
+                case 'd':
+                    match digitOption:
+                        case 'a': digitOption ='e' # c33 - c36
+                        case 'b': digitOption ='f' # c33 - c37
+                case _:
+                    digitOption ='z'
+                        
+        case 10:
+            match lastOption:
+                case 'd':
+                    match digitOption:
+                        case 'a': digitOption ='c' # c35 - c38
+                        case 'b': digitOption ='d' # c35 - c39
+                case _:
+                    digitOption ='z'
+    return digitOption
+
+from pyformlang.cfg import CFG
+
+cfg1 = CFG.from_text("""
+S -> A | B 
+A -> a
+B -> b """)
+
+def generateSequence(transitionLevel, digitOption):
+    if (cfg1.contains(digitOption)):
+        sequence += convertOptionToValidSequence(transitionLevel, digitOption)
+        return True
+    return False
