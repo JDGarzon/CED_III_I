@@ -1948,6 +1948,7 @@ def translate(toReplace,toTranslate):
         ("q0","_","q0",["_"]),
         ("q0","…","q0",["…"]),
         ("q0",":","q0",[":"]),
+        ("q0",";","q0",[";"]),
     ]
     #“Avanza”
     reemplazar.add_transitions(lista)
@@ -2057,4 +2058,3 @@ def gameExecution():
             continueGame=True
             sequence = ''
             print("¡Genial! Vamos a jugar de nuevo.")
-
