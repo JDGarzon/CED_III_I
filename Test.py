@@ -19,6 +19,12 @@ class TestNovel(unittest.TestCase):
         stringToReplace="Soy #$% y voy a mi casa"
         stringToTranslate="Alguien"
         self.assertEqual(novel.translate(stringToReplace,stringToTranslate), "Soy Alguien y voy a mi casa")
+    
+    def test_advance(self):
+        current=novel.Current()
+        print(novel.advance("a",current))
+        self.assertEqual(novel.advance("a",current), 'Decides dirigirte a la habitación de tu hija, el lugar donde pasaba la mayoría de su tiempo.Mientras subes las escaleras hacia su habitación, cada paso te parece una eternidad. Abres la puerta con cuidado y te enfrentas a su mundo, que ahora parece congelado en el tiempo. Las paredes están adornadas con posters de sus bandas favoritas y fotos de recuerdos con sus amigos. Su cama está sin hacer, y su escritorio está lleno de libros y notas de clase. La computadora está apagada. Todo parece bastante desordenado. (Piensas en qué podrías hacer para obtener algo de información, puedes ordenar la habitación, o revisar la computadora)¿Que quieres hacer?: A. Ordenar la habitacionB. Revisar computadora')
+
 
 if __name__ == '__main__':
     unittest.main()

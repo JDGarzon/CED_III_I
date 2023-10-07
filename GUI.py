@@ -47,7 +47,11 @@ def opcionB():
     area_texto.config(state=tk.DISABLED)
 
 def cambiar():
-    nv.changeName(text_name.get("1.0",tk.END))
+    text=nv.changeName(text_name.get("1.0",tk.END)[:-1],nv.current)
+    area_texto.config(state=tk.NORMAL)
+    area_texto.delete('1.0', tk.END)
+    area_texto.insert(tk.END, text)
+    area_texto.config(state=tk.DISABLED)
 
 # Crear un botón "Cerrar" y centrarlo en la ventana
 boton_A = tk.Button(ventana, text="  A  ", command=opcionA, font=("Arial", 14))

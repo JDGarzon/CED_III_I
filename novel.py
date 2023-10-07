@@ -1791,8 +1791,16 @@ def dialogos(transitionLevel, string):
                     response+="B. Salir.   -END"
     return response
 
-def changeName(name):
+def changeName(name,current):
     current.setName(name)
+    dialogue=""
+    if (current.getCurrent()==0): 
+        dialogue=dialogos(current.getCurrent(),"0")
+        dialogue= translate(dialogue,current.getName())
+    else:
+        dialogue=dialogos(current.getCurrent(),current.getSequence())
+        dialogue= translate(dialogue,current.getName())
+    return dialogue
 
 def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
     if digitOption == 'z':
@@ -2032,8 +2040,8 @@ def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
             match lastOption:
                 case 'd':
                     match digitOption:
-                        case 'a': digitOption ='c' # c35 - c38
-                        case 'b': digitOption ='d' # c35 - c39
+                        case 'a': digitOption ='1' # c35 - c38
+                        case 'b': digitOption ='0' # c35 - c39
                 case _:
                     digitOption ='z'
     return digitOption
@@ -2049,9 +2057,6 @@ end = re.compile(r'\bEND$')
 nameRegex = re.compile(r'^[a-zA-Z]+$')
 
 def generateSequence(transitionLevel, digitOption,sequence):
-    print("transitionLevel: "+str(transitionLevel))
-    print("digitOption: "+str(digitOption))
-    print("sequence: "+str(sequence))
     if (cfg1.contains(digitOption)):
         return convertOptionToValidSequence(transitionLevel, digitOption, sequence)
     return ''
@@ -2201,9 +2206,7 @@ class Current:
 current = Current()
 
 def advance(opcionElegida,current):
-    
     if(not current.getEndReached()):
-        
         sequence=current.getSequence()
         current.setCurrent(current.getCurrent()+1)
         optionToInsert = generateSequence(current.getCurrent(), opcionElegida,current.getSequence())
@@ -2213,18 +2216,8 @@ def advance(opcionElegida,current):
         if (end.search(dialogue)):
             current.setEndReached(True)
             current.setSequence(sequence)
-            print("opcion elegida: "+opcionElegida)
-            print("endReached: "+str(current.getEndReached()))
-            print("sequence: "+sequence)
-            print("current: "+str(current.getCurrent()))
-            print("optionToInsert: "+optionToInsert)
             return dialogue
         else:
-            print("opcion elegida: "+opcionElegida)
-            print("endReached: "+str(current.getEndReached()))
-            print("sequence: "+sequence)
-            print("current: "+str(current.getCurrent()))
-            print("optionToInsert: "+optionToInsert)
             current.setSequence(sequence)
             return dialogue
     else:
@@ -2235,50 +2228,3 @@ def advance(opcionElegida,current):
             return dialogos(0,"a")
         else:
             destroyer.executeDestroy()
-
-
-def gameExecution():
-    sequence = ''
-    continueGame = True
-    tryAgain=True
-    while (tryAgain==True):
-        transitionLevel = 0
-        print(dialogos(0,'1'))
-        while (continueGame==True):
-            transitionLevel += 1
-            opcionElegida = input()
-            optionToInsert = generateSequence(transitionLevel, opcionElegida)
-            while (optionToInsert == ''):
-                print("Se ingreso un dato invalido. Por favor seleciona una de las opciones indicadas. Vamos, intentalo de nuevo!")
-                opcionElegida = input()
-                optionToInsert = generateSequence(transitionLevel, opcionElegida)
-            sequence += optionToInsert
-            dialogue=dialogos(transitionLevel,sequence)
-            dialogue= translate(dialogue,"Gabriel")
-            if (end.search(dialogue)):
-                print(dialogue)
-                continueGame = False
-            else:
-                print(dialogue)
-        print("¿Quieres volver a jugar? (S/N)")
-        answer = input()
-        if (answer != 'N' or answer != 'n' or answer != 'S' or answer != 's'):
-            print("Se ingreso un dato invalido. Por favor ingresa S para volver a jugar o N para salir.")
-            answer = input()
-        if (answer == 'N' or answer == 'n'):
-            tryAgain=False
-            print("¡Genial! Gracias por jugar")
-        else:
-            tryAgain=True
-            continueGame=True
-            sequence = ''
-            print("¡Genial! Vamos a jugar de nuevo.")
-
-
-
-response = "No te vas a rendir tan fácil, sin embargo, decirle que no a alguien en la posición en la que te encuentras no es la mejor idea."
-response +="(Puedes confrontarle ahora, o puedes disimular una rendición para contraatacar después, ¿qué vas a hacer?)"
-response+="¿Que quieres hacer?: "
-response+="A. Afrontarle ahora."
-response+="B. Disimular rendición." 
-print(translate(response,"Gabriel"))
