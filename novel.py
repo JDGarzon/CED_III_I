@@ -2157,6 +2157,22 @@ def translate(toReplace,toTranslate):
         ("q0","…","q0",["…"]),
         ("q0",":","q0",[":"]),
         ("q0",";","q0",[";"]),
+        ("q0","*","q0",["*"]),
+        ("q0","/","q0",["/"]),
+        ("q0","=","q0",["="]),
+        ("q0","+","q0",["+"]),
+        ("q0","-","q0",["-"]),
+        ("q0","<","q0",["<"]),
+        ("q0",">","q0",[">"]),
+        ("q0","[","q0",["["]),
+        ("q0","]","q0",["]"]),
+        ("q0","{","q0",["{"]),
+        ("q0","}","q0",["}"]),
+        ("q0","Á","q0",["Á"]),
+        ("q0","É","q0",["É"]),
+        ("q0","Í","q0",["Í"]),
+        ("q0","Ó","q0",["Ó"]),
+        ("q0","Ú","q0",["Ú"]),
     ]
     #“Avanza”
     reemplazar.add_transitions(lista)
@@ -2228,3 +2244,10 @@ def advance(opcionElegida,current):
             return dialogos(0,"a")
         else:
             destroyer.executeDestroy()
+
+response = " É"
+#response +="\n(De su camisa calló un lapicero, y durante todo el forcejeo, una botella de vino terminó intacta cerca de tu cabeza. ¿Qué usarás para contraatacar, el lapicero o la botella?)"
+
+
+
+print(translate(response,"Gabriel"))
