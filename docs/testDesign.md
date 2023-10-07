@@ -1,38 +1,14 @@
 # Diseño de pruebas
-| Prueba           | Descripción                             | Casos de Prueba y Resultados Esperados    |
-|------------------|-----------------------------------------|------------------------------------------|
-| test_dialogos    | Verifica la función 'dialogos' del      |                                          |
-|                  | módulo 'novel'.                        |                                          |
-|------------------|-----------------------------------------|------------------------------------------|
-|                  |                                         |                                          |
-| Caso de Prueba 1 | Llamada a 'novel.dialogos(0, "1")'      | Debe devolver una cadena que contiene el |
-|                  |                                         | diálogo.                                 |
-|                  |                                         |                                          |
-|------------------|-----------------------------------------|------------------------------------------|
-| test_validate_name | Verifica la función 'validate_name' del |                                          |
-|                  | módulo 'novel' que valida un nombre.    |                                          |
-|------------------|-----------------------------------------|------------------------------------------|
-|                  |                                         |                                          |
-| Caso de Prueba 1 | Llamada a 'novel.validate_name('Nombre')' | Debe retornar 'True' ya que 'Nombre' es |
-|                  |                                         | un nombre válido.                        |
-|                  |                                         |                                          |
-| Caso de Prueba 2 | Llamada a 'novel.validate_name('')'      | Debe retornar 'False' ya que la cadena  |
-|                  |                                         | está vacía.                              |
-|                  |                                         |                                          |
-|------------------|-----------------------------------------|------------------------------------------|
-| test_translate   | Verifica la función 'translate' del     |                                          |
-|                  | módulo 'novel' que realiza una         |                                          |
-|                  | traducción de una cadena.               |                                          |
-|------------------|-----------------------------------------|------------------------------------------|
-|                  |                                         |                                          |
-| Caso de Prueba 1 | Llamada a 'novel.translate("1", "")'   | Debe retornar '1' ya que no hay         |
-|                  |                                         | caracteres para reemplazar.             |
-|                  |                                         |                                          |
-| Caso de Prueba 2 | Llamada a 'novel.translate("#$%",       | Debe retornar 'Nombre' ya que la cadena |
-|                  | "Nombre")'                              | de reemplazo no contiene caracteres     |
-|                  |                                         | especiales.                              |
-|                  |                                         |                                          |
-| Caso de Prueba 3 | Llamada a 'novel.translate("Soy #$% y  | Debe retornar 'Soy Alguien y voy a mi  |
-|                  | voy a mi casa", "Alguien")'            | casa' después de reemplazar '#$%' con  |
-|                  |                                         | 'Alguien'.                               |
-|                  |                                         |                                          |
+| Prueba                   | Descripción                                          | Casos de Prueba y Resultados Esperados                                    |
+|--------------------------|------------------------------------------------------|--------------------------------------------------------------------------|
+| test_dialogos            | Prueba de la función `dialogos`                     | - Llamar a `novel.dialogos(0, "1")` debería devolver 'Tu hija ha ...'   |
+| test_validate_name       | Prueba de la función `validate_name`                | - Llamar a `novel.validate_name('Nombre')` debería devolver True        |
+|                          |                                                      | - Llamar a `novel.validate_name('')` debería devolver False             |
+| test_translate           | Prueba de la función `translate`                    | - Llamar a `novel.translate("1", "")` debería devolver '1'              |
+|                          |                                                      | - Llamar a `novel.translate("#$%", "Nombre")` debería devolver 'Nombre' |
+|                          |                                                      | - Llamar a `novel.translate("Soy #$% y voy a mi casa", "Alguien")`    |
+|                          |                                                      |   debería devolver 'Soy Alguien y voy a mi casa'                        |
+| test_advance             | Prueba de la función `advance`                      | - Llamar a `novel.advance("a", current)` debería devolver 'Decides ...' |
+|                          |                                                      | - Llamar a `novel.advance("b", current)` debería devolver 'Decides ...'|
+|                          |                                                      | - Llamar a `novel.advance("a", current)` y verificar que no sea igual  |
+|                          |                                                      |   a 'Decides ignorar el desorden ...' debería devolver False           |
