@@ -2197,7 +2197,10 @@ class Current:
 current = Current()
 
 def advance(opcionElegida,current):
+    print("opcion elegida: "+opcionElegida)
+    print("endReached: "+str(current.getEndReached()))
     if(not current.getEndReached()):
+        
         sequence=current.getSequence()
         current.setCurrent(current.getCurrent()+1)
         optionToInsert = generateSequence(current.getCurrent(), opcionElegida,current.getSequence())
