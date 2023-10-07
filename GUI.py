@@ -14,7 +14,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 image_path = os.path.join(current_dir, 'text.jpg')
 # Cargar la imagen de fondo
 imagen_fondo = Image.open(image_path)  # Cambia la ruta a tu imagen de fondo
-imagen_fondo = imagen_fondo.resize((1200, 600), Image.ANTIALIAS)  # Ajusta el tamaño a la ventana
+imagen_fondo = imagen_fondo.resize((1200, 600), Image.LANCZOS)  # Ajusta el tamaño a la ventana
 imagen_fondo = ImageTk.PhotoImage(imagen_fondo)
 
 # Crear un widget Canvas para mostrar la imagen de fondo
