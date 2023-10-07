@@ -20,30 +20,6 @@
 |                  |                                         | está vacía.                              |
 |                  |                                         |                                          |
 |------------------|-----------------------------------------|------------------------------------------|
-| test_validate_answer | Verifica la función 'validate_answer'  |                                          |
-|                  | del módulo 'novel' que valida una       |                                          |
-|                  | respuesta.                               |                                          |
-|------------------|-----------------------------------------|------------------------------------------|
-|                  |                                         |                                          |
-| Caso de Prueba 1 | Llamada a 'novel.validate_answer('a')'  | Debe retornar 'True' ya que 'a' es una  |
-|                  |                                         | respuesta válida.                        |
-|                  |                                         |                                          |
-| Caso de Prueba 2 | Llamada a 'novel.validate_answer('b')'  | Debe retornar 'True' ya que 'b' es una  |
-|                  |                                         | respuesta válida.                        |
-|                  |                                         |                                          |
-| Caso de Prueba 3 | Llamada a 'novel.validate_answer('')'   | Debe retornar 'False' ya que la cadena  |
-|                  |                                         | está vacía.                              |
-|                  |                                         |                                          |
-| Caso de Prueba 4 | Llamada a 'novel.validate_answer('c')'  | Debe retornar 'False' ya que 'c' no es  |
-|                  |                                         | una respuesta válida.                   |
-|                  |                                         |                                          |
-| Caso de Prueba 5 | Llamada a 'novel.validate_answer('aa')' | Debe retornar 'False' ya que 'aa' no es |
-|                  |                                         | una respuesta válida.                   |
-|                  |                                         |                                          |
-| Caso de Prueba 6 | Llamada a 'novel.validate_answer('ab')' | Debe retornar 'False' ya que 'ab' no es |
-|                  |                                         | una respuesta válida.                   |
-|                  |                                         |                                          |
-|------------------|-----------------------------------------|------------------------------------------|
 | test_translate   | Verifica la función 'translate' del     |                                          |
 |                  | módulo 'novel' que realiza una         |                                          |
 |                  | traducción de una cadena.               |                                          |

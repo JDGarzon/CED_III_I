@@ -919,64 +919,62 @@ transitionsc7=[
     #Ruta Saltar Obstáculo-final
     ("c17","z","e"),
     #Ruta Rodear Obstáculo
-    ("c18","e","c26"),
-    ("c18","f","c27"),
+    ("c18","e","c25"),
+    ("c18","f","c26"),
     #Ruta Ir contra profesor 
-    ("c19","g","c28"),
-    ("c19","h","c29"),
+    ("c19","g","c27"),
+    ("c19","h","c28"),
     #Ruta Aceptar reunión
-    ("c20","i","c30"),
-    ("c20","j","c31"),
+    ("c20","i","c29"),
+    ("c20","j","c30"),
     #Ruta Acercarse-final
     ("c21","z","e"),
     #Ruta Hablarle-final
     ("c22","z","e"),
 ]
 transitionsc8=[
-    #Ruta Perdonar-final
+    #Ruta Escucharle-final
     ("c23","z","e"),
-    #Ruta Huir-final
-    ("c24","z","e"),
     #Ruta Acabarle-final
-    ("c25","z","e"),
+    ("c24","z","e"),
     #Ruta Forcejear-final
-    ("c26","z","e"),
+    ("c25","z","e"),
     #Ruta Redimir-final
-    ("c27","z","e"),
+    ("c26","z","e"),
     #Ruta Acabar con #$%-final
-    ("c28","z","e"),
+    ("c27","z","e"),
     #Ruta Rendirse-final
+    ("c28","z","e"),
+    #Ruta Sobornado-final
     ("c29","z","e"),
     #Ruta Sobornado-final
-    ("c30","z","e"),
-    #Ruta No aceptar
-    ("c31","c","c32"),
-    ("c31","d","c33"),
+    ("c30","c","31"),
+    ("c30","d","32"),
 ]
 transitionsc9=[
     #Ruta Confrontar
-    ("c32","c","34"),
-    ("c32","d","35"),
+    ("c31","c","33"),
+    ("c31","d","34"),
     #Ruta Disimular
-    ("c33","e","36"),
-    ("c33","f","37"),
+    ("c32","e","35"),
+    ("c32","f","36"),
 ]
 transitionsc10=[
     #Ruta Directamente-final
-    ("c34","z","e"),
+    ("c33","z","e"),
     #Ruta Sorpresa
-    ("c35","c","c38"),
-    ("c35","d","c39"),
+    ("c34","c","c37"),
+    ("c34","d","c38"),
     #Ruta Incendio-final
-    ("c36","z","e"),
+    ("c35","z","e"),
     #Ruta Policía-final
-    ("c37","z","e"),
+    ("c36","z","e"),
 ]
 transitionsc11=[
     #Ruta Venganza-final
-    ("c38","z","e"),
+    ("c37","z","e"),
     #Ruta Policía-final
-    ("c39","z","e"),
+    ("c38","z","e"),
 ]
 
 
@@ -1524,7 +1522,7 @@ def dialogos(transitionLevel, string):
             match value:
                 case '0':
                     #Hablas de la culpa con tu esposa: 0011110
-                    response = "{Le comunicas a tu esposa lo culpable que te sientes por no haber estado ahí para su hija cuando lo necesitaba. Le expresas que esa culpa es la que te motiva a actuar, y que no puedes estar en paz hasta dejar de sentirte culpable. Tu esposa, que al principio te corregía con que lo importante no era encontrar culpables, ahora se siente una de ellos."
+                    response = "Le comunicas a tu esposa lo culpable que te sientes por no haber estado ahí para su hija cuando lo necesitaba. Le expresas que esa culpa es la que te motiva a actuar, y que no puedes estar en paz hasta dejar de sentirte culpable. Tu esposa, que al principio te corregía con que lo importante no era encontrar culpables, ahora se siente una de ellos."
                     response +="(Ves que algo se rompe dentro de ella, y sale corriendo hacia su habitación. ¿Le sigues o te marchas?)"
                     response+="¿Que quieres hacer?: "
                     response+="A. Seguirla a la habitación."
@@ -1805,8 +1803,10 @@ def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
             case 'a': digitOption ='0'
             case 'b': digitOption ='1'
         return digitOption
-    
+    print(""+sequence)
+    print(""+str(transitionLevel))
     lastOption = sequence[-1]
+    print(lastOption)
 
     match (transitionLevel):
         case 2:
@@ -1909,7 +1909,7 @@ def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
                         case 'a': digitOption ='6' # q16 - q23
                         case 'b': digitOption ='7' # q16 - q24
 
-                case 'c':
+                case 'd':
                     match digitOption:
                         case 'a': digitOption ='c' # c9 - c15
                         case 'b': digitOption ='d' # c9 - c16
@@ -1962,14 +1962,15 @@ def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
                     match digitOption:
                         case 'a': digitOption ='e' # c18 - c26
                         case 'b': digitOption ='f' # c18 - c27
-                case 'g':
+                case 'i':
                     match digitOption:
                         case 'a': digitOption ='g' # c19 - c28
                         case 'b': digitOption ='h' # c19 - c29
-                case 'h':
+                case 'j':
                     match digitOption:
                         case 'a': digitOption ='i' # c20 - c30
                         case 'b': digitOption ='j' # c20 - c31
+                
                 case _:
                     digitOption ='z'
         case 8:
@@ -1986,7 +1987,7 @@ def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
                     match digitOption:
                         case 'a': digitOption ='4' # q28 - q41
                         case 'b': digitOption ='5' # q28 - q42
-                case '4':
+                case '5':
                     match digitOption:
                         case 'a': digitOption ='6' # q29 - q43
                         case 'b': digitOption ='7' # q29 - q44
@@ -2001,8 +2002,8 @@ def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
                 
                 case 'j':
                     match digitOption:
-                        case 'a': digitOption ='c' # c31 - c32
-                        case 'b': digitOption ='d' # c31 - c33
+                        case 'a': digitOption ='a' # c31 - c32
+                        case 'b': digitOption ='b' # c31 - c33
                 case _:
                     digitOption ='z'
         case 9:
@@ -2016,11 +2017,11 @@ def convertOptionToValidSequence(transitionLevel, digitOption, sequence):
                         case 'a': digitOption ='2' # q44 - q51
                         case 'b': digitOption ='3' # q44 - q52
 
-                case 'c':
+                case 'a':
                     match digitOption:
                         case 'a': digitOption ='c' # c32 - c34
                         case 'b': digitOption ='d' # c32 - c35
-                case 'd':
+                case 'b':
                     match digitOption:
                         case 'a': digitOption ='e' # c33 - c36
                         case 'b': digitOption ='f' # c33 - c37
@@ -2048,6 +2049,9 @@ end = re.compile(r'\bEND$')
 nameRegex = re.compile(r'^[a-zA-Z]+$')
 
 def generateSequence(transitionLevel, digitOption,sequence):
+    print("transitionLevel: "+str(transitionLevel))
+    print("digitOption: "+str(digitOption))
+    print("sequence: "+str(sequence))
     if (cfg1.contains(digitOption)):
         return convertOptionToValidSequence(transitionLevel, digitOption, sequence)
     return ''
@@ -2197,8 +2201,7 @@ class Current:
 current = Current()
 
 def advance(opcionElegida,current):
-    print("opcion elegida: "+opcionElegida)
-    print("endReached: "+str(current.getEndReached()))
+    
     if(not current.getEndReached()):
         
         sequence=current.getSequence()
@@ -2210,8 +2213,18 @@ def advance(opcionElegida,current):
         if (end.search(dialogue)):
             current.setEndReached(True)
             current.setSequence(sequence)
+            print("opcion elegida: "+opcionElegida)
+            print("endReached: "+str(current.getEndReached()))
+            print("sequence: "+sequence)
+            print("current: "+str(current.getCurrent()))
+            print("optionToInsert: "+optionToInsert)
             return dialogue
         else:
+            print("opcion elegida: "+opcionElegida)
+            print("endReached: "+str(current.getEndReached()))
+            print("sequence: "+sequence)
+            print("current: "+str(current.getCurrent()))
+            print("optionToInsert: "+optionToInsert)
             current.setSequence(sequence)
             return dialogue
     else:
@@ -2260,3 +2273,12 @@ def gameExecution():
             continueGame=True
             sequence = ''
             print("¡Genial! Vamos a jugar de nuevo.")
+
+
+
+response = "No te vas a rendir tan fácil, sin embargo, decirle que no a alguien en la posición en la que te encuentras no es la mejor idea."
+response +="(Puedes confrontarle ahora, o puedes disimular una rendición para contraatacar después, ¿qué vas a hacer?)"
+response+="¿Que quieres hacer?: "
+response+="A. Afrontarle ahora."
+response+="B. Disimular rendición." 
+print(translate(response,"Gabriel"))
