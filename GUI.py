@@ -1,15 +1,19 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 import novel as nv
+import os
 # Crear una instancia de la ventana principal
 ventana = tk.Tk()
 ventana.title("Game")
 nv.setDestroy(lambda: ventana.destroy())
 # Cambiar el tamaño de la ventana a 800x400 píxeles
 ventana.geometry("1200x600")
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Construye la ruta completa de la imagen
+image_path = os.path.join(current_dir, 'text.jpg')
 # Cargar la imagen de fondo
-imagen_fondo = Image.open("text.jpg")  # Cambia la ruta a tu imagen de fondo
+imagen_fondo = Image.open(image_path)  # Cambia la ruta a tu imagen de fondo
 imagen_fondo = imagen_fondo.resize((1200, 600), Image.ANTIALIAS)  # Ajusta el tamaño a la ventana
 imagen_fondo = ImageTk.PhotoImage(imagen_fondo)
 
